@@ -1,0 +1,48 @@
+.rightshow> input{
+    color: #FFFFFF;
+    font-size: 20px;
+    padding: 7px 5px;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed #FFFFFF !important;
+    background-color: var(--white-blue-color);
+    display: block;
+    width: 80%;
+}   
+
+.rightshow> input::placeholder{
+    color: #FFFFFF;
+}
+
+.right-button{
+    font-size: 30px;
+    color: #FFFFFF;
+    padding: 6px 29px;
+    width: fit-content;
+    background: var(--white-blue-color);
+    border: 3px solid #FFFFFF !important;
+    border-radius: 20px;
+    margin: 70px 0px;
+}
+
+.right-button:hover{
+    background: #FFFFFF;
+    color: var(--white-blue-color);
+}
+
+.rightshow > p{
+    color: #FFFFFF;
+}
+
+.rightshow> p:nth-child(1){
+    font-size: 60px;
+    font-weight:600;
+    margin-bottom: 60px;
+}
+
+.rightshow>p:not(:nth-child(1)):hover{
+    cursor: pointer;
+}
+
+.rightshow>p:not(:nth-child(1)){
+    margin-top: 10px;
+}

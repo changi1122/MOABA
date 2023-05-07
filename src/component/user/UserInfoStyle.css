@@ -1,0 +1,21 @@
+.user-info{
+    display: flex;
+    position: relative;
+}
+
+.user-info > img{
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+}
+
+.user-info > p{
+    font-size: 30px;
+    margin-left: 30px;
+}
+
+.user-info>p:nth-child(3){
+    position: absolute;
+    left: 90px;
+    bottom: 0;
+}

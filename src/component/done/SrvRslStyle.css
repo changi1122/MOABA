@@ -1,0 +1,56 @@
+.SrvRsl-box{
+    width: 100%;
+    border: 3px solid rgba(255, 171, 171, 0.5);
+    border-radius: 5px;
+    position: relative;
+    padding: 5px 10px;
+    height: 65px;
+}
+
+.SrvRsl-box:hover{
+    height: 400px;
+    transition-duration: 1s;
+}
+
+.SrvRsl-box>p:nth-child(2){
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.SrvRsl-category{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 8px;
+}
+
+.SrvRsl-category>li{
+    display: inline-block;
+    text-align: center;
+    font-size: 10px;
+    padding: 2px 2px;
+}
+
+.SrvRsl-category > li:not(#date){
+    background-color: rgb(181, 181, 181);
+    margin: 0px 8px 0px 0px;
+    width: 60px;
+    border-radius: 15px;
+    color: white;
+}
+
+#date{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.cancel{
+    position: absolute;
+    top: 26px;
+    right: -30px;
+    color: rgb(255, 171, 171);
+}
+
+.cancel:hover{
+    cursor: pointer;
+}

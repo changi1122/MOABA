@@ -1,0 +1,6 @@
+.Rcmnd-active{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    flex-wrap: wrap;
+}

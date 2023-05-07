@@ -1,0 +1,97 @@
+:root {
+  /*color*/
+  --white-blue-color : #5B74DA;
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+/* 기본 css 스타일 해제 */
+ul {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+span {
+  text-align: start;
+}
+
+p {
+  margin: 0px;
+}
+
+button, input {
+  background-color: none;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:hover,
+input:hover {
+  cursor: pointer;
+}
+
+fieldset {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  border: none;
+}
+
+legend {
+  text-align: start;
+}
+
+.white-blue-color{
+  color: var(--white-blue-color);
+}
+
+.white-blue{
+  background-color: var(--white-blue-color);
+}
+
+body, #root{
+  height: 100%;
+}
+
+.center{
+  display: flex;
+  flex-direction: column;
+}
+
+.horazion{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.right-content{
+  width: 75%;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;  /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #217af4; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+}

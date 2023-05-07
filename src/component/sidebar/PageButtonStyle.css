@@ -1,0 +1,63 @@
+.Menubar{
+    padding: 10px 0px;
+    max-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: overlay;
+}
+
+.Menubar::-webkit-scrollbar{
+    display: none;
+}
+
+.basic-style, .button-add{
+    width: 145px;
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 25px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bolder;
+    color: var(--white-blue-color);
+    background-color: white;
+}
+
+.basic-style:hover{
+    background-color:var(--white-blue-color);
+    box-shadow: 0 0 0 2px white inset;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.button-add{
+    background-color: var(--white-blue-color);
+    color: white;
+    border: 4px dashed white;
+}
+
+.basic-style > a{
+    color: var(--white-blue-color);
+}
+
+.tag{
+    position: absolute;
+    top: 0;
+    right: 14px;
+    width: 14px;
+}
+
+.show-animation{
+    animation-duration: 0.5s;
+    animation-name: show;
+}
+
+@keyframes show {
+    0%{
+        scale: 0;
+    }
+
+    100%{
+        scale: 1;
+    }
+}
