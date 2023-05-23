@@ -10,6 +10,6 @@
 
 ## Authors ✨
 
-* [김성욱](https://github.com/sori9899)
-* [배재원](https://github.com/JaewonB37)
-* [이우창](https://github.com/changi1122)
+* [Lee Woochang (이우창)](https://github.com/changi1122)
+* [Kim SeongWook (김성욱)](https://github.com/sori9899)
+* [Bae Jae Won (배재원)](https://github.com/JaewonB37)
