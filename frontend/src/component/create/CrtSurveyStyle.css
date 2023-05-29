@@ -51,16 +51,29 @@
     cursor: pointer;
   }
   
-  .survey-question-row > button:hover,
   .survey-buttons > button:hover,
-  .survey-answer-row > button:hover,
-  .survey-answer-row > div > button:hover {
+  .survey-answer-row > button:hover{
     background-color: #506FCC;
+  }
+
+  .survey-question-row > span:hover,
+  .survey-answer-row > div >span:hover {
+    cursor: pointer;
+    color: #506FCC;
   }
 
   
   button:focus {
     outline: none;
   }
+
+.survay-icon-color{
+  color: var( --white-blue-color-opacity);
+}
+
+.survay-icon-font-M{
+  font-size: 35px !important;
+}
+  
   
   

@@ -20,7 +20,9 @@ function SurveyBox({ box, index, handleQuestionChange, handleAnswerTypeChange, h
                 <option value="드롭다운">드롭다운</option>
                 <option value="체크박스">체크박스</option>
                 </select>
-                <button onClick={() => deleteBox(index)}>삭제</button>
+                <span class="material-symbols-outlined survay-icon-color survay-icon-font-M" onClick={() => deleteBox(index)}>
+                        delete_forever
+                </span>
             </div>
             {box.answerType === "단답형" && (
                 <div className="survey-answer-row">
@@ -49,9 +51,9 @@ function SurveyBox({ box, index, handleQuestionChange, handleAnswerTypeChange, h
                         handleAnswerChange(index, answerIndex, event)
                         }
                     />
-                    <button onClick={() => deleteAnswer(index, answerIndex)}>
-                        삭제
-                    </button>
+                    <span class="material-symbols-outlined survay-icon-color survay-icon-font-M" onClick={() => deleteAnswer(index, answerIndex)}>
+                        delete_forever
+                    </span>
                     </div>
                 ))}
                 <button onClick={() => addAnswer(index)}>답변 추가</button>

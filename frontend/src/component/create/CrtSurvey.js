@@ -94,7 +94,9 @@ function CrtSurvey() {
         ))}
         <div className="survey-buttons">
           <button onClick={addBox}>추가</button>
-          <button>삭제</button>
+          <span class="material-symbols-outlined survay-icon-color survay-icon-font-M">
+            delete_forever
+          </span>
           <button>임시저장</button>
           <button>저장</button>
         </div>
