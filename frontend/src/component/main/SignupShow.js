@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from "react";
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-import "./AccessShowStyle.css";
+import "./SignupShowStyle.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setlogin } from "../../reducers/counter";
 
-function AccessShow() {
+export default function SignupShow(showState, setShowState) {
 
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
     const [ID, setID] = useState("");
     const [PW, setPW] = useState("");
+    const [REPW, setREPW] = useState("");
 
     const onIDHandler = (event)=>{
         setID(event.currentTarget.value);
@@ -26,26 +27,22 @@ function AccessShow() {
             alert("ID or PW is Empty");
             return false;
         }
-        console.log(ID);
-        console.log(PW);
-        navigate('/home');
+        navigate('/');
         dispatch(setlogin());
     }
 
     return(
         <div className="rightshow center">
-            <p>모아봐</p>
+            <p>회원가입</p>
             
             <input type="text" placeholder="ID" value={ID} onChange={onIDHandler}/>
             <input type="password" placeholder="PW" value={PW} onChange={onPWHandler}/>
 
             <button className="right-button" onClick={ValidCheck}>Start</button>
 
-            <Link to='/signup'><p>Sign Up</p></Link>
+            <p>Sign Up</p>
             <p>Find ID/PW</p>
 
         </div>
     );
 }
-
-export default AccessShow;

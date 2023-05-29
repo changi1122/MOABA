@@ -1,20 +1,24 @@
-.SrvRsl-box{
+.SrvRsl{
     width: 100%;
-    border: 3px solid rgba(255, 171, 171, 0.5);
+    border: 3px solid #b8c3fd;
     border-radius: 5px;
-    position: relative;
-    padding: 5px 10px;
-    height: 65px;
 }
-
-.SrvRsl-box:hover{
+.SrvRsl:hover {
     height: 400px;
     transition-duration: 1s;
 }
 
-.SrvRsl-box>p:nth-child(2){
-    font-size: 25px;
-    font-weight: 600;
+.SrvRsl-box{
+    display: flex;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+}
+
+.SrvRsl-text {
+    flex: 1;
+    width: 100%;
+    margin-right: 10px;
 }
 
 .SrvRsl-category{

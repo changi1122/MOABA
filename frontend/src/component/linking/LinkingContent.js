@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import LinkingListItem from './LinkingListItem';
+import SrvList from '../done/SrvList';
 
 import "react-day-picker/dist/style.css";
 import "./LinkingContent.css"
@@ -23,6 +24,7 @@ function LinkingContent() {
                 <LinkingListItem />
                 <LinkingListItem />
                 <LinkingListItem />
+                <SrvList/>
             </div>
             <div style={{ height: "1000px" }}></div>
         </div>

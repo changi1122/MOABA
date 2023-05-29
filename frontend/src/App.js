@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Routes, Route, BrowserRouter} from "react-router-dom";
 
 import MainPage from "./pages/MainPage";
+import SignupPage from './pages/SignupPage';
 import UserPage from "./pages/UserPage";
 import CreatePage from "./pages/CreatePage";
 import DonePage from "./pages/DonePage";
@@ -36,6 +37,7 @@ function App() {
     LogOut : 
       <Routes>
         <Route path="/" element={<MainPage/>} />
+        <Route path="/signup" element={<SignupPage/>} />
       </Routes>,
     Log : 
     <div className='horazion'>

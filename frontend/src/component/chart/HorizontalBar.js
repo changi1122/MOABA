@@ -1,8 +1,7 @@
 import React from "react";
 
-function HoraizonBar({total, range, title}){
+function HorizontalBar({total, range, title}){
 
-    var len = (400/parseInt(total)) * parseInt(range);
     var par = parseInt(range)/parseInt(total)*100;
     par = Math.round(par);
 
@@ -11,7 +10,7 @@ function HoraizonBar({total, range, title}){
         <div className="bar">
             <p>{title}</p>
             <div className="bar-background">
-                <div className="bar-range" style={{width:len+"px"}}>
+                <div className="bar-range" style={{width:par+"%"}}>
                     <p>{(par)+"%"}</p>
                 </div>
             </div>
@@ -19,4 +18,4 @@ function HoraizonBar({total, range, title}){
     );
 }
 
-export default HoraizonBar;
+export default HorizontalBar;

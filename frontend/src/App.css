@@ -37,6 +37,7 @@ p {
 button, input {
   background-color: none;
   border: none;
+  font-family: inherit;
 }
 
 input:focus {

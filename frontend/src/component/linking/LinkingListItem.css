@@ -1,15 +1,22 @@
 .linkinglistitem-box{
+    display: flex;
     width: 100%;
     border: 3px solid #b8c3fd;
     border-radius: 5px;
     position: relative;
-    padding: 5px 10px;
-    height: 65px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .linkinglistitem-box>p:nth-child(2){
     font-size: 25px;
     font-weight: 600;
+}
+
+.linkinglistitem-text {
+    flex: 1;
+    width: 100%;
+    margin-right: 10px;
 }
 
 .linkinglistitem-category{

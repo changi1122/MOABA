@@ -1,8 +1,6 @@
 .Horaizon-bar-chart{
-    height: 50px;
-    position: absolute;
-    right: 10px;
-    top: 0px;
+    width: 100%;
+    margin-top: -10px;
 }
 
 .Horaizon-bar-chart> div{
@@ -13,10 +11,11 @@
 
 .bar-background{
     background-color: #eeeeee;
-    width: 400px;
+    width: 100%;
     height: 100%;
     border-radius: 5px;
     margin-left: 10px;
+    flex: 1;
 }
 
 .bar-range{

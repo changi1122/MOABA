@@ -2,9 +2,9 @@ import React from "react";
 
 import Sidebar from '../component/Sidebar';
 import IntroShow from '../component/main/IntroShow';
-import AccessShow from '../component/main/AccessShow';
+import SignupShow from '../component/main/SignupShow';
 
-function MainPage(){
+export default function SignupPage(){
 
     return (
         <div className="horazion">
@@ -19,11 +19,9 @@ function MainPage(){
                 height="100%"
                 color="white-blue"
                 position="center"
-                content={AccessShow()}
+                content={SignupShow()}
             />
 
         </div>
     );
 }
-
-export default MainPage;
