@@ -1,11 +1,24 @@
-.HC-body{
+.HC-body-sub{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
-.HC-body>p{
-    margin-bottom: 100px;
-    font-size: 25px;
-    color: var(--white-blue-color);
+
+.HC-body{
+    max-width: 960px;
+}
+
+
+@media (max-width: 1118px) {
+    .HC-body {
+        max-width: 640px;
+    }
+}
+
+
+@media (max-width: 798px) {
+    .HC-body {
+        max-width: 320px;
+    }
 }

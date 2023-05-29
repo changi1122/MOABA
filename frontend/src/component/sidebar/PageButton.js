@@ -73,17 +73,18 @@ function PageButton(){
 
     return(
         <div className="Menubar">
-
             <PageMoveB
                 style="basic-style"
                 content="My Page"
                 url={MoveToMyPage}
+                icon="person"
             />
 
             <PageMoveB
                 style="basic-style"
                 content="Create"
                 url={MoveToCratePage}
+                icon="group_add"
             />
 
 
@@ -91,10 +92,11 @@ function PageButton(){
                 style="basic-style"
                 content="Linking"
                 url={MoveToLinkingPage}
+                icon="share"
             />
 
             {Blink}
-
+            
             <button className="button-add" onClick={MakeNewButton}> + </button>
 
         </div>

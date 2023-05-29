@@ -1,0 +1,24 @@
+.icon-string-horazion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.material-symbols-set{
+    font-size: 50px !important;
+    color: var(--white-blue-color);
+}
+
+.material-text{
+    font-size: 50px;
+    color: var(--white-blue-color);
+    font-weight: 800;
+}

@@ -2,12 +2,19 @@ import React from "react";
 import Recommend from "./Recommend";
 
 import "./HomeContentStyle.css";
+import IconHorazion from "../IconHorazion";
 
 function HomeContent(){
 
     return(
         <div className="HC-body">
-            <p>오늘은 누구를 만나세요?</p>
+            <IconHorazion
+                classN = "material-symbols-set"
+                icon = "recommend"
+                CtntStyle = "material-text"
+                content = "모임"
+            />
+            
             <Recommend/>
         </div>
     );

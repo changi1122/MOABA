@@ -39,9 +39,9 @@ function App() {
     Log : 
     <div className='horazion'>
       <Sidebar
-          width="230px"
+          width="150px"
           height="100%"
-          color="white-blue"
+          color="white-blue-opacity"
           position="center" 
           fix="fix"
           content={MenuShow()}
@@ -59,6 +59,8 @@ function App() {
 
   return(
     <BrowserRouter>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
       {
         UI[isLogin]
       }
