@@ -42,9 +42,9 @@ function App() {
     Log : 
     <div className='horazion'>
       <Sidebar
-          width="230px"
+          width="150px"
           height="100%"
-          color="white-blue"
+          color="white-blue-opacity"
           position="center" 
           fix="fix"
           content={MenuShow()}
