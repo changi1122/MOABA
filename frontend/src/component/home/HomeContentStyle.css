@@ -6,19 +6,19 @@
 
 
 .HC-body{
-    max-width: 960px;
+    max-width: 1020px;
 }
 
 
-@media (max-width: 1118px) {
+@media (max-width: 1180px) {
     .HC-body {
-        max-width: 640px;
+        max-width: 680px;
     }
 }
 
 
-@media (max-width: 798px) {
+@media (max-width: 870px) {
     .HC-body {
-        max-width: 320px;
+        max-width: 340px;
     }
 }

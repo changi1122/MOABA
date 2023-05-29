@@ -24,6 +24,10 @@ function PageButton(){
         navigate('/linking');
     }
 
+    function TT(){
+
+    }
+
     /*
     function MoveToTempPage(arg){
         var str = '/page/'+arg;
@@ -99,6 +103,7 @@ function PageButton(){
             <PageMoveB
                 Bstyle="basic-style"
                 content="Temp"
+                url={TT}
                 icon="folder"
                 openicon="folder_open"
             />
@@ -106,6 +111,7 @@ function PageButton(){
             <PageMoveB
                 Bstyle="basic-style"
                 content="Save"
+                url={TT}
                 icon="folder"
                 openicon="folder_open"
             />
