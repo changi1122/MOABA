@@ -24,8 +24,12 @@ function PageButton(){
         navigate('/linking');
     }
 
-    function TT(){
+    function MoveToTempPage(){
+        navigate('/temp/page/1')
+    }
 
+    function MoveToTemplatePage(){
+        navigate('/save/page/1')
     }
 
     /*
@@ -103,7 +107,7 @@ function PageButton(){
             <PageMoveB
                 Bstyle="basic-style"
                 content="Temp"
-                url={TT}
+                url={MoveToTempPage}
                 icon="folder"
                 openicon="folder_open"
             />
@@ -111,7 +115,7 @@ function PageButton(){
             <PageMoveB
                 Bstyle="basic-style"
                 content="Save"
-                url={TT}
+                url={MoveToTemplatePage}
                 icon="folder"
                 openicon="folder_open"
             />

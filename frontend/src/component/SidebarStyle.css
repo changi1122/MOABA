@@ -41,3 +41,11 @@
     border-radius: 0px 10px 10px 0px;
     margin: 7px 10px 10px 0px;
 }
+
+#Temp-list{
+    display: none;
+}
+
+#Save-list{
+    display: none;
+}

@@ -11,6 +11,7 @@ import LinkingItemPage from './pages/LinkingItemPage';
 import Sidebar from './component/Sidebar';
 import MenuShow from './component/sidebar/MenuShow';
 import TempPage from './pages/TempPage';
+import TemplatePage from './pages/TemplatePage';
 
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -56,7 +57,8 @@ function App() {
         <Route path="/linking/:id" Component={LinkingItemPage} />
         <Route path="/done" Component={DonePage} />
         <Route path="/user" Component={UserPage} />
-        <Route path="/page/:id" Component={TempPage} />
+        <Route path="/temp/page/:id" Component={TempPage} />
+        <Route path="/save/page/:id" Component={TemplatePage} />
       </Routes>
     </div>
   }

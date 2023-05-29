@@ -43,7 +43,6 @@ function PageMoveB({Bstyle,icon,openicon, animation="", content, url, data}){
                 siblingElement.className += " sidebar-non-radius-style"
             }else{
                 ChageClassName(ctnt, content, siblingElement);
-
             }
         }else{
             ChageClassName(ctnt, ctnt.match("Temp")?"Temp" : "Save", siblingElement);
