@@ -1,14 +1,17 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Layout from "../component/Layout";
-import LinkingContent from '../component/linking/LinkingContent';
+import LinkingItemContent from '../component/linking/LinkingItemContent';
 
 
-function LinkingPage(){
+function LinkingItemPage(){
+
+    const { id }= useParams();
 
     return(
         <Layout
             header={"Linking"}
-            body={LinkingContent()}
+            body={LinkingItemContent()}
             align_items={"Layout-center"}
             T_styel={"content-H"}
             color={"white-blue-color"}
@@ -16,4 +19,4 @@ function LinkingPage(){
     );
 }
 
-export default LinkingPage;
+export default LinkingItemPage;

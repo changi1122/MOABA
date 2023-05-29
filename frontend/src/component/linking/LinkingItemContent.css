@@ -1,0 +1,27 @@
+.content {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.linking-form h2 {
+    line-height: 2em;
+    font-size: 28px;
+    color: #181818;
+    margin: 0;
+}
+
+.linking-form hr {
+    background: #646464;
+    height:1px;
+    border: none;
+    margin: 0;
+}
+
+.linking-form .datetime {
+    color: #646464;
+    font-size: 16px;
+    text-align: right;
+    line-height: 2em;
+
+}
