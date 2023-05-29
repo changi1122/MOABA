@@ -6,6 +6,10 @@
   height: 100%;
 }
 
+body {
+  font-family: Noto Sans KR,Apple SD Gothic Neo,Malgun Gothic,sans-serif;
+}
+
 .App {
   text-align: center;
 }

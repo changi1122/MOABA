@@ -6,6 +6,7 @@ import UserPage from "./pages/UserPage";
 import CreatePage from "./pages/CreatePage";
 import DonePage from "./pages/DonePage";
 import LinkingPage from "./pages/LinkingPage";
+import LinkingItemPage from './pages/LinkingItemPage';
 import Sidebar from './component/Sidebar';
 import MenuShow from './component/sidebar/MenuShow';
 import TempPage from './pages/TempPage';
@@ -39,9 +40,9 @@ function App() {
     Log : 
     <div className='horazion'>
       <Sidebar
-          width="150px"
+          width="230px"
           height="100%"
-          color="white-blue-opacity"
+          color="white-blue"
           position="center" 
           fix="fix"
           content={MenuShow()}
@@ -50,6 +51,7 @@ function App() {
         <Route path="/home" Component={HomePage}/>
         <Route path="/create" Component={CreatePage}/>
         <Route path="/linking" Component={LinkingPage} />
+        <Route path="/linking/:id" Component={LinkingItemPage} />
         <Route path="/done" Component={DonePage} />
         <Route path="/user" Component={UserPage} />
         <Route path="/page/:id" Component={TempPage} />

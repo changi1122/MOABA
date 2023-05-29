@@ -1,0 +1,22 @@
+.content {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.rdp {
+    display: flex;
+    justify-content: center;
+}
+
+.linking-list {
+    margin: 40px 0;
+}
+.linking-list>* {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.rdp-day_selected, .rdp-day_selected:focus-visible, .rdp-day_selected:hover {
+    background-color: #7186FB;
+}
