@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     overflow: overlay;
+    position: relative;
 }
 
 .Menubar::-webkit-scrollbar{
@@ -30,6 +31,11 @@
     color: var(--white-blue-color-opacity);
 }
 
+.open{
+    background-color:white;
+    color: var(--white-blue-color-opacity);
+}
+
 .button-add{
     width: 55px;
     height: 55px;
@@ -37,17 +43,12 @@
     color: white;
     border: 4px dashed white;
     font-size: 30px;
+    position: fixed;
+    bottom: 30px;
 }
 
 .basic-style > a{
     color: var(--white-blue-color-opacity);
-}
-
-.tag{
-    position: absolute;
-    top: 0;
-    right: 14px;
-    width: 14px;
 }
 
 .show-animation{

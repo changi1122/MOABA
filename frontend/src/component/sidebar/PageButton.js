@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import PageMoveB from "./PageMoveB";
 
@@ -24,6 +24,7 @@ function PageButton(){
         navigate('/linking');
     }
 
+    /*
     function MoveToTempPage(arg){
         var str = '/page/'+arg;
         console.log(str)
@@ -69,19 +70,19 @@ function PageButton(){
 
         // 각 설문조사 페이지를 저장하는 table에서 각 페이지 ID를 url로 전송
         // /temp/page/{number}를 만들어서 전송
-    }
+    } */
 
     return(
         <div className="Menubar">
             <PageMoveB
-                style="basic-style"
-                content="My Page"
+                Bstyle="basic-style"
+                content="Profile"
                 url={MoveToMyPage}
                 icon="person"
             />
 
             <PageMoveB
-                style="basic-style"
+                Bstyle="basic-style"
                 content="Create"
                 url={MoveToCratePage}
                 icon="group_add"
@@ -89,15 +90,27 @@ function PageButton(){
 
 
             <PageMoveB
-                style="basic-style"
+                Bstyle="basic-style"
                 content="Linking"
                 url={MoveToLinkingPage}
                 icon="share"
             />
 
-            {Blink}
+            <PageMoveB
+                Bstyle="basic-style"
+                content="Temp"
+                icon="folder"
+                openicon="folder_open"
+            />
+
+            <PageMoveB
+                Bstyle="basic-style"
+                content="Save"
+                icon="folder"
+                openicon="folder_open"
+            />
             
-            <button className="button-add" onClick={MakeNewButton}> + </button>
+            <button className="button-add"> + </button>
 
         </div>
     );
