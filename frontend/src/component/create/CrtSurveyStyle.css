@@ -3,24 +3,24 @@
     margin: 0 auto;
   }
   
-  .box {
+  .survey-box {
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
   
-  .question-row {
+  .survey-question-row {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
   }
   
-  .answer-row {
+  .survey-answer-row {
     margin-bottom: 10px;
   }
   
-  .buttons {
+  .survey-buttons {
     text-align: right;
     margin-top: 20px;
   }
@@ -29,15 +29,20 @@
     margin-left: 10px;
   }
   
-  input[type="text"],
-  select {
+  .survey-question-row>input[type="text"],
+  .survey-answer-row>input[type="text"],
+  .survey-answer-row>div>input[type="text"],
+  .survey-select {
     margin-right: 10px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
   
-  button {
+  .survey-question-row>button,
+  .survey-buttons>button,
+  .survey-answer-row>button,
+  .survey-answer-row>div>button {
     padding: 8px 16px;
     border: none;
     border-radius: 5px;
@@ -46,20 +51,16 @@
     cursor: pointer;
   }
   
-  button:hover {
+  .survey-question-row > button:hover,
+  .survey-buttons > button:hover,
+  .survey-answer-row > button:hover,
+  .survey-answer-row > div > button:hover {
     background-color: #506FCC;
   }
-  
-  button:active {
-    background-color: #405AB5;
-  }
+
   
   button:focus {
     outline: none;
   }
   
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
   

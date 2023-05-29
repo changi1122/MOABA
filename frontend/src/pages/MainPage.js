@@ -13,6 +13,7 @@ function MainPage(){
                 height="100%"  
                 position="center" 
                 content={IntroShow()} 
+                isShow={false}
             />
             <Sidebar 
                 width={"400px"}
@@ -20,6 +21,7 @@ function MainPage(){
                 color="white-blue"
                 position="center"
                 content={AccessShow()}
+                isShow={false}
             />
 
         </div>
