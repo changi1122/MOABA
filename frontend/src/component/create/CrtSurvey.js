@@ -2,6 +2,113 @@ import React, { useState } from "react";
 import "./CrtSurveyStyle.css";
 import ShortText from "../survey/ShortText";
 
+function SurveyBox({ box, index, handleQuestionChange, handleAnswerTypeChange, handleSingleChoiceAnswerChange, handleAnswerChange, handleCheckboxAnswerChange, deleteBox, addAnswer, deleteAnswer }) {
+  return (
+    <div key={index} className="box">
+      <div className="question-row">
+        <input
+          type="text"
+          placeholder="질문"
+          value={box.question}
+          onChange={(event) => handleQuestionChange(index, event)}
+        />
+        <select
+          value={box.answerType}
+          onChange={(event) => handleAnswerTypeChange(index, event)}
+        >
+          <option value="단답형">단답형</option>
+          <option value="객관식">객관식</option>
+          <option value="드롭다운">드롭다운</option>
+          <option value="체크박스">체크박스</option>
+        </select>
+        <button onClick={() => deleteBox(index)}>삭제</button>
+      </div>
+      {box.answerType === "단답형" && (
+        <div className="answer-row">
+          <input
+            type="text"
+            placeholder="답변"
+            value={box.answers[0]}
+            onChange={(event) => handleAnswerChange(index, 0, event)}
+          />
+        </div>
+      )}
+      {box.answerType === "객관식" && (
+        <div className="answer-row">
+          {box.answers.map((answer, answerIndex) => (
+            <div key={answerIndex}>
+              <input
+                type="radio"
+                checked={box.selectedAnswerIndex === answerIndex}
+                onChange={() => handleSingleChoiceAnswerChange(index, answerIndex)}
+              />
+              <input
+                type="text"
+                placeholder="답변"
+                value={answer}
+                onChange={(event) =>
+                  handleAnswerChange(index, answerIndex, event)
+                }
+              />
+              <button onClick={() => deleteAnswer(index, answerIndex)}>
+                삭제
+              </button>
+            </div>
+          ))}
+          <button onClick={() => addAnswer(index)}>답변 추가</button>
+        </div>
+      )}
+      {box.answerType === "드롭다운" && (
+        <div className="answer-row">
+          {box.answers.map((answer, answerIndex) => (
+            <div key={answerIndex}>
+              <input
+                type="text"
+                placeholder="답변"
+                value={answer}
+                onChange={(event) =>
+                  handleAnswerChange(index, answerIndex, event)
+                }
+              />
+              <button onClick={() => deleteAnswer(index, answerIndex)}>
+                삭제
+              </button>
+            </div>
+          ))}
+          <button onClick={() => addAnswer(index)}>답변 추가</button>
+        </div>
+      )}
+      {box.answerType === "체크박스" && (
+        <div className="answer-row">
+          {box.answers.map((answer, answerIndex) => (
+            <div key={answerIndex}>
+              <input
+                type="checkbox"
+                checked={answer.isChecked}
+                onChange={() =>
+                  handleCheckboxAnswerChange(index, answerIndex)
+                }
+              />
+              <input
+                type="text"
+                placeholder="답변"
+                value={answer.text}
+                onChange={(event) =>
+                  handleAnswerChange(index, answerIndex, event)
+                }
+              />
+              <button onClick={() => deleteAnswer(index, answerIndex)}>
+                삭제
+              </button>
+            </div>
+          ))}
+          <button onClick={() => addAnswer(index)}>답변 추가</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function CrtSurvey() {
   const [boxes, setBoxes] = useState([]);
 
@@ -29,14 +136,14 @@ function CrtSurvey() {
   const handleAnswerTypeChange = (index, event) => {
     const newBoxes = [...boxes];
     newBoxes[index].answerType = event.target.value;
-    
+
     if (event.target.value === "체크박스") {
       // Reset answers when answer type changes
       newBoxes[index].answers = [{ text: "", isChecked: false }];
     } else {
       newBoxes[index].answers = [""]; // Reset answers to a single empty string for other answer types
     }
-    
+
     setBoxes(newBoxes);
   };
 
@@ -75,108 +182,19 @@ function CrtSurvey() {
     <div className="survey">
       <h1>Title</h1>
       {boxes.map((box, index) => (
-        <div key={index} className="box">
-          <div className="question-row">
-            <input
-              type="text"
-              placeholder="질문"
-              value={box.question}
-              onChange={(event) => handleQuestionChange(index, event)}
-            />
-            <select
-              value={box.answerType}
-              onChange={(event) => handleAnswerTypeChange(index, event)}
-            >
-              <option value="단답형">단답형</option>
-              <option value="객관식">객관식</option>
-              <option value="드롭다운">드롭다운</option>
-              <option value="체크박스">체크박스</option>
-            </select>
-            <button onClick={() => deleteBox(index)}>삭제</button>
-          </div>
-          {box.answerType === "단답형" && (
-            <div className="answer-row">
-              <input
-                type="text"
-                placeholder="답변"
-                value={box.answers[0]}
-                onChange={(event) => handleAnswerChange(index, 0, event)}
-              />
-            </div>
-          )}
-          {box.answerType === "객관식" && (
-            <div className="answer-row">
-              {box.answers.map((answer, answerIndex) => (
-                <div key={answerIndex}>
-                  <input
-                    type="radio"
-                    checked={box.selectedAnswerIndex === answerIndex}
-                    onChange={() => handleSingleChoiceAnswerChange(index, answerIndex)}
-                  />
-                  <input
-                    type="text"
-                    placeholder="답변"
-                    value={answer}
-                    onChange={(event) =>
-                      handleAnswerChange(index, answerIndex, event)
-                    }
-                  />
-                  <button onClick={() => deleteAnswer(index, answerIndex)}>
-                    삭제
-                  </button>
-                </div>
-              ))}
-              <button onClick={() => addAnswer(index)}>답변 추가</button>
-            </div>
-          )}
-          {box.answerType === "드롭다운" && (
-            <div className="answer-row">
-              {box.answers.map((answer, answerIndex) => (
-                <div key={answerIndex}>
-                  <input
-                    type="text"
-                    placeholder="답변"
-                    value={answer}
-                    onChange={(event) =>
-                      handleAnswerChange(index, answerIndex, event)
-                    }
-                  />
-                  <button onClick={() => deleteAnswer(index, answerIndex)}>
-                    삭제
-                  </button>
-                </div>
-              ))}
-              <button onClick={() => addAnswer(index)}>답변 추가</button>
-            </div>
-          )}
-          {box.answerType === "체크박스" && (
-            <div className="answer-row">
-              {box.answers.map((answer, answerIndex) => (
-                <div key={answerIndex}>
-                  <input
-                    type="checkbox"
-                    checked={answer.isChecked}
-                    onChange={() =>
-                      handleCheckboxAnswerChange(index, answerIndex)
-                    }
-                  />
-                  <input
-                    type="text"
-                    placeholder="답변"
-                    value={answer.text}
-                    onChange={(event) =>
-                      handleAnswerChange(index, answerIndex, event)
-                    }
-                  />
-                  <button onClick={() => deleteAnswer(index, answerIndex)}>
-                    삭제
-                  </button>
-                </div>
-              ))}
-              <button onClick={() => addAnswer(index)}>답변 추가</button>
-            </div>
-          )}
-        </div>
+        <SurveyBox
+          key={index}
+          box={box}
+          index={index}
+          handleQuestionChange={handleQuestionChange}
+          handleAnswerTypeChange={handleAnswerTypeChange}
+          handleSingleChoiceAnswerChange={handleSingleChoiceAnswerChange}
+          handleAnswerChange={handleAnswerChange}
+          handleCheckboxAnswerChange={handleCheckboxAnswerChange}
+          deleteBox={deleteBox}
+          addAnswer={addAnswer}
+          deleteAnswer={deleteAnswer}
+        />
       ))}
       <div className="buttons">
         <button onClick={addBox}>추가</button>
