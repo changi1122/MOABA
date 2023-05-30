@@ -1,5 +1,9 @@
 .linking-detail h1 {
     font-size: 28px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    margin-left: -20px;
+    padding-left: 20px;
 }
 
 .linking-detail .metadata {
@@ -17,4 +21,39 @@
 .linking-detail h2 {
     margin-top: 20px;
     font-size: 18px;
+}
+
+.linking-detail .action {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.linking-detail .action>p {
+    padding: 80px 0;
+    font-size: 18px;
+}
+
+.linking-detail .action a {
+    display: inline-block;
+    padding: 12px 40px;
+    color: #000;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 24px;
+    transition: background-color .17s ease, color .17s ease;
+}
+.linking-detail .action a {
+    margin-right: 10px;
+}
+.linking-detail .action a:last-child {
+    margin-right: 0;
+}
+
+.linking-detail .action a:hover {
+    color: white;
+    background-color: #5B74DA;
 }
