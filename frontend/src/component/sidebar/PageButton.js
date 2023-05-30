@@ -5,7 +5,7 @@ import PageMoveB from "./PageMoveB";
 import "./PageButtonStyle.css"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { StateNone, StateSave, StateTemp } from "../../reducers/counter";
+import { StateCreate, StateLinking, StateNone, StateProfile, StateSave, StateTemp } from "../../reducers/counter";
 
 
 function PageButton(){
@@ -17,17 +17,17 @@ function PageButton(){
 
 
     function MoveToMyPage(){
-        dispacth(StateNone());
+        dispacth(StateProfile());
         navigate('/user');
     }
 
     function MoveToCratePage(){
-        dispacth(StateNone());
+        dispacth(StateCreate());
         navigate('/create');
     }
 
     function MoveToLinkingPage(){
-        dispacth(StateNone());
+        dispacth(StateLinking());
         navigate('/linking');
     }
 

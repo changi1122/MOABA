@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
 
 function PageMoveB({Bstyle,icon,openicon, animation="", content, url, data}){
     
+    const { click } = useSelector(state => state.counter);
     /*
     var navigate = useNavigate();
     function MoveToTempPage(){

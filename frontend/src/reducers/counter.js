@@ -1,3 +1,5 @@
+import { type } from "@testing-library/user-event/dist/type";
+
 export const INCRESE = "COUNT/INCRESE";
 export const DECREASE = "COUNT/DECREASE";
 export const DIVIDE = "COUNT/DIVID";
@@ -9,6 +11,10 @@ export const LOGOUT = "ISLOGIN/LOGOUT"
 export const NONE = "CLICK/NONE";
 export const TEMP = "CLICK/TEMP";
 export const SAVE = "CLICK/SAVE";
+export const PROFILE = "CLICK/PROFILE";
+export const CREATE = "CLICK/CREATE";
+export const LINKING = "CLICK/LINKING";
+
 
 export const increaseCount = (count) =>({
     type:INCRESE, count
@@ -44,6 +50,19 @@ export const StateTemp = (click) =>({
 
 export const StateSave = (click) =>({
     type:SAVE, click
+});
+
+
+export const StateProfile = (click) =>({
+    type:PROFILE, click
+});
+
+export const StateCreate = (click) =>({
+    type:CREATE, click
+});
+
+export const StateLinking = (click) =>({
+    type : LINKING, click
 });
 
 
@@ -102,7 +121,21 @@ export const counter = (state = initalState, action) =>{
                 ...state,
                 click : "Save"
             }
-
+        case CREATE:
+            return{
+                ...state,
+                click:"Create"
+            }
+        case PROFILE:
+            return{
+                ...state,
+                click:"Profile"
+            }
+        case LINKING:
+            return{
+                ...state,
+                click:"Linking"
+            }
         default:
             return state;
     }
