@@ -1,0 +1,20 @@
+.linking-detail h1 {
+    font-size: 28px;
+}
+
+.linking-detail .metadata {
+    text-align: right;
+}
+.linking-detail .metadata table {
+    display: inline-block;
+    color: #777;
+}
+.linking-detail .metadata table tr>td:nth-child(2) {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.linking-detail h2 {
+    margin-top: 20px;
+    font-size: 18px;
+}
