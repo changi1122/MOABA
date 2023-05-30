@@ -20,7 +20,8 @@ function LinkingContent() {
 
     function selectDay(day)
     {
-        setSelectedDay(day);
+        if (day)
+            setSelectedDay(day);
     }
 
     return (
