@@ -4,6 +4,8 @@ import PageMoveB from "./PageMoveB";
 
 import "./PageButtonStyle.css"
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { StateNone, StateSave, StateTemp } from "../../reducers/counter";
 
 
 function PageButton(){
@@ -11,25 +13,32 @@ function PageButton(){
 
     const [Blink, SetBlink] = useState([]);
 
+    const dispacth = useDispatch();
+
 
     function MoveToMyPage(){
+        dispacth(StateNone());
         navigate('/user');
     }
 
     function MoveToCratePage(){
+        dispacth(StateNone());
         navigate('/create');
     }
 
     function MoveToLinkingPage(){
+        dispacth(StateNone());
         navigate('/linking');
     }
 
     function MoveToTempPage(){
-        navigate('/temp/page/1')
+        dispacth(StateTemp());
+        navigate('/temp/page/1');
     }
 
     function MoveToTemplatePage(){
-        navigate('/save/page/1')
+        dispacth(StateSave());
+        navigate('/save/page/1');
     }
 
     /*

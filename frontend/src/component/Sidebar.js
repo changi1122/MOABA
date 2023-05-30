@@ -1,27 +1,24 @@
 import React, {useState, useEffect}from "react";
 
 import "./SidebarStyle.css";
+import { useDispatch, useSelector } from "react-redux";
 
 function Sidebar({width, height, color, position, content, fix, isShow}){
 
-    const [Temp, SetTemp] = useState("Temp");
-    const [Save, SetSave] = useState("Save");
+    const { click } = useSelector( state => state.counter);
 
     useEffect(()=>{
-        var x = document.getElementById(`${Temp}`).parentNode;
-        var y = document.getElementById(`${Save}`).parentNode;
-
-        x.addEventListener("click", (event)=>{
+        if(click==="Temp"){
             StyleChg("Temp-list", "block");
             StyleChg("Save-list", "none");
-            
-        })
-
-        y.addEventListener("click", (event)=>{
+        }else if(click==="Save"){
             StyleChg("Temp-list", "none");
             StyleChg("Save-list", "block");
-        })
+        }
+    }, [click])
 
+    useEffect(()=>{
+        console.log(click);
     })
 
 
