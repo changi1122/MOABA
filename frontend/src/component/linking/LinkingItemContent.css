@@ -4,18 +4,34 @@
     margin: 0 auto;
 }
 
-.linking-form h2 {
-    line-height: 2em;
-    font-size: 28px;
-    color: #181818;
-    margin: 0;
+.linking-form {
+    margin-bottom: 60px;
 }
 
-.linking-form hr {
-    background: #646464;
-    height:1px;
-    border: none;
-    margin: 0;
+.linking-form h1 {
+    font-size: 28px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    margin-left: -20px;
+    padding-left: 20px;
+}
+
+.linking-form .metadata {
+    text-align: right;
+}
+.linking-form .metadata table {
+    display: inline-block;
+    color: #777;
+}
+.linking-form .metadata table tr>td:nth-child(2) {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+
+.linking-form h2 {
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 .linking-form .datetime {
