@@ -41,10 +41,18 @@
     height: 55px;
     background-color: var(--white-blue-color-opacity);
     color: white;
-    border: 4px dashed white;
+    border: 2px solid white;
     font-size: 30px;
     position: fixed;
     bottom: 30px;
+    transition-duration: 0.5s;
+    border-radius: 40px;
+}
+
+.button-add:hover{
+    background-color: white;
+    color: var(--white-blue-color-opacity);
+    border: 2px solid var(--white-blue-color-opacity);
 }
 
 .basic-style > a{

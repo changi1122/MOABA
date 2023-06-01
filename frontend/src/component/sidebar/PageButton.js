@@ -5,7 +5,7 @@ import PageMoveB from "./PageMoveB";
 import "./PageButtonStyle.css"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { StateCreate, StateLinking, StateNone, StateProfile, StateSave, StateTemp } from "../../reducers/counter";
+import { StateCreate, StateLinking, StateNone, StateProfile, StateSave, StateTemp, setlogout } from "../../reducers/counter";
 
 
 function PageButton(){
@@ -14,6 +14,12 @@ function PageButton(){
     const [Blink, SetBlink] = useState([]);
 
     const dispacth = useDispatch();
+
+
+    function Logout(){
+        dispacth(setlogout());
+        navigate('/');
+    }
 
 
     function MoveToMyPage(){
@@ -129,7 +135,11 @@ function PageButton(){
                 openicon="folder_open"
             />
             
-            <button className="button-add"> + </button>
+            <button className="button-add" onClick={Logout} > 
+                <span class="material-symbols-outlined">
+                    logout
+                </span>
+            </button>
 
         </div>
     );
