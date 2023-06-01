@@ -4,6 +4,10 @@ import { Chart } from "react-google-charts";
 import "react-day-picker/dist/style.css";
 import "./LinkingItemContent.css"
 
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css/skyblue';
+
+import PlaceWindow from './PlaceWindow';
 
 function LinkingItemContent() {
 
@@ -76,6 +80,108 @@ function LinkingItemContent() {
                     </div>
                 </div>
             </form>
+
+            <div className='place-recommend'>
+                <h1>Place recommendations</h1>
+                <Splide
+                    aria-label="Recommended Places"
+                    options={{
+                        perPage: 3,
+                        rewind : true,
+                    }}>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                </Splide>
+            </div>
+            <div className='place-window'>
+                <PlaceWindow />
+            </div>
         </div>
     );
 }
