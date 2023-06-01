@@ -112,9 +112,9 @@
 
 .place-window {
     position: fixed;
-    top: calc(50% - 300px);
+    top: calc(50% - 280px);
     left: calc(50% - 400px);
     width: 800px;
-    height: 600px;
+    height: 560px;
     z-index: 100;
 }

@@ -11,6 +11,8 @@ import PlaceWindow from './PlaceWindow';
 
 function LinkingItemContent() {
 
+    const [isWindowOpened, setIsWindowOpened] = useState(false);
+
     const oneSampleData = [
         ["Task", "Hours per Day"],
         ["Work", 11],
@@ -20,20 +22,9 @@ function LinkingItemContent() {
         ["Sleep", 7],
     ];
 
-    const tableData = [
-        ["Name", "Salary", "Full time employee"],
-        ["Mike", { v: 10000, f: "$10,000" }, true],
-        ["Jim", { v: 8000, f: "$8,000" }, false],
-        ["Alice", { v: 12500, f: "$12,500" }, true],
-        ["Bob", { v: 7000, f: "$7,000" }, true],
-      ];
-      
-    const tableOptions = {
-        title: "Company Performance",
-        curveType: "function",
-        legend: { position: "bottom" },
-        pageSize: 1,
-    };
+    function openPlaceWindow() {
+        setIsWindowOpened(true);
+    }
 
     return (
         <div className='content'>
@@ -82,7 +73,7 @@ function LinkingItemContent() {
             </form>
 
             <div className='place-recommend'>
-                <h1>Place recommendations</h1>
+                <h1 id='place'>Place recommendations</h1>
                 <Splide
                     aria-label="Recommended Places"
                     options={{
@@ -96,7 +87,7 @@ function LinkingItemContent() {
                                 <p>가게 이름</p>
                             </div>
                             <div className='button-area'>
-                                <button>View more</button>
+                                <button onClick={openPlaceWindow}>View more</button>
                             </div>
                         </div>
                     </SplideSlide>
@@ -107,7 +98,7 @@ function LinkingItemContent() {
                                 <p>가게 이름</p>
                             </div>
                             <div className='button-area'>
-                                <button>View more</button>
+                                <button onClick={openPlaceWindow}>View more</button>
                             </div>
                         </div>
                     </SplideSlide>
@@ -118,7 +109,7 @@ function LinkingItemContent() {
                                 <p>가게 이름</p>
                             </div>
                             <div className='button-area'>
-                                <button>View more</button>
+                                <button onClick={openPlaceWindow}>View more</button>
                             </div>
                         </div>
                     </SplideSlide>
@@ -129,7 +120,7 @@ function LinkingItemContent() {
                                 <p>가게 이름</p>
                             </div>
                             <div className='button-area'>
-                                <button>View more</button>
+                                <button onClick={openPlaceWindow}>View more</button>
                             </div>
                         </div>
                     </SplideSlide>
@@ -140,7 +131,7 @@ function LinkingItemContent() {
                                 <p>가게 이름</p>
                             </div>
                             <div className='button-area'>
-                                <button>View more</button>
+                                <button onClick={openPlaceWindow}>View more</button>
                             </div>
                         </div>
                     </SplideSlide>
@@ -151,7 +142,7 @@ function LinkingItemContent() {
                                 <p>가게 이름</p>
                             </div>
                             <div className='button-area'>
-                                <button>View more</button>
+                                <button onClick={openPlaceWindow}>View more</button>
                             </div>
                         </div>
                     </SplideSlide>
@@ -162,7 +153,7 @@ function LinkingItemContent() {
                                 <p>가게 이름</p>
                             </div>
                             <div className='button-area'>
-                                <button>View more</button>
+                                <button onClick={openPlaceWindow}>View more</button>
                             </div>
                         </div>
                     </SplideSlide>
@@ -173,15 +164,29 @@ function LinkingItemContent() {
                                 <p>가게 이름</p>
                             </div>
                             <div className='button-area'>
-                                <button>View more</button>
+                                <button onClick={openPlaceWindow}>View more</button>
                             </div>
                         </div>
                     </SplideSlide>
                 </Splide>
             </div>
-            <div className='place-window'>
-                <PlaceWindow />
-            </div>
+            {
+                isWindowOpened && (
+                    <>
+                        <div style={{
+                            position:'fixed',
+                            backgroundColor:'rgba(0,0,0,0.2)',
+                            top:'0',
+                            left:'0',
+                            width:'100%',
+                            height:'100vh'
+                            }}></div>
+                        <div className='place-window'>
+                            <PlaceWindow setIsWindowOpened={setIsWindowOpened}/>
+                        </div>
+                    </>
+                )
+            }
         </div>
     );
 }
