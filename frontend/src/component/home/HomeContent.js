@@ -14,8 +14,16 @@ function HomeContent(){
                 CtntStyle = "material-text"
                 content = "모임"
             />
-            
+        
             <Recommend/>
+
+            <div className="to-template">
+                <div>
+                    <span className="material-symbols-outlined to-template-icon-style">
+                        expand_more
+                    </span>
+                </div>
+            </div>
         </div>
     );
 }

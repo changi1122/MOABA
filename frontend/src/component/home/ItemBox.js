@@ -8,10 +8,8 @@ function ItemBox(props){
 
     return(
         <div className="Rcmnd-box">
-            <p>#{props.category1} #{props.category2} #{props.category3}</p>
             <img src={props.img} alt="" />
-            <p className="Rcmnd-box-Title">Title</p>
-            <p className="Rcmnd-box-title-style">{props.title}</p>
+            <p className="Rcmnd-box-title-style">{props.title} <span>by {props.user}</span></p>
 
             <IconHorazion
                 classN = ""
@@ -20,13 +18,9 @@ function ItemBox(props){
                 content = {props.date}
             />
 
-            <IconHorazion
-                classN=""
-                icon="schedule"
-                CtntStyle=""
-                content = {props.time}
-            />
-
+            <span id="Rcmnd-category"># {props.category1}</span>
+            <span id="Rcmnd-category"># {props.category2}</span>
+            <span id="Rcmnd-category"># {props.category3}</span>
         </div>
     );
 }

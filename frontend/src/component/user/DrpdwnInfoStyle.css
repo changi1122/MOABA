@@ -1,15 +1,21 @@
 .user-drpdwn > hr{
     border: 1.5px dashed gray;
+    margin: 15px 0px;
 }
 
 .user-header{
     color: black;
     font-size: 25px;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .user-list{
     margin-left: 50px;
     font-size: 15px;
     color: rgb(63, 63, 63);
+}
+
+.user-list> li{
+    margin-bottom: 10px;
 }

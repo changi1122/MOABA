@@ -13,12 +13,14 @@
 }
 
 .material-symbols-set{
-    font-size: 50px !important;
+    font-size: 35px !important;
     color: var(--white-blue-color);
+    margin-left: 15px;
 }
 
 .material-text{
-    font-size: 50px;
+    font-size: 35px;
     color: var(--white-blue-color);
     font-weight: 800;
+    margin-bottom: 5px;
 }

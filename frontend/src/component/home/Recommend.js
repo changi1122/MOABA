@@ -13,7 +13,7 @@ function Recommend(){
                 category3="대학"
                 title = "충북대학교 축제"
                 date = "2023.10.3 ~ 10.6"
-                time = "09:00 ~ 15:30"
+                user = "Sdd"
                 img = {img}
             />
             <ItemBox
@@ -22,7 +22,7 @@ function Recommend(){
                 category3="대학"
                 title = "충북대학교 축제"
                 date = "2023.10.3 ~ 10.6"
-                time = "09:00 ~ 15:30"
+                user = "sdf"
                 img = {img}
             />
             <ItemBox
@@ -31,7 +31,7 @@ function Recommend(){
                 category3="대학"
                 title = "충북대학교 축제"
                 date = "2023.10.3 ~ 10.6"
-                time = "09:00 ~ 15:30"
+                user="Sori98"
                 img = {img}
             />
 
@@ -41,7 +41,7 @@ function Recommend(){
                 category3="대학"
                 title = "충북대학교 축제"
                 date = "2023.10.3 ~ 10.6"
-                time = "09:00 ~ 15:30"
+                user="changi1122"
                 img = {img}
             />
             <ItemBox
@@ -50,7 +50,7 @@ function Recommend(){
                 category3="대학"
                 title = "충북대학교 축제"
                 date = "2023.10.3 ~ 10.6"
-                time = "09:00 ~ 15:30"
+                user="Jae Won Bae"
                 img = {img}
             />
             <ItemBox
@@ -59,7 +59,7 @@ function Recommend(){
                 category3="대학"
                 title = "충북대학교 축제"
                 date = "2023.10.3 ~ 10.6"
-                time = "09:00 ~ 15:30"
+                user="kim"
                 img = {img}
             />
             
