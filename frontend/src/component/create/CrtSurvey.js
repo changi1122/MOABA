@@ -62,6 +62,18 @@ function CrtSurvey() {
     setBoxes(newBoxes);
   };
 
+  const addAnswer = (index) => {
+    const newBoxes = [...boxes];
+    newBoxes[index].answers.push({ text: "", isChecked: false });
+    setBoxes(newBoxes);
+  };
+
+  const deleteAnswer = (index, answerIndex) => {
+    const newBoxes = [...boxes];
+    newBoxes[index].answers.splice(answerIndex, 1);
+    setBoxes(newBoxes);
+  };
+
   const handleTitleChange = (event) => {
     // Handle title input change
   };
@@ -157,6 +169,8 @@ function CrtSurvey() {
             handleAnswerChange={handleAnswerChange}
             handleCheckboxAnswerChange={handleCheckboxAnswerChange}
             deleteBox={deleteBox}
+            addAnswer={addAnswer}
+            deleteAnswer={deleteAnswer}
           />
         ))}
 
