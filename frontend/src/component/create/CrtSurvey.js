@@ -4,6 +4,9 @@ import SurveyBox from "./SurveyBox";
 
 function CrtSurvey() {
   const [boxes, setBoxes] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState("");
+  const [showCategoryPopup, setShowCategoryPopup] = useState(false);
 
   const addBox = () => {
     setBoxes((prevBoxes) => [
@@ -59,23 +62,89 @@ function CrtSurvey() {
     setBoxes(newBoxes);
   };
 
-  const addAnswer = (index) => {
-    const newBoxes = [...boxes];
-    newBoxes[index].answers.push({ text: "", isChecked: false });
-    setBoxes(newBoxes);
+  const handleTitleChange = (event) => {
+    // Handle title input change
   };
 
-  const deleteAnswer = (index, answerIndex) => {
-    const newBoxes = [...boxes];
-    newBoxes[index].answers.splice(answerIndex, 1);
-    setBoxes(newBoxes);
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+  };
+
+  const handleCategoryPopup = () => {
+    setShowCategoryPopup(!showCategoryPopup);
+  };
+
+  const handleCategorySelect = () => {
+    if (category.trim() !== "") {
+      setCategories((prevCategories) => [...prevCategories, category]);
+      setCategory("");
+      setShowCategoryPopup(false);
+    }
+  };
+
+  const deleteCategory = (index) => {
+    setCategories((prevCategories) => {
+      const newCategories = [...prevCategories];
+      newCategories.splice(index, 1);
+      return newCategories;
+    });
   };
 
   return (
     <div className="right-content">
       <div className="survey">
-        
-        <input type="text" placeholder="Title" />
+        <input
+          type="text"
+          placeholder="Title"
+          style={{ fontSize: "30px", backgroundColor: "transparent" }}
+          onChange={handleTitleChange}
+        />
+        <hr style={{ borderStyle: "dashed" }} />
+
+        <div className="survey-category-row">
+          <label className="survey-category-label">Category</label>
+        </div>
+        <hr
+          style={{
+            borderStyle: "solid",
+            marginTop: "10px",
+            marginBottom: "10px"
+          }}
+        />
+        <div className="survey-category-input">
+          {categories.map((category, index) => (
+            <div key={index}>
+              {category}
+              <span
+                className="material-icons"
+                onClick={() => deleteCategory(index)}
+              >
+                delete
+              </span>
+            </div>
+          ))}
+          <button className="survey-category-add-button" onClick={handleCategoryPopup}>
+            +
+          </button>
+          {showCategoryPopup && (
+            <div className="survey-category-popup">
+              <input
+                type="text"
+                placeholder="Enter category"
+                value={category}
+                onChange={handleCategoryChange}
+              />
+              <button onClick={handleCategorySelect}>Add</button>
+            </div>
+          )}
+        </div>
+
+        <div className="survey-category-date-time">
+          <label>Meeting Date:</label>
+          <input type="date" />
+          <label>Time:</label>
+          <input type="time" />
+        </div>
 
         {boxes.map((box, index) => (
           <SurveyBox
@@ -88,13 +157,18 @@ function CrtSurvey() {
             handleAnswerChange={handleAnswerChange}
             handleCheckboxAnswerChange={handleCheckboxAnswerChange}
             deleteBox={deleteBox}
-            addAnswer={addAnswer}
-            deleteAnswer={deleteAnswer}
           />
         ))}
+
+        <div className="survey-category-date-time">
+          <label>Due Date:</label>
+          <input type="date"/>
+          <label>Time:</label>
+          <input type="time"/>
+        </div>
         <div className="survey-buttons">
           <button onClick={addBox}>추가</button>
-          <span class="material-symbols-outlined survay-icon-color survay-icon-font-M">
+          <span className="material-symbols-outlined survey-icon-color survey-icon-font-M">
             delete_forever
           </span>
           <button>임시저장</button>
