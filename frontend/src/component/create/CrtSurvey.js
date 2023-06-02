@@ -7,6 +7,7 @@ function CrtSurvey() {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
   const [showCategoryPopup, setShowCategoryPopup] = useState(false);
+  const [showSubCategoryPopup, setShowSubCategoryPopup] = useState(false);
 
   const addBox = () => {
     setBoxes((prevBoxes) => [
@@ -83,15 +84,17 @@ function CrtSurvey() {
   };
 
   const handleCategoryPopup = () => {
-    setShowCategoryPopup(!showCategoryPopup);
+    setShowCategoryPopup(true);
+    setShowSubCategoryPopup(false);
   };
 
-  const handleCategorySelect = () => {
-    if (category.trim() !== "") {
-      setCategories((prevCategories) => [...prevCategories, category]);
-      setCategory("");
-      setShowCategoryPopup(false);
-    }
+  const handleSubCategoryPopup = () => {
+    setShowSubCategoryPopup(true);
+  };
+
+  const handleCategorySelect = (category) => {
+    setCategories((prevCategories) => [...prevCategories, category]);
+    setCategory("");
   };
 
   const deleteCategory = (index) => {
@@ -140,13 +143,31 @@ function CrtSurvey() {
           </button>
           {showCategoryPopup && (
             <div className="survey-category-popup">
-              <input
-                type="text"
-                placeholder="Enter category"
-                value={category}
-                onChange={handleCategoryChange}
+              <button className="survey-category-close-category-button" onClick={() => setShowCategoryPopup(false)}>Close</button>
+              <h2>그룹 성격</h2>
+              <hr
+                style={{
+                  borderStyle: "dashed",
+                  marginBottom: "10px"
+                }}
               />
-              <button onClick={handleCategorySelect}>Add</button>
+              <button onClick={() => handleCategorySelect("친구")}>친구</button>
+    <button onClick={() => handleCategorySelect("직장")}>직장</button>
+    <button onClick={() => handleCategorySelect("동아리")}>동아리</button>
+    <button onClick={() => handleCategorySelect("학교")}>학교</button>
+    <button onClick={() => handleCategorySelect("가족")}>가족</button>
+
+              <h2>모임 성격</h2>
+              <hr
+                style={{
+                  borderStyle: "dashed",
+                  marginBottom: "10px"
+                }}
+              />
+              <button onClick={() => handleCategorySelect("회식")}>회식</button>
+              <button onClick={() => handleCategorySelect("친목")}>친목</button>
+              <button onClick={() => handleCategorySelect("번개")}>번개</button>
+              <button onClick={() => handleCategorySelect("스터디")}>스터디</button>
             </div>
           )}
         </div>
