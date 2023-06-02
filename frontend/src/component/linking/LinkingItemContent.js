@@ -4,8 +4,14 @@ import { Chart } from "react-google-charts";
 import "react-day-picker/dist/style.css";
 import "./LinkingItemContent.css"
 
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css/skyblue';
+
+import PlaceWindow from './PlaceWindow';
 
 function LinkingItemContent() {
+
+    const [isWindowOpened, setIsWindowOpened] = useState(false);
 
     const oneSampleData = [
         ["Task", "Hours per Day"],
@@ -16,20 +22,9 @@ function LinkingItemContent() {
         ["Sleep", 7],
     ];
 
-    const tableData = [
-        ["Name", "Salary", "Full time employee"],
-        ["Mike", { v: 10000, f: "$10,000" }, true],
-        ["Jim", { v: 8000, f: "$8,000" }, false],
-        ["Alice", { v: 12500, f: "$12,500" }, true],
-        ["Bob", { v: 7000, f: "$7,000" }, true],
-      ];
-      
-    const tableOptions = {
-        title: "Company Performance",
-        curveType: "function",
-        legend: { position: "bottom" },
-        pageSize: 1,
-    };
+    function openPlaceWindow() {
+        setIsWindowOpened(true);
+    }
 
     return (
         <div className='content'>
@@ -76,6 +71,122 @@ function LinkingItemContent() {
                     </div>
                 </div>
             </form>
+
+            <div className='place-recommend'>
+                <h1 id='place'>Place recommendations</h1>
+                <Splide
+                    aria-label="Recommended Places"
+                    options={{
+                        perPage: 3,
+                        rewind : true,
+                    }}>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button onClick={openPlaceWindow}>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button onClick={openPlaceWindow}>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button onClick={openPlaceWindow}>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button onClick={openPlaceWindow}>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button onClick={openPlaceWindow}>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button onClick={openPlaceWindow}>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button onClick={openPlaceWindow}>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div className="place">
+                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
+                            <div className='text-area'>
+                                <p>가게 이름</p>
+                            </div>
+                            <div className='button-area'>
+                                <button onClick={openPlaceWindow}>View more</button>
+                            </div>
+                        </div>
+                    </SplideSlide>
+                </Splide>
+            </div>
+            {
+                isWindowOpened && (
+                    <>
+                        <div style={{
+                            position:'fixed',
+                            backgroundColor:'rgba(0,0,0,0.2)',
+                            top:'0',
+                            left:'0',
+                            width:'100%',
+                            height:'100vh'
+                            }}></div>
+                        <div className='place-window'>
+                            <PlaceWindow setIsWindowOpened={setIsWindowOpened}/>
+                        </div>
+                    </>
+                )
+            }
         </div>
     );
 }
