@@ -1,0 +1,12 @@
+{
+    "name": "주목원",
+    "address": "충북 청주시 서원구 내수동로108번길 28",
+    "tel": "010-3485-2975",
+    "tags": [ "술집", "단체", "최대 90명" ],
+    "lat": 36.63278805623909,
+    "lng": 127.4583697785306,
+    "navermap": "https://naver.me/xevcOk37",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220501_143%2F16514135725662lJ6s_JPEG%2FC53FE8B6-08E0-4030-8F7C-62E3F15D8F88.jpeg",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230302_67%2F1677758141185IAXAT_PNG%2F%25C1%25A6%25B8%25F1%25C0%25BB-%25C0%25D4%25B7%25C2%25C7%25D8%25C1%25D6%25BC%25BC%25BF%25E4_-001_%25281%2529.png",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230301_231%2F1677671136314i8pPx_PNG%2F%25C1%25A6%25B8%25F1%25C0%25BB-%25C0%25D4%25B7%25C2%25C7%25D8%25C1%25D6%25BC%25BC%25BF%25E4_-001_%25288%2529.png"]
+}

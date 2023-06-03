@@ -1,10 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './PlaceWindow.css';
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/skyblue';
 
 export default function PlaceWindow(props){
+    
+    const [address, setAddress] = useState("");
+    const [tel, setTel] = useState("");
+    const [tags, setTags] = useState([]);
+    const [navermap, setNavermap] = useState("");
+    const [image, setImage] = useState([]);
+    
+    const getData = async () => {
+        const response = await fetch('/data/place/주목원.json', {
+          headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+        }
+        );
+        return response.json();
+      }
+
+    const loadMap = async (name) => {
+        const data = await getData();
+        if (!data) return;
+
+        setAddress(data.address);
+        setTel(data.tel);
+        setTags(data.tags);
+        setNavermap(data.navermap);
+        setImage(data.image);
+
+        if (window.kakao) {
+            const kakao = window.kakao;
+
+            const mapContainer = document.getElementById('map'),
+            mapOption = { 
+                center: new kakao.maps.LatLng(data.lat, data.lng),
+                level: 2
+            };
+        
+            const map = new kakao.maps.Map(mapContainer, mapOption);
+        
+            const markerPosition  = new kakao.maps.LatLng(data.lat, data.lng); 
+        
+            const marker = new kakao.maps.Marker({
+                position: markerPosition
+            });
+        
+            marker.setMap(map);
+        }
+    }
+
+    useEffect(() => {
+        loadMap(props.name);
+    }, [props.name]);
 
     return (
         <div className='place-window-container'>
@@ -18,36 +70,35 @@ export default function PlaceWindow(props){
                         options={{
                             rewind : true,
                         }}>
-                        <SplideSlide>
-                            <div className="place">
-                                <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
-                            </div>
-                        </SplideSlide>
-                        <SplideSlide>
-                            <div className="place">
-                                <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
-                            </div>
-                        </SplideSlide>
+                    {   image && image.map((img) => (
+                            <SplideSlide key={img}>
+                                <div className="place">
+                                    <img src={img} alt="Image 1"/>
+                                </div>
+                            </SplideSlide>
+                    
+                        ))
+                    }
                     </Splide>
                     <div className='info'>
-                        <h1>청춘튀겨</h1>
+                        <h1>{ props.name }</h1>
                         <div className='metadata'>
-                            <p><span className="material-symbols-outlined">location_on</span> 충청북도 청주시 서원구 충대로 1</p>
-                            <p><span className="material-symbols-outlined">smartphone</span> 043-261-2222</p>
+                            <p><span className="material-symbols-outlined">location_on</span> { address }</p>
+                            <p><span className="material-symbols-outlined">smartphone</span> { tel }</p>
                         </div>
                         <ul className='category'>
-                            <li>#동아리</li>
-                            <li>#친목</li>
-                            <li>#5인</li>
+                        {   tags && tags.map((tag) => (
+                            <li>#{tag}</li>
+                            ))
+                        }
                         </ul>
-                        <div className='map'>
-                            지도
+                        <div id='map' class='map'>
                         </div>
                     </div>
                 </div>
                 <div className='window-action'>
-                    <a className='button'>카카오맵에서 열기</a>
-                    <a className='button active'>예약하기</a>
+                    <a className='button' href={navermap} target='_blank'>네이버 지도에서 열기</a>
+                    <a className='button active' href={'tel:' + tel} target='_blank'>예약하기</a>
                 </div>
             </div>
         </div>

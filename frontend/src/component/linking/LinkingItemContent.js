@@ -16,6 +16,7 @@ import LinkingItem from "../../data/Linkingitem.json";
 function LinkingItemContent() {
 
     const [isWindowOpened, setIsWindowOpened] = useState(false);
+    const [name, setName] = useState("주목원");
 
     var linkingItem = LinkingItem.Data;
 
@@ -28,7 +29,8 @@ function LinkingItemContent() {
         ["Sleep", 7],
     ];
 
-    function openPlaceWindow() {
+    function openPlaceWindow(name) {
+        setName(name);
         setIsWindowOpened(true);
     }
 
@@ -123,7 +125,7 @@ function LinkingItemContent() {
                             height:'100vh'
                             }}></div>
                         <div className='place-window'>
-                            <PlaceWindow setIsWindowOpened={setIsWindowOpened}/>
+                            <PlaceWindow setIsWindowOpened={setIsWindowOpened} name={name}/>
                         </div>
                     </>
                 )
