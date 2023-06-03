@@ -4,6 +4,10 @@ import SurveyBox from "./SurveyBox";
 
 function CrtSurvey() {
   const [boxes, setBoxes] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState("");
+  const [showCategoryPopup, setShowCategoryPopup] = useState(false);
+  const [showSubCategoryPopup, setShowSubCategoryPopup] = useState(false);
 
   const addBox = () => {
     setBoxes((prevBoxes) => [
@@ -71,11 +75,109 @@ function CrtSurvey() {
     setBoxes(newBoxes);
   };
 
+  const handleTitleChange = (event) => {
+    // Handle title input change
+  };
+
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+  };
+
+  const handleCategoryPopup = () => {
+    setShowCategoryPopup(true);
+    setShowSubCategoryPopup(false);
+  };
+
+  const handleSubCategoryPopup = () => {
+    setShowSubCategoryPopup(true);
+  };
+
+  const handleCategorySelect = (category) => {
+    setCategories((prevCategories) => [...prevCategories, category]);
+    setCategory("");
+  };
+
+  const deleteCategory = (index) => {
+    setCategories((prevCategories) => {
+      const newCategories = [...prevCategories];
+      newCategories.splice(index, 1);
+      return newCategories;
+    });
+  };
+
   return (
     <div className="right-content">
       <div className="survey">
-        
-        <input type="text" placeholder="Title" />
+        <input
+          type="text"
+          placeholder="Title"
+          style={{ fontSize: "30px", backgroundColor: "transparent" }}
+          onChange={handleTitleChange}
+        />
+        <hr style={{ borderStyle: "dashed" }} />
+
+        <div className="survey-category-row">
+          <label className="survey-category-label">Category</label>
+        </div>
+        <hr
+          style={{
+            borderStyle: "solid",
+            marginTop: "10px",
+            marginBottom: "10px"
+          }}
+        />
+        <div className="survey-category-input">
+          {categories.map((category, index) => (
+            <div key={index}>
+              {category}
+              <span
+                className="material-icons"
+                onClick={() => deleteCategory(index)}
+              >
+                delete
+              </span>
+            </div>
+          ))}
+          <button className="survey-category-add-button" onClick={handleCategoryPopup}>
+            +
+          </button>
+          {showCategoryPopup && (
+            <div className="survey-category-popup">
+              <button className="survey-category-close-category-button" onClick={() => setShowCategoryPopup(false)}>Close</button>
+              <h2>그룹 성격</h2>
+              <hr
+                style={{
+                  borderStyle: "dashed",
+                  marginBottom: "10px"
+                }}
+              />
+              <button onClick={() => handleCategorySelect("친구")}>친구</button>
+    <button onClick={() => handleCategorySelect("직장")}>직장</button>
+    <button onClick={() => handleCategorySelect("동아리")}>동아리</button>
+    <button onClick={() => handleCategorySelect("학교")}>학교</button>
+    <button onClick={() => handleCategorySelect("가족")}>가족</button>
+
+              <h2>모임 성격</h2>
+              <hr
+                style={{
+                  borderStyle: "dashed",
+                  marginBottom: "10px"
+                }}
+              />
+              <button onClick={() => handleCategorySelect("회식")}>회식</button>
+              <button onClick={() => handleCategorySelect("친목")}>친목</button>
+              <button onClick={() => handleCategorySelect("번개")}>번개</button>
+              <button onClick={() => handleCategorySelect("스터디")}>스터디</button>
+            </div>
+          )}
+        </div>
+
+        <div className="survey-category-date-time">
+          <label>Meeting Date:</label>
+          <input type="date" />
+          <label>Time:</label>
+          <input type="time" />
+        </div>
 
         {boxes.map((box, index) => (
           <SurveyBox
@@ -92,9 +194,16 @@ function CrtSurvey() {
             deleteAnswer={deleteAnswer}
           />
         ))}
+
+        <div className="survey-category-date-time">
+          <label>Due Date:</label>
+          <input type="date"/>
+          <label>Time:</label>
+          <input type="time"/>
+        </div>
         <div className="survey-buttons">
           <button onClick={addBox}>추가</button>
-          <span class="material-symbols-outlined survay-icon-color survay-icon-font-M">
+          <span className="material-symbols-outlined survey-icon-color survey-icon-font-M">
             delete_forever
           </span>
           <button>임시저장</button>
