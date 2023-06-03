@@ -34,6 +34,7 @@ function LinkingItemContent() {
 
     function MakeShowItem(){
         var arr= [];
+        // 여기에 분류 위한 조건문 추가 
 
         for(var i=0; i<linkingItem.length;i++){
             arr.push(
