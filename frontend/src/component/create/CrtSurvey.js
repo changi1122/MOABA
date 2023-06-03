@@ -65,7 +65,10 @@ function CrtSurvey() {
 
   const addAnswer = (index) => {
     const newBoxes = [...boxes];
-    newBoxes[index].answers.push({ text: "", isChecked: false });
+    if (boxes[index].answerType === "체크박스")
+      newBoxes[index].answers.push({ text: "", isChecked: false });
+    else
+      newBoxes[index].answers.push("");
     setBoxes(newBoxes);
   };
 
