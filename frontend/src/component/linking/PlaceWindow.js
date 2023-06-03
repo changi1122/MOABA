@@ -12,8 +12,9 @@ export default function PlaceWindow(props){
     const [navermap, setNavermap] = useState("");
     const [image, setImage] = useState([]);
     
-    const getData = async () => {
-        const response = await fetch('/data/place/주목원.json', {
+    const getData = async (name) => {
+        console.log(name);
+        const response = await fetch(`/data/place/${encodeURIComponent(name)}.json`, {
           headers : { 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -24,7 +25,7 @@ export default function PlaceWindow(props){
       }
 
     const loadMap = async (name) => {
-        const data = await getData();
+        const data = await getData(name);
         if (!data) return;
 
         setAddress(data.address);

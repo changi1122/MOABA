@@ -1,0 +1,12 @@
+{
+    "name": "룸메이트",
+    "address": "충북 청주시 서원구 1순환로674번길 24 2층",
+    "tel": "0507-1302-0823",
+    "tags": [ "맥주", "호프", "최대 32인" ],
+    "lat": 36.6329445369652,
+    "lng": 127.45927076480528,
+    "navermap": "https://naver.me/5cThWbUo",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230420_219%2F1681980128786FE0WC_JPEG%2FIMG_0009.jpeg",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230420_10%2F1681980546380BYjMf_JPEG%2F252D78A5-AC68-4E9A-A287-BE0831936CAC.jpeg",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzAzMThfNDIg%2FMDAxNjc5MTE5MjMxOTE0.w9LIgvry1cwOlInTdys_ulm-u0j9y4iORl4ZOlM04Bgg.2RNy1VxwnjsPV6hu-vDms4T-bNgP-0C0NyMsk5YVGAYg.JPEG%2FF3DAD6B4-EF5F-4A6A-A965-8BF273EAFA81.jpeg"]
+}
