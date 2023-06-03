@@ -11,6 +11,7 @@ import "./LinkingContent.css"
 function LinkingContent() {
     const [selectedDay, setSelectedDay] = useState(Date.now());
     const [todaySurveys, setTodaySurveys] = useState([]);
+    const [selectedSurvey, setSelectedSurvey] = useState(null);
 
     useEffect(() => {
         loadTodaySurveys(selectedDay);
@@ -24,7 +25,6 @@ function LinkingContent() {
                 }
             }
         );
-        console.log(response.body)
         const data = await response.json();
         if (!data) return;
 
@@ -43,6 +43,11 @@ function LinkingContent() {
         }
     }
 
+    function selectSurvey(index) {
+        console.log(index);
+        setSelectedSurvey(todaySurveys[index]);
+    }
+
     return (
         <div className='linkingcontent'>
             <div className='list'>
@@ -51,11 +56,12 @@ function LinkingContent() {
                     <p className='selectedDay'>{format(selectedDay, 'yyyy년 MM월 dd일')} 예정된 설문</p>
                     <div className='linking-list'>
                         {
-                            todaySurveys && todaySurveys.map((survey) => (
+                            todaySurveys && todaySurveys.map((survey, index) => (
                                 <LinkingListItem
                                     key = {survey.id}
                                     name={survey.name}
                                     answer={survey.answer}
+                                    click={() => { selectSurvey(index); }}
                                 />
                             ))
                         }
@@ -71,7 +77,25 @@ function LinkingContent() {
                 </div>
             </div>
             <div className='preview'>
-                <LinkingDetailItem />
+                {
+                    selectedSurvey && (
+                    <LinkingDetailItem
+                        id={selectedSurvey.id}
+                        name={selectedSurvey.name}
+                        dueDate={selectedSurvey.dueDate}
+                        meetingDate={selectedSurvey.meetingDate}
+                        answer={selectedSurvey.answer}
+                    />
+                    )
+                }
+                {
+                    selectedSurvey == null && (
+                    <div className='empty'>
+                        <img src={process.env.PUBLIC_URL + '/images/selection.png'} alt="not selected"/>
+                        <p>오른쪽에서 설문을 선택하세요.</p>
+                    </div>
+                    )
+                }
             </div>
         </div>
     );

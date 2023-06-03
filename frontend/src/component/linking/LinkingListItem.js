@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function LinkingListItem(props){
 
     return (
-        <div className="linkinglistitem-box">
+        <div className="linkinglistitem-box" onClick={ props.click }>
             <div className='linkinglistitem-text'>
                 <p>{ props.name }</p>
                 <div className='linkinglistitem-answer'>
