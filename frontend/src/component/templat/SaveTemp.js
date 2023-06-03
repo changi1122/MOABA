@@ -27,7 +27,7 @@ function SaveTemp(){
         <div className="HC-body">
             <div className="Template-Body">
                 <input type="text" placeholder="Search" className="Template-Body-search" id="search"/>
-                <span class="material-symbols-outlined material-search" onClick={SearchString}>
+                <span className="material-symbols-outlined material-search" onClick={SearchString}>
                     search
                 </span>
             </div>

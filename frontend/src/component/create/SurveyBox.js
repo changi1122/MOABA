@@ -20,7 +20,7 @@ function SurveyBox({ box, index, handleQuestionChange, handleAnswerTypeChange, h
                 <option value="드롭다운">드롭다운</option>
                 <option value="체크박스">체크박스</option>
                 </select>
-                <span class="material-symbols-outlined survay-icon-color survay-icon-font-M" onClick={() => deleteBox(index)}>
+                <span className="material-symbols-outlined survay-icon-color survay-icon-font-M" onClick={() => deleteBox(index)}>
                         delete_forever
                 </span>
             </div>
@@ -51,7 +51,7 @@ function SurveyBox({ box, index, handleQuestionChange, handleAnswerTypeChange, h
                         handleAnswerChange(index, answerIndex, event)
                         }
                     />
-                    <span class="material-symbols-outlined survay-icon-color survay-icon-font-M" onClick={() => deleteAnswer(index, answerIndex)}>
+                    <span className="material-symbols-outlined survay-icon-color survay-icon-font-M" onClick={() => deleteAnswer(index, answerIndex)}>
                         delete_forever
                     </span>
                     </div>

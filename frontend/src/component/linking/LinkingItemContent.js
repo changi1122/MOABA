@@ -39,6 +39,7 @@ function LinkingItemContent() {
             arr.push(
                 <SplideSlide>
                     <SqlideSlideCont
+                        key = {i}
                         img =  {linkingItem[i]["img"]}
                         storeN = {linkingItem[i]["storeN"]}
                         BtnStr = {linkingItem[i]["BtnStr"]}

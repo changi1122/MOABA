@@ -9,7 +9,7 @@ export default function PlaceWindow(props){
     return (
         <div className='place-window-container'>
             <a className='close-button' onClick={() => { props.setIsWindowOpened(false) }}>
-                <span class="material-symbols-outlined">close</span>
+                <span className="material-symbols-outlined">close</span>
             </a>
             <div className='window-flex'>
                 <div className='placeinfo'>
@@ -32,15 +32,15 @@ export default function PlaceWindow(props){
                     <div className='info'>
                         <h1>청춘튀겨</h1>
                         <div className='metadata'>
-                            <p><span class="material-symbols-outlined">location_on</span> 충청북도 청주시 서원구 충대로 1</p>
-                            <p><span class="material-symbols-outlined">smartphone</span> 043-261-2222</p>
+                            <p><span className="material-symbols-outlined">location_on</span> 충청북도 청주시 서원구 충대로 1</p>
+                            <p><span className="material-symbols-outlined">smartphone</span> 043-261-2222</p>
                         </div>
                         <ul className='category'>
                             <li>#동아리</li>
                             <li>#친목</li>
                             <li>#5인</li>
                         </ul>
-                        <div class='map'>
+                        <div className='map'>
                             지도
                         </div>
                     </div>
