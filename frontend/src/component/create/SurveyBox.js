@@ -8,6 +8,7 @@ function SurveyBox({ box, index, handleQuestionChange, handleAnswerTypeChange, h
                 type="text"
                 placeholder="질문"
                 value={box.question}
+                style={{ width: '100%' }}
                 onChange={(event) => handleQuestionChange(index, event)}
                 />
                 <select
@@ -37,23 +38,23 @@ function SurveyBox({ box, index, handleQuestionChange, handleAnswerTypeChange, h
             {box.answerType === "객관식" && (
                 <div className="survey-answer-row">
                 {box.answers.map((answer, answerIndex) => (
-                    <div key={answerIndex}>
-                    <input
-                        type="radio"
-                        checked={box.selectedAnswerIndex === answerIndex}
-                        onChange={() => handleSingleChoiceAnswerChange(index, answerIndex)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="답변"
-                        value={answer}
-                        onChange={(event) =>
-                        handleAnswerChange(index, answerIndex, event)
-                        }
-                    />
-                    <span className="material-symbols-outlined survay-icon-color survay-icon-font-M" onClick={() => deleteAnswer(index, answerIndex)}>
-                        delete_forever
-                    </span>
+                    <div key={answerIndex} className='answerBox'>
+                        <input
+                            type="radio"
+                            checked={box.selectedAnswerIndex === answerIndex}
+                            onChange={() => handleSingleChoiceAnswerChange(index, answerIndex)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="답변"
+                            value={answer}
+                            onChange={(event) =>
+                            handleAnswerChange(index, answerIndex, event)
+                            }
+                        />
+                        <button onClick={() => deleteAnswer(index, answerIndex)}>
+                            삭제
+                        </button>
                     </div>
                 ))}
                 <button onClick={() => addAnswer(index)}>답변 추가</button>
@@ -62,7 +63,7 @@ function SurveyBox({ box, index, handleQuestionChange, handleAnswerTypeChange, h
             {box.answerType === "드롭다운" && (
                 <div className="survey-answer-row">
                 {box.answers.map((answer, answerIndex) => (
-                    <div key={answerIndex}>
+                    <div key={answerIndex} className='answerBox'>
                     <input
                         type="text"
                         placeholder="답변"
@@ -82,7 +83,7 @@ function SurveyBox({ box, index, handleQuestionChange, handleAnswerTypeChange, h
             {box.answerType === "체크박스" && (
                 <div className="survey-answer-row">
                 {box.answers.map((answer, answerIndex) => (
-                    <div key={answerIndex}>
+                    <div key={answerIndex} className='answerBox'>
                     <input
                         type="checkbox"
                         checked={answer.isChecked}
