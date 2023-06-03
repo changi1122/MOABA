@@ -37,9 +37,8 @@ function LinkingItemContent() {
 
         for(var i=0; i<linkingItem.length;i++){
             arr.push(
-                <SplideSlide>
+                <SplideSlide key={i}>
                     <SqlideSlideCont
-                        key = {i}
                         img =  {linkingItem[i]["img"]}
                         storeN = {linkingItem[i]["storeN"]}
                         BtnStr = {linkingItem[i]["BtnStr"]}
