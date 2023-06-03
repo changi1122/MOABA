@@ -10,7 +10,7 @@
 }   
 
 .sidebar-basic-style{
-    transition-delay: 0.5s;
+    transition-delay: 0.2s;
     border-radius: 0px 10px 10px 0px;
 }
 
@@ -25,7 +25,7 @@
     background-color: var(--white-blue-color-opacity);
     position: fixed;
     left: 0px;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
     border-radius: 0px 10px 10px 0px;
     z-index: -1;
 }

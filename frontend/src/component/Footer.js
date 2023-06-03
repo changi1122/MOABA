@@ -1,22 +1,40 @@
 import React from "react";
+import PersonalInfo from "./footer/PersonalInfo";
 import "./FooterStyle.css";
 
 function Footer(){
 
     return(
         <div className="Footer">
-            
-            <p>오늘 모일 사람을</p>
-            <h4>모아봐</h4>
+            <div className="Footer-body">
+                <p id="Footer-title">오늘 만날 사람을</p>
+                <p id="Footer-title">모아봐</p>
 
-            <hr />
-
-            <p>Team <span>Cheongju Mate</span></p>
-            <p>Members 
-                <span>Seongwook Kim</span> 
-                <span>Woochang Lee</span>
-                <span>Wonbae Jae</span>
-            </p>
+                <div className="Footer-body-content">
+                    <div className="Footer-BC">
+                        <div>Team <br /><span>Cheongju Mate</span></div>
+                    </div>
+                    
+                    <div className="Footer-BC">
+                        <div>Members 
+                            <div className="Members-user">
+                                <PersonalInfo
+                                    img={"http://localhost:3000/images/user.jpg"}
+                                    user="Seongwook Kim"
+                                />
+                                <PersonalInfo
+                                    img={"http://localhost:3000/images/user.jpg"}
+                                    user="Woochang Lee"
+                                />
+                                <PersonalInfo
+                                    img={"http://localhost:3000/images/user.jpg"}
+                                    user="JaeWon Bae"
+                                />
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

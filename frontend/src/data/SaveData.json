@@ -1,0 +1,36 @@
+{
+    "Data":[
+        {
+            "title":"CUVIC is 1",
+            "id" : 1
+        },
+        {
+            "title":"CUVIC is 2",
+            "id" : 2
+        },
+        {
+            "title":"CUVIC is 3",
+            "id" : 3
+        },
+        {
+            "title":"CUVIC is 4",
+            "id" : 4
+        },
+        {
+            "title":"CUVIC is 5",
+            "id" : 5
+        },
+        {
+            "title":"CUVIC is 6",
+            "id" : 6
+        },
+        {
+            "title":"CUVIC is 7",
+            "id" : 7
+        }, {
+            "title":"CUVIC is 8",
+            "id" : 8
+        }
+        
+    ]
+}

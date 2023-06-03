@@ -4,6 +4,7 @@
     flex-direction: column;
     width: 100%;
     margin-left: 150px;
+    position: relative;
 }
 
 .home-H{
@@ -16,4 +17,8 @@
     font-weight: 600;
     font-size: 50px;
     margin: 0px 0px 100px 0px;
+}
+
+.None{
+    height: 300px;
 }

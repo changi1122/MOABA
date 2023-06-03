@@ -1,4 +1,4 @@
-import { type } from "@testing-library/user-event/dist/type";
+
 
 export const INCRESE = "COUNT/INCRESE";
 export const DECREASE = "COUNT/DECREASE";
@@ -14,6 +14,9 @@ export const SAVE = "CLICK/SAVE";
 export const PROFILE = "CLICK/PROFILE";
 export const CREATE = "CLICK/CREATE";
 export const LINKING = "CLICK/LINKING";
+
+export const SEARCHING = "SEARCH/SEARCHING";
+export const TONULL = "SEARCH/TONULL";
 
 
 export const increaseCount = (count) =>({
@@ -66,12 +69,23 @@ export const StateLinking = (click) =>({
 });
 
 
+export const makeToNUll = (search) =>({
+    type:TONULL, search
+});
+
+export const makeToSearch = (search)=>{
+    return{
+        type: SEARCHING,
+        payload: search
+    };
+};
 
 
 const initalState = {
     count :0,
     isLogin : "LogOut",
     click: "None",
+    search:""
 };
 
 export const counter = (state = initalState, action) =>{
@@ -135,6 +149,16 @@ export const counter = (state = initalState, action) =>{
             return{
                 ...state,
                 click:"Linking"
+            }
+        case SEARCHING:
+            return{
+                ...state,
+                search: action.payload
+            }
+        case TONULL:
+            return{
+                ...state,
+                search:""
             }
         default:
             return state;

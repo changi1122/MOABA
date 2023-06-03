@@ -10,14 +10,12 @@ function MainPage(){
         <div className="horazion">
             <Sidebar 
                 width={"100%"}
-                height="100%"  
                 position="center" 
                 content={IntroShow()} 
                 isShow={false}
             />
             <Sidebar 
                 width={"400px"}
-                height="100%"
                 color="white-blue"
                 position="center"
                 content={AccessShow()}

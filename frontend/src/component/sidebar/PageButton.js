@@ -5,7 +5,7 @@ import PageMoveB from "./PageMoveB";
 import "./PageButtonStyle.css"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { StateCreate, StateLinking, StateNone, StateProfile, StateSave, StateTemp, setlogout } from "../../reducers/counter";
+import { StateCreate, StateLinking, StateNone, StateProfile, StateSave, StateTemp, makeToNUll, setlogout } from "../../reducers/counter";
 
 
 function PageButton(){
@@ -17,27 +17,32 @@ function PageButton(){
 
 
     function Logout(){
+        dispacth(makeToNUll());
         dispacth(setlogout());
         navigate('/');
     }
 
 
     function MoveToMyPage(){
+        dispacth(makeToNUll());
         dispacth(StateProfile());
         navigate('/user');
     }
 
     function MoveToCratePage(){
+        dispacth(makeToNUll());
         dispacth(StateCreate());
         navigate('/create');
     }
 
     function MoveToLinkingPage(){
+        dispacth(makeToNUll());
         dispacth(StateLinking());
         navigate('/linking');
     }
 
     function MoveToTempPage(){
+        dispacth(makeToNUll());
         dispacth(StateTemp());
         navigate('/temp/page/1');
     }
@@ -136,7 +141,7 @@ function PageButton(){
             />
             
             <button className="button-add" onClick={Logout} > 
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     logout
                 </span>
             </button>

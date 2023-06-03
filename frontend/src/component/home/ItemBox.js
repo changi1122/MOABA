@@ -6,6 +6,9 @@ import "./ItemBoxStyle.css";
 
 function ItemBox(props){
 
+    //console.log("sd" + props.img);
+
+
     return(
         <div className="Rcmnd-box">
             <img src={props.img} alt="" />

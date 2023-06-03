@@ -1,5 +1,5 @@
 import React from "react";
-import SaveTemp from "../component/template/SaveTemp";
+import SaveTemp from "../component/templat/SaveTemp";
 import Layout from "../component/Layout";
 
 function TemplatePage(){
