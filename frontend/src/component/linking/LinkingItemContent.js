@@ -8,10 +8,16 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/skyblue';
 
 import PlaceWindow from './PlaceWindow';
+import SqlideSlideCont from './SqlideSlideCont';
+
+
+import LinkingItem from "../../data/Linkingitem.json";
 
 function LinkingItemContent() {
 
     const [isWindowOpened, setIsWindowOpened] = useState(false);
+
+    var linkingItem = LinkingItem.Data;
 
     const oneSampleData = [
         ["Task", "Hours per Day"],
@@ -24,6 +30,25 @@ function LinkingItemContent() {
 
     function openPlaceWindow() {
         setIsWindowOpened(true);
+    }
+
+    function MakeShowItem(){
+        var arr= [];
+
+        for(var i=0; i<linkingItem.length;i++){
+            arr.push(
+                <SplideSlide>
+                    <SqlideSlideCont
+                        img =  {linkingItem[i]["img"]}
+                        storeN = {linkingItem[i]["storeN"]}
+                        BtnStr = {linkingItem[i]["BtnStr"]}
+                        action = {openPlaceWindow}
+                    />
+                </SplideSlide>
+            )
+        }
+
+        return arr;
     }
 
     return (
@@ -80,94 +105,10 @@ function LinkingItemContent() {
                         perPage: 3,
                         rewind : true,
                     }}>
-                    <SplideSlide>
-                        <div className="place">
-                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
-                            <div className='text-area'>
-                                <p>가게 이름</p>
-                            </div>
-                            <div className='button-area'>
-                                <button onClick={openPlaceWindow}>View more</button>
-                            </div>
-                        </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                        <div className="place">
-                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
-                            <div className='text-area'>
-                                <p>가게 이름</p>
-                            </div>
-                            <div className='button-area'>
-                                <button onClick={openPlaceWindow}>View more</button>
-                            </div>
-                        </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                        <div className="place">
-                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
-                            <div className='text-area'>
-                                <p>가게 이름</p>
-                            </div>
-                            <div className='button-area'>
-                                <button onClick={openPlaceWindow}>View more</button>
-                            </div>
-                        </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                        <div className="place">
-                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
-                            <div className='text-area'>
-                                <p>가게 이름</p>
-                            </div>
-                            <div className='button-area'>
-                                <button onClick={openPlaceWindow}>View more</button>
-                            </div>
-                        </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                        <div className="place">
-                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
-                            <div className='text-area'>
-                                <p>가게 이름</p>
-                            </div>
-                            <div className='button-area'>
-                                <button onClick={openPlaceWindow}>View more</button>
-                            </div>
-                        </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                        <div className="place">
-                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
-                            <div className='text-area'>
-                                <p>가게 이름</p>
-                            </div>
-                            <div className='button-area'>
-                                <button onClick={openPlaceWindow}>View more</button>
-                            </div>
-                        </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                        <div className="place">
-                            <img src="https://picsum.photos/id/237/200/100" alt="Image 1"/>
-                            <div className='text-area'>
-                                <p>가게 이름</p>
-                            </div>
-                            <div className='button-area'>
-                                <button onClick={openPlaceWindow}>View more</button>
-                            </div>
-                        </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                        <div className="place">
-                            <img src="https://picsum.photos/id/243/200/100" alt="Image 1"/>
-                            <div className='text-area'>
-                                <p>가게 이름</p>
-                            </div>
-                            <div className='button-area'>
-                                <button onClick={openPlaceWindow}>View more</button>
-                            </div>
-                        </div>
-                    </SplideSlide>
+                    
+                    {
+                        MakeShowItem()
+                    }
                 </Splide>
             </div>
             {
