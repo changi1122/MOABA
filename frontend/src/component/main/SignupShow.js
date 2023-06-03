@@ -25,30 +25,33 @@ export default function SignupShow(showState, setShowState) {
 
     return(
         <div className="signup">
-            <p className='title'>회원가입</p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td><label htmlFor='id'>아이디</label></td>
-                        <td><input id='id' type="text" placeholder="아이디 입력" value={ID} onChange={(e) => { setID(e.target.value); }}/></td>
-                    </tr>
-                    <tr>
-                        <td><label htmlFor='pw'>비밀번호</label></td>
-                        <td><input id='pw' type="password" placeholder="비밀번호 입력" value={PW} onChange={(e) => { setPW(e.target.value); }}/></td>
-                    </tr>
-                    <tr>
-                        <td><label htmlFor='repw'>비밀번호 재입력</label></td>
-                        <td><input id='repw' type="password" placeholder="비밀번호 재입력" value={RePW} onChange={(e) => { setRePW(e.target.value); }}/></td>
-                    </tr>
-                    <tr>
-                        <td><label htmlFor='email'>이메일</label></td>
-                        <td><input id='email' type="email" placeholder="이메일 주소 입력" value={email} onChange={(e) => { setEmail(e.target.value); }}/></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div style={{ textAlign: 'right', marginTop: '20px' }}>
-                <button className="signup-button" onClick={CheckIsValid}>회원가입</button>
-            </div>
+            <form>
+                <p className='title'>회원가입</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label htmlFor='id'>아이디</label></td>
+                            <td><input id='id' type="text" placeholder="아이디 입력" value={ID} onChange={(e) => { setID(e.target.value); }}/></td>
+                        </tr>
+                        <tr>
+                            <td><label htmlFor='pw'>비밀번호</label></td>
+                            <td><input id='pw' type="password" placeholder="비밀번호 입력" value={PW} onChange={(e) => { setPW(e.target.value); }}/></td>
+                        </tr>
+                        <tr>
+                            <td><label htmlFor='repw'>비밀번호 재입력</label></td>
+                            <td><input id='repw' type="password" placeholder="비밀번호 재입력" value={RePW} onChange={(e) => { setRePW(e.target.value); }}/></td>
+                        </tr>
+                        <tr>
+                            <td><label htmlFor='email'>이메일</label></td>
+                            <td><input id='email' type="email" placeholder="이메일 주소 입력" value={email} onChange={(e) => { setEmail(e.target.value); }}/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style={{ textAlign: 'right', marginTop: '20px' }}>
+                    <button className="signup-button" onClick={CheckIsValid}>회원가입</button>
+                </div>
+            </form>
+            <span class="circle"></span>
         </div>
     );
 }

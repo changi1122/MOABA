@@ -1,5 +1,13 @@
 .signup {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.signup>form {
     margin: 0 auto;
+    display: inline-block;
 }
 
 .signup .title {
@@ -35,4 +43,16 @@
 .signup .signup-button:hover {
     background-color: #4558a6;
     border: none;
+}
+
+
+.signup .circle {
+    position: absolute;
+    bottom: -250px;
+    right: -250px;
+    width: 600px;
+    height: 600px;
+    background-color: #5B74DA;
+    border-radius: 50%;
+    display: inline-block;
 }
