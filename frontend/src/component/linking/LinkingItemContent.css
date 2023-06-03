@@ -79,12 +79,15 @@
 
 .place-recommend .place .text-area {
     position: absolute;
-    bottom: 100px;
+    bottom: 92px;
     left: 20px;
 }
 .place-recommend .place .text-area p {
     font-size: 16px;
     color: white;
+    background-color: rgba(0,0,0,0.4);
+    padding: 4px 8px;
+    border-radius: 20px;
 }
 
 .place-recommend .place .button-area {
