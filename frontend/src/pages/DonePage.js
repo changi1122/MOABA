@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../component/Layout";
-import SrvList from "../component/done/SrvList";
+import ServeyList from "../component/done/ServeyList";
 
 function DonePage(){
     
@@ -8,7 +8,7 @@ function DonePage(){
         <Layout
             header={"Result"}
             align_items={"Layout-center"}
-            body={SrvList()}
+            body={ServeyList()}
             T_styel={"content-H"}
             color={"white-blue-color"}
         />

@@ -10,7 +10,7 @@ function SqlideSlideCont(props){
             </div>
 
             <div className='button-area'>
-                <button onClick={() => { props.action(props.storeN) }}>{props.BtnStr}</button>
+                <button onClick={() => { props.action(props.storeN) }}>자세히보기</button>
             </div>
         </div>
     );

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
-import LinkingDetailItem from './LinkingDetailItem';
-import LinkingListItem from './LinkingListItem';
+import LinkingDetailItem from '../linking/LinkingDetailItem';
+import LinkingListItem from '../linking/LinkingListItem';
 
 import "react-day-picker/dist/style.css";
-import "./LinkingContent.css"
+import "../linking/LinkingContent.css"
 
-export default function LinkingContent() {
+export default function SurveyList(){
     const [selectedDay, setSelectedDay] = useState(Date.now());
     const [todaySurveys, setTodaySurveys] = useState([]);
     const [selectedSurvey, setSelectedSurvey] = useState(null);

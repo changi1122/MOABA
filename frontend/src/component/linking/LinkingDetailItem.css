@@ -76,7 +76,14 @@
     flex-direction: column;
     align-items: center;
     font-size: 14px;
+    margin-top: 20px;
+    border: none;
 }
+.linking-detail .action .qrcode:hover {
+    background-color: transparent;
+    color: #000;
+}
+
 .linking-detail .action .qrcode svg {
     margin-bottom: 8px;
 }
