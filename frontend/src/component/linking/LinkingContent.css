@@ -19,6 +19,16 @@
     top: 40px;
 }
 
+.linkingcontent .list .empty {
+    text-align: center;
+    padding: 40px 0;
+    color: #777;
+}
+.linkingcontent .list .empty>img {
+    width: 80px;
+    margin-bottom: 8px;
+}
+
 .linkingcontent .content {
     flex: 1;
 }

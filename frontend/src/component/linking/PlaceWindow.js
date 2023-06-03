@@ -13,13 +13,12 @@ export default function PlaceWindow(props){
     const [image, setImage] = useState([]);
     
     const getData = async (name) => {
-        console.log(name);
         const response = await fetch(`/data/place/${encodeURIComponent(name)}.json`, {
-          headers : { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-           }
-        }
+                headers : { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            }
         );
         return response.json();
       }
