@@ -38,7 +38,10 @@ function LinkingItemContent() {
         var arr= [];
         // 여기에 분류 위한 조건문 추가 
 
-        for(var i=0; i<linkingItem.length;i++){
+        // 셔플
+        linkingItem.sort(() => Math.random() - 0.5);
+        
+        for(var i = 0; i < linkingItem.length; i++){
             arr.push(
                 <SplideSlide key={i}>
                     <SqlideSlideCont
@@ -101,7 +104,7 @@ function LinkingItemContent() {
             </form>
 
             <div className='place-recommend'>
-                <h1 id='place'>Place recommendations</h1>
+                <h1 id='place'>장소 추천</h1>
                 <Splide
                     aria-label="Recommended Places"
                     options={{

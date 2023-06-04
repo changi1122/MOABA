@@ -65,7 +65,10 @@ function CrtSurvey() {
 
   const addAnswer = (index) => {
     const newBoxes = [...boxes];
-    newBoxes[index].answers.push({ text: "", isChecked: false });
+    if (boxes[index].answerType === "체크박스")
+      newBoxes[index].answers.push({ text: "", isChecked: false });
+    else
+      newBoxes[index].answers.push("");
     setBoxes(newBoxes);
   };
 
@@ -110,73 +113,53 @@ function CrtSurvey() {
       <div className="survey">
         <input
           type="text"
-          placeholder="Title"
-          style={{ fontSize: "30px", backgroundColor: "transparent" }}
+          placeholder="제목"
+          style={{ fontSize: "30px", backgroundColor: "transparent", width: "100%", borderBottom: '1px solid #ccc', paddingBottom: '8px' }}
           onChange={handleTitleChange}
         />
-        <hr style={{ borderStyle: "dashed" }} />
 
-        <div className="survey-category-row">
-          <label className="survey-category-label">Category</label>
-        </div>
-        <hr
-          style={{
-            borderStyle: "solid",
-            marginTop: "10px",
-            marginBottom: "10px"
-          }}
-        />
-        <div className="survey-category-input">
+        <div className="survey-category-row" style={{ alignItems: 'center' }}>
+          <label className="survey-category-label">모임 유형</label>
+          <div className="survey-category-input">
           {categories.map((category, index) => (
-            <div key={index}>
+            <div className='tag' key={index}>
               {category}
               <span
                 className="material-icons"
                 onClick={() => deleteCategory(index)}
               >
-                delete
+                close
               </span>
             </div>
           ))}
           <button className="survey-category-add-button" onClick={handleCategoryPopup}>
-            +
+            추가
           </button>
           {showCategoryPopup && (
             <div className="survey-category-popup">
-              <button className="survey-category-close-category-button" onClick={() => setShowCategoryPopup(false)}>Close</button>
+              <div style={{ textAlign: 'right' }}>
+                <button className="survey-category-close-category-button" style={{}} onClick={() => setShowCategoryPopup(false)}>닫기</button>
+              </div>
               <h2>그룹 성격</h2>
-              <hr
-                style={{
-                  borderStyle: "dashed",
-                  marginBottom: "10px"
-                }}
-              />
-              <button onClick={() => handleCategorySelect("친구")}>친구</button>
-    <button onClick={() => handleCategorySelect("직장")}>직장</button>
-    <button onClick={() => handleCategorySelect("동아리")}>동아리</button>
-    <button onClick={() => handleCategorySelect("학교")}>학교</button>
-    <button onClick={() => handleCategorySelect("가족")}>가족</button>
+              <button className='tag' onClick={() => handleCategorySelect("친구")}>친구</button>
+              <button className='tag' onClick={() => handleCategorySelect("직장")}>직장</button>
+              <button className='tag' onClick={() => handleCategorySelect("동아리")}>동아리</button>
+              <button className='tag' onClick={() => handleCategorySelect("학교")}>학교</button>
+              <button className='tag' onClick={() => handleCategorySelect("가족")}>가족</button>
 
               <h2>모임 성격</h2>
-              <hr
-                style={{
-                  borderStyle: "dashed",
-                  marginBottom: "10px"
-                }}
-              />
-              <button onClick={() => handleCategorySelect("회식")}>회식</button>
-              <button onClick={() => handleCategorySelect("친목")}>친목</button>
-              <button onClick={() => handleCategorySelect("번개")}>번개</button>
-              <button onClick={() => handleCategorySelect("스터디")}>스터디</button>
+              <button className='tag' onClick={() => handleCategorySelect("회식")}>회식</button>
+              <button className='tag' onClick={() => handleCategorySelect("친목")}>친목</button>
+              <button className='tag' onClick={() => handleCategorySelect("번개")}>번개</button>
+              <button className='tag' onClick={() => handleCategorySelect("스터디")}>스터디</button>
             </div>
           )}
         </div>
+        </div>
 
         <div className="survey-category-date-time">
-          <label>Meeting Date:</label>
-          <input type="date" />
-          <label>Time:</label>
-          <input type="time" />
+          <label>모임 예정일시</label>
+          <input type="datetime-local" />
         </div>
 
         {boxes.map((box, index) => (
@@ -196,16 +179,12 @@ function CrtSurvey() {
         ))}
 
         <div className="survey-category-date-time">
-          <label>Due Date:</label>
-          <input type="date"/>
-          <label>Time:</label>
-          <input type="time"/>
+          <label>응답 종료일시</label>
+          <input type="datetime-local" />
         </div>
         <div className="survey-buttons">
-          <button onClick={addBox}>추가</button>
-          <span className="material-symbols-outlined survey-icon-color survey-icon-font-M">
-            delete_forever
-          </span>
+          <button onClick={addBox}>질문 추가</button>
+          <button>삭제</button>
           <button>임시저장</button>
           <button>저장</button>
         </div>
