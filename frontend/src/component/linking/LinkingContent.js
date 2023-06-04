@@ -3,7 +3,6 @@ import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import LinkingDetailItem from './LinkingDetailItem';
 import LinkingListItem from './LinkingListItem';
-import DailySurv from "../../data/DailySurv.json";
 import "react-day-picker/dist/style.css";
 import "./LinkingContent.css"
 
@@ -51,36 +50,6 @@ export default function LinkingContent() {
     function selectSurvey(index) {
         console.log(index);
         setSelectedSurvey(todaySurveys[index]);
-    }
-
-    function ShowDailySurv() {
-        var arr = [];
-        for (var i = 0; i < todaySurveys.length; i++) {
-            var dayStr = format(selectedDay, 'yyyy.MM.dd');
-            if (dayStr === todaySurveys[i]["date"]) {
-                arr.push(
-                    <LinkingListItem
-                        key={todaySurveys[i]["name"]}
-                        name={todaySurveys[i]["name"]}
-                        date={todaySurveys[i]["date"]}
-                        answer={todaySurveys[i]["answer"]}
-                    />
-                )
-            }
-        }
-
-        if (arr.length === 0) {
-            arr.push(
-                <div className="Resting-day">
-                    <span class="material-symbols-outlined material-Resting">
-                        coffee
-                    </span>
-                    <p>Resting ...</p>
-                </div>
-            )
-        }
-
-        return arr
     }
 
     return (
