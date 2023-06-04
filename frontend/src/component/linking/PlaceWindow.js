@@ -15,14 +15,14 @@ export default function PlaceWindow(props){
     const getData = async (name) => {
         console.log(name);
         const response = await fetch(`/data/place/${encodeURIComponent(name)}.json`, {
-          headers : { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-           }
+            headers : { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
         }
         );
         return response.json();
-      }
+    }
 
     const loadMap = async (name) => {
         const data = await getData(name);
