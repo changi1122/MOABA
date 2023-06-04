@@ -1,13 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
-
 import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import LinkingDetailItem from './LinkingDetailItem';
 import LinkingListItem from './LinkingListItem';
-
 import DailySurv from "../../data/DailySurv.json";
-
 import "react-day-picker/dist/style.css";
 import "./LinkingContent.css"
 
@@ -24,19 +20,17 @@ export default function LinkingContent() {
         }
     }, [])
 
-
     useEffect(() => {
         loadTodaySurveys(selectedDay);
     }, []);
 
     const loadTodaySurveys = async (date) => {
         const response = await fetch(`/data/LinkingItemList.json`, {
-                headers : { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             }
-        );
+        });
         const data = await response.json();
         if (!data) return;
 
@@ -47,9 +41,7 @@ export default function LinkingContent() {
         }
     }
 
-
-    function selectDay(day)
-    {
+    function selectDay(day) {
         if (day) {
             loadTodaySurveys(format(day, 'yyyy-MM-dd'));
             setSelectedDay(day);
@@ -61,14 +53,14 @@ export default function LinkingContent() {
         setSelectedSurvey(todaySurveys[index]);
     }
 
-    function ShowDailySurv(){
-        var arr=[];
-        for(var i=0; i<todaySurveys.length; i++){
+    function ShowDailySurv() {
+        var arr = [];
+        for (var i = 0; i < todaySurveys.length; i++) {
             var dayStr = format(selectedDay, 'yyyy.MM.dd');
-            if(dayStr === todaySurveys[i]["date"]){
+            if (dayStr === todaySurveys[i]["date"]) {
                 arr.push(
                     <LinkingListItem
-                        key = {todaySurveys[i]["name"]}
+                        key={todaySurveys[i]["name"]}
                         name={todaySurveys[i]["name"]}
                         date={todaySurveys[i]["date"]}
                         answer={todaySurveys[i]["answer"]}
@@ -77,7 +69,7 @@ export default function LinkingContent() {
             }
         }
 
-        if(arr.length ===0 ){
+        if (arr.length === 0) {
             arr.push(
                 <div className="Resting-day">
                     <span class="material-symbols-outlined material-Resting">
@@ -99,6 +91,7 @@ export default function LinkingContent() {
                     <p className='selectedDay'>{format(selectedDay, 'yyyy년 MM월 dd일')} 예정된 설문</p>
                     <div className='linking-list'>
                         {
+
                            // ShowDailySurv()
 
                             todaySurveys && todaySurveys.map((survey, index) => (
@@ -114,7 +107,7 @@ export default function LinkingContent() {
                         {
                             todaySurveys.length === 0 && (
                                 <div className='empty'>
-                                    <img src={process.env.PUBLIC_URL + '/images/empty.png'} alt="empty list"/>
+                                    <img src={process.env.PUBLIC_URL + '/images/empty.png'} alt="empty list" />
                                     <p>예정된 설문이 없습니다.</p>
                                 </div>
                             )
@@ -125,21 +118,21 @@ export default function LinkingContent() {
             <div className='preview'>
                 {
                     selectedSurvey && (
-                    <LinkingDetailItem
-                        id={selectedSurvey.id}
-                        name={selectedSurvey.name}
-                        dueDate={selectedSurvey.dueDate}
-                        meetingDate={selectedSurvey.meetingDate}
-                        answer={selectedSurvey.answer}
-                    />
+                        <LinkingDetailItem
+                            id={selectedSurvey.id}
+                            name={selectedSurvey.name}
+                            dueDate={selectedSurvey.dueDate}
+                            meetingDate={selectedSurvey.meetingDate}
+                            answer={selectedSurvey.answer}
+                        />
                     )
                 }
                 {
                     selectedSurvey == null && (
-                    <div className='empty'>
-                        <img src={process.env.PUBLIC_URL + '/images/selection.png'} alt="not selected"/>
-                        <p>오른쪽에서 설문을 선택하세요.</p>
-                    </div>
+                        <div className='empty'>
+                            <img src={process.env.PUBLIC_URL + '/images/selection.png'} alt="not selected" />
+                            <p>오른쪽에서 설문을 선택하세요.</p>
+                        </div>
                     )
                 }
             </div>

@@ -1,0 +1,12 @@
+{
+    "name": "도시어부포차",
+    "address": "충북 청주시 서원구 1순환로674번길 24 2층",
+    "tel": "0507-1302-0823",
+    "tags": [ "맥주", "호프", "최대 32인" ],
+    "lat": 36.6329445369652,
+    "lng": 127.45927076480528,
+    "navermap": "https://naver.me/FvnTIchB",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190220_189%2F1550661241039njboO_JPEG%2FbsM3QpFBfRTz1Vxw1GR1DwPE.jpg",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220712_283%2F1657604350631jnxM0_JPEG%2FKakaoTalk_20220712_142953301.jpg",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220712_284%2F1657604351335pmmld_JPEG%2FKakaoTalk_20220712_142953301_01.jpg"]
+}
