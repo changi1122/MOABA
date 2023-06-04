@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 import React, { useState, useEffect } from 'react';
-=======
-import React, { useEffect, useState } from 'react';
->>>>>>> 0f3613d7d2a11172c34dc598eb8aca3b06da39a7
 
 import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
@@ -19,7 +16,6 @@ export default function LinkingContent() {
     const [todaySurveys, setTodaySurveys] = useState([]);
     const [selectedSurvey, setSelectedSurvey] = useState(null);
 
-<<<<<<< HEAD
     useEffect(()=>{
         var today = document.getElementsByClassName("rdp-day_today");
         console.log(today);
@@ -28,8 +24,7 @@ export default function LinkingContent() {
         }
     }, [])
 
-    var todaySurveys = DailySurv.Data;
-=======
+
     useEffect(() => {
         loadTodaySurveys(selectedDay);
     }, []);
@@ -51,7 +46,7 @@ export default function LinkingContent() {
             setTodaySurveys([]);
         }
     }
->>>>>>> 0f3613d7d2a11172c34dc598eb8aca3b06da39a7
+
 
     function selectDay(day)
     {
@@ -104,9 +99,8 @@ export default function LinkingContent() {
                     <p className='selectedDay'>{format(selectedDay, 'yyyy년 MM월 dd일')} 예정된 설문</p>
                     <div className='linking-list'>
                         {
-<<<<<<< HEAD
-                            ShowDailySurv()
-=======
+                           // ShowDailySurv()
+
                             todaySurveys && todaySurveys.map((survey, index) => (
                                 <LinkingListItem
                                     key = {survey.id}
@@ -115,7 +109,7 @@ export default function LinkingContent() {
                                     click={() => { selectSurvey(index); }}
                                 />
                             ))
->>>>>>> 0f3613d7d2a11172c34dc598eb8aca3b06da39a7
+
                         }
                         {
                             todaySurveys.length === 0 && (
