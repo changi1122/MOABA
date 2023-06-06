@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./CrtSurveyStyle.css";
 import SurveyBox from "./SurveyBox";
+import { useEffect } from "react";
 
 function CrtSurvey() {
-  const [boxes, setBoxes] = useState([]);
+  const [boxes, setBoxes] = useState([{ question: "", answerType: "단답형", answers: [""] }]);
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
   const [showCategoryPopup, setShowCategoryPopup] = useState(false);
@@ -15,6 +16,7 @@ function CrtSurvey() {
       { question: "", answerType: "단답형", answers: [""] }
     ]);
   };
+
 
   const deleteBox = (index) => {
     setBoxes((prevBoxes) => {
@@ -162,6 +164,10 @@ function CrtSurvey() {
           <input type="datetime-local" />
         </div>
 
+        <div className="survey-category-date-time">
+          <label>응답 종료일시</label>
+          <input type="datetime-local" />
+        </div>
         {boxes.map((box, index) => (
           <SurveyBox
             key={index}
@@ -177,11 +183,6 @@ function CrtSurvey() {
             deleteAnswer={deleteAnswer}
           />
         ))}
-
-        <div className="survey-category-date-time">
-          <label>응답 종료일시</label>
-          <input type="datetime-local" />
-        </div>
         <div className="survey-buttons">
           <button onClick={addBox}>질문 추가</button>
           <button>삭제</button>
