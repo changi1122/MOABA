@@ -87,3 +87,8 @@
 .linking-detail .action .qrcode svg {
     margin-bottom: 8px;
 }
+
+
+.qrcode-style{
+    margin: 0;
+}

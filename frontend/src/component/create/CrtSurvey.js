@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./CrtSurveyStyle.css";
 import SurveyBox from "./SurveyBox";
-import { useEffect } from "react";
 
 function CrtSurvey() {
   const [boxes, setBoxes] = useState([{ question: "", answerType: "단답형", answers: [""] }]);
@@ -110,6 +109,8 @@ function CrtSurvey() {
     });
   };
 
+  
+
   return (
     <div className="right-content">
       <div className="survey">
@@ -138,7 +139,7 @@ function CrtSurvey() {
             추가
           </button>
           {showCategoryPopup && (
-            <div className="survey-category-popup">
+            <div className="survey-category-popup" id="survey-category-box">
               <div style={{ textAlign: 'right' }}>
                 <button className="survey-category-close-category-button" style={{}} onClick={() => setShowCategoryPopup(false)}>닫기</button>
               </div>

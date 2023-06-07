@@ -45,7 +45,7 @@ export default function LinkingDetailItem(props){
                 </table>
             </div>
             <div className='action'>
-                <a className='qrcode' href={`https://moaba.studio1122.net/survey/${props.id}`} target='_blank'>
+                <a className='qrcode qrcode-style' href={`https://moaba.studio1122.net/survey/${props.id}`} target='_blank'>
                     <QRCode
                         size={100}
                         style={{ display: 'block' }}

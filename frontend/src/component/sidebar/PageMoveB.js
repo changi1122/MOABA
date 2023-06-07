@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 function PageMoveB({Bstyle,icon,openicon, animation="", content, url, data}){
     
     const { click } = useSelector(state => state.counter);
+    const [active, Setactive] = useState("");
     /*
     var navigate = useNavigate();
     function MoveToTempPage(){
@@ -16,13 +17,37 @@ function PageMoveB({Bstyle,icon,openicon, animation="", content, url, data}){
         navigate(str);
     }
     */
+    useEffect(()=>{
+        if(active !== ""){
+            const x = document.getElementById(`${active}`).parentElement;
+            const str = x.className.replace(" activate-style", "");
+            x.className = str;
+            if(active === "Save" || active==="Tamp"){
+                document.getElementById(`${active}`).innerHTML ="folder";
+            }            
+        }
+
+        if(click !== "None" && click !=="Title"){
+            Setactive(click);
+            const y = document.getElementById(`${click}`).parentElement;
+            y.className += " activate-style";
+            if(click === "Save" || click==="Temp"){
+                document.getElementById(`${click}`).innerHTML ="folder_open";
+            }
+        }
+    }, [click]);
+
 
     function Open(){
-        document.getElementById(`${content}`).innerHTML = openicon;
+        if(active !== content){
+            document.getElementById(`${content}`).innerHTML = openicon;
+        }
     }
 
     function Close(){
-        document.getElementById(`${content}`).innerHTML = icon;
+        if(active !==content){
+            document.getElementById(`${content}`).innerHTML = icon;
+        }
     }
 
     function None(){

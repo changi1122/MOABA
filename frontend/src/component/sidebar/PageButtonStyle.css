@@ -31,6 +31,11 @@
     color: var(--white-blue-color-opacity);
 }
 
+.activate-style{
+    background-color:white;
+    color: var(--white-blue-color-opacity);
+}
+
 .open{
     background-color:white;
     color: var(--white-blue-color-opacity);

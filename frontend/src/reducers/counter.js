@@ -14,6 +14,7 @@ export const SAVE = "CLICK/SAVE";
 export const PROFILE = "CLICK/PROFILE";
 export const CREATE = "CLICK/CREATE";
 export const LINKING = "CLICK/LINKING";
+export const TITLE = "CLICK/TITLE";
 
 export const SEARCHING = "SEARCH/SEARCHING";
 export const TONULL = "SEARCH/TONULL";
@@ -67,6 +68,10 @@ export const StateCreate = (click) =>({
 export const StateLinking = (click) =>({
     type : LINKING, click
 });
+
+export const StateTitle = (click)=>({
+    type : TITLE, click
+})
 
 
 export const makeToNUll = (search) =>({
@@ -149,6 +154,11 @@ export const counter = (state = initalState, action) =>{
             return{
                 ...state,
                 click:"Linking"
+            }
+        case TITLE:
+            return{
+                ...state,
+                click:"Title"
             }
         case SEARCHING:
             return{

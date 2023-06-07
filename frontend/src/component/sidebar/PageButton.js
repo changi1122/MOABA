@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
 import PageMoveB from "./PageMoveB";
 
 import "./PageButtonStyle.css"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { StateCreate, StateLinking, StateNone, StateProfile, StateSave, StateTemp, makeToNUll, setlogout } from "../../reducers/counter";
+import { StateCreate, StateLinking, StateProfile, StateSave, StateTemp, makeToNUll, setlogout } from "../../reducers/counter";
 
 
 function PageButton(){
     var navigate = useNavigate();
-
-    const [Blink, SetBlink] = useState([]);
 
     const dispacth = useDispatch();
 

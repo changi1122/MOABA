@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 import PageButton from "./PageButton";
 
 import "./MenuShowStyle.css";
+import { useDispatch } from "react-redux";
+import { StateTitle } from "../../reducers/counter";
 
 function MenuShow(){
+
+    const dispacth = useDispatch();
 
     function CloseSideBar(){
         var ctnt = document.getElementById("sidebar-sub").className;
         var siblingElement = document.getElementById('sidebar-sub').previousElementSibling;
-
+        dispacth(StateTitle());
         ChageClassName(ctnt, ctnt.match("Temp")?"Temp" : "Save", siblingElement);
     }
 
