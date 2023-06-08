@@ -121,4 +121,8 @@ h1,h2,h3,h4,h5,h6{
   'opsz' 48
 }
 
+*:focus {
+  outline: 0;
+}
+
 html { overflow-y:scroll; }

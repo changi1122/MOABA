@@ -224,3 +224,9 @@ button:focus {
   .survey-buttons button:last-child {
     margin-right: 0;
   }
+
+  .Survey-content{
+    width: 100%;
+    resize: none;
+    height: 20px;
+  }

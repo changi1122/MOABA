@@ -7,7 +7,21 @@ function CrtSurvey() {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
   const [showCategoryPopup, setShowCategoryPopup] = useState(false);
-  const [showSubCategoryPopup, setShowSubCategoryPopup] = useState(false);
+  const [showSubCategoryPopup, setShowSubCategoryPopup] = useState(false);  
+
+
+  const [text, setText] = useState('');
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+    adjustTextareaHeight();
+  };
+
+  const adjustTextareaHeight = () => {
+    const textarea = document.getElementById('textarea');
+    textarea.style.height = '20px';
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  };
 
   const addBox = () => {
     setBoxes((prevBoxes) => [
@@ -97,8 +111,10 @@ function CrtSurvey() {
   };
 
   const handleCategorySelect = (category) => {
-    setCategories((prevCategories) => [...prevCategories, category]);
-    setCategory("");
+    if(!categories.includes(category)){
+      setCategories((prevCategories) => [...prevCategories, category]);
+      setCategory("");
+    };
   };
 
   const deleteCategory = (index) => {
@@ -108,8 +124,6 @@ function CrtSurvey() {
       return newCategories;
     });
   };
-
-  
 
   return (
     <div className="right-content">
@@ -154,11 +168,24 @@ function CrtSurvey() {
               <button className='tag' onClick={() => handleCategorySelect("회식")}>회식</button>
               <button className='tag' onClick={() => handleCategorySelect("친목")}>친목</button>
               <button className='tag' onClick={() => handleCategorySelect("번개")}>번개</button>
+              <button className='tag' onClick={() => handleCategorySelect("식사")}>식사</button>
               <button className='tag' onClick={() => handleCategorySelect("스터디")}>스터디</button>
             </div>
           )}
         </div>
         </div>
+
+    
+        <textarea
+          id="textarea"
+          className="Survey-content"
+          cols="30"
+          rows="10"
+          onChange={handleChange}
+          value={text}
+          placeholder="본문"
+        />
+      
 
         <div className="survey-category-date-time">
           <label>모임 예정일시</label>
