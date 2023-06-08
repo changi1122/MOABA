@@ -1,0 +1,10 @@
+{
+    "name": "에그문",
+    "address": "충북 청주시 서원구 내수동로114번길 9 에그문",
+    "tel": "0507-1318-7182",
+    "tags": ["카페", "브런치", "계란 요리"],
+    "lat": 36.633403313470026,
+    "lng": 127.46017858365249,
+    "navermap": "https://naver.me/GaM26mvc",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191108_62%2F1573218699924I41oa_JPEG%2Fp_RdXibYWjLjhJRIfrIBka3-.jpeg.jpg", "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzA2MDNfMzIg%2FMDAxNjg1NzYzNzc5NTgw.GFvEF2T_XBiiKUwrC8KvI5qjOhMfNy0vNJSKCXMuCqUg.WWhBlbsrv1_Qpn-42duQjs705xcZMMuNPzX00FZTfWIg.JPEG%2F05D106BF-CADF-4977-8ED8-60E73F0D4C87.jpeg"]
+    }
