@@ -1,10 +1,10 @@
 {
     "name": "도화주점",
-    "address": "충북 청주시 상당구 상당로 46",
-    "tel": "043-223-5756",
+    "address": "충북 청주시 서원구 내수동로108번길 33 2층",
+    "tel": "0507-1327-7740",
     "tags": ["주점", "술집", "모임"],
-    "lat": 36.630379,
-    "lng": 127.491587,
+    "lat": 36.632069187119086,
+    "lng": 127.45842645583096,
     "navermap": "https://naver.me/Fk5ZTsIg",
     "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200625_108%2F1593041591992W6uz8_JPEG%2FoICcnjV0HtzdZYK9ei_NGQMb.jpg"]
     }

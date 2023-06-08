@@ -1,0 +1,10 @@
+{
+    "name": "이찌방",
+    "address": "충북 청주시 서원구 1순환로672번길 33",
+    "tel": "043-123-4567",
+    "tags": ["맥주", "호프", "일식"],
+    "lat": 36.63304284971863,
+    "lng": 127.45831146996326,
+    "navermap": "https://naver.me/FZJnEAmU",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200525_146%2F15903892173659wVbt_JPEG%2FNLstaShOJy4TEBnE8NmyAIcT.jpeg.jpg", "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDhfMTAy%2FMDAxNjU3MjU0NTI2MzYw.j1pITklcD7LTOt9D6U04K0S8XBvWU2PHm4F7vOEu_w8g.ORndbDnc542PVgVSvL20FiohT4aKv0szB6NqxyOawdAg.JPEG.ssub_log%2FKakaoTalk_20220707_235801028_02.jpg"]
+    }
