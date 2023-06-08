@@ -16,7 +16,7 @@ import TemplatePage from './pages/TemplatePage';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './pages/HomePage';
-import { setlogout } from './reducers/counter';
+import { StateTitle, setlogout } from './reducers/counter';
 
 
 
@@ -28,11 +28,13 @@ function App() {
     var str = window.location.href;
     if(str === "http://localhost:3000/"){
       dispacth(setlogout());
+      dispacth(StateTitle());
     }
   },[dispacth]
   );
 
   const { isLogin } = useSelector(state => state.counter);
+
   console.log(isLogin);
   var UI ={
     LogOut : 
