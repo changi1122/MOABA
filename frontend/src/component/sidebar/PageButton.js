@@ -127,7 +127,6 @@ function PageButton(){
                 content="Temp"
                 url={MoveToTempPage}
                 icon="folder"
-                openicon="folder_open"
             />
 
             <PageMoveB
@@ -135,7 +134,6 @@ function PageButton(){
                 content="Save"
                 url={MoveToTemplatePage}
                 icon="folder"
-                openicon="folder_open"
             />
             
             <button className="button-add" onClick={Logout} > 

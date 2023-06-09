@@ -17,7 +17,7 @@ import AnswerPage from './pages/AnswerPage';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './pages/HomePage';
-import { StateTitle, setlogout } from './reducers/counter';
+import { setlogout } from './reducers/counter';
 
 
 
@@ -29,7 +29,6 @@ function App() {
     var str = window.location.href;
     if(str === "http://localhost:3000/"){
       dispacth(setlogout());
-      dispacth(StateTitle());
     }
   },[dispacth]
   );
