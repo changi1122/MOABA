@@ -62,16 +62,16 @@ function LinkingItemContent() {
             <form className='linking-form'>
                 <h1>개총 인원 모집</h1>
                 <div className='metadata'>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>생성일시</td>
-                            <td>2023.05.30 10:40</td>
-                        </tr>
-                        <tr>
-                            <td>응답 종료일시</td>
-                            <td>2023.06.13 12:00</td>
-                        </tr>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>모임 예정일시</td>
+                                <td>2023.05.30 10:40</td>
+                            </tr>
+                            <tr>
+                                <td>응답 종료일시</td>
+                                <td>2023.06.13 12:00</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

@@ -12,6 +12,7 @@ import Sidebar from './component/Sidebar';
 import MenuShow from './component/sidebar/MenuShow';
 import TempPage from './pages/TempPage';
 import TemplatePage from './pages/TemplatePage';
+import AnswerPage from './pages/AnswerPage';
 
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,6 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage/>} />
         <Route path="/signup" element={<SignupPage/>} />
+        <Route path="/answerform/:id" Component={AnswerPage}/>
       </Routes>,
     Log : 
     <div className='horazion'>
