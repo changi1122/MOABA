@@ -1,0 +1,11 @@
+{
+    "name": "달빛양조장",
+    "address": "충북 청주시 서원구 1순환로704번길 63 2층 달빛양조장",
+    "tel": "0507-1377-3127",
+    "tags": ["친구", "회식", "친목"],
+    "lat": 36.63235021277088,
+    "lng": 127.4584594266669,
+    "navermap": "https://naver.me/xH2nRBs2",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200328_54%2F1585406140938MYhJP_JPEG%2F9FSFSqXtgMtYu96bJsRj5LU1.jpeg.jpg",
+            "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA0MTZfMjQg%2FMDAxNjgxNjUwNjE4NTM5.yCycmSW7SO5Dsrb8nQ8CiEmBpB6yN9Yzp0G8IoXa6KQg.rTqyu2uZ28neBWqKn7q6XJBguRtV068UySZCkKf1WsIg.JPEG.jiiseonn%2FIMG_8391.JPG"]
+    }

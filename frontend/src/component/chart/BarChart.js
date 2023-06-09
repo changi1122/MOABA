@@ -1,26 +1,23 @@
 import React from "react";
 import Chart from "react-google-charts";
 
-import HoraizonBar from "./HorazionBar";
+import HorizontalBar from "./HorizontalBar";
 
 import "./BarChartStyle.css";
 
-function BarChart(){
+function BarChart(props){
 
     return(
-        <div className="Horaizon-bar-chart">
-
-            <HoraizonBar
-                total={"35"}
-                range={"30"}
-                title={"찬성"}
-            />
-            <HoraizonBar
-                total={"35"}
-                range={"5"}
-                title={"반대"}
-            />
-
+        <div className="Horaizon-bar-chart" style={{ maxWidth: props.maxWidth }}>
+            {
+                props.items && props.items.map((item) => (
+                    <HorizontalBar
+                        total={item.total}
+                        range={item.range}
+                        title={item.title}
+                    />
+                ))
+            }
         </div>
     );
 }

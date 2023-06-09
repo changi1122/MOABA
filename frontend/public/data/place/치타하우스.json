@@ -1,0 +1,12 @@
+{
+    "name": "치타하우스",
+    "address": "청주시 서원구 내수동로108번길 18 2, 3층",
+    "tel": "010-6570-2254",
+    "tags": [ "친구", "직장", "동아리", "회식", "친목" ],
+    "lat": 36.633108362898206,
+    "lng": 127.45884965858826,
+    "navermap": "https://naver.me/xGbzwoh1",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211129_288%2F1638165929936wFvfk_JPEG%2F1638094742009-5.jpg",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211129_97%2F1638165941675MC3Lg_JPEG%2F1638096251062-4.jpg"
+            ]
+}

@@ -1,0 +1,85 @@
+.linkingcontent {
+    display: flex;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.linkingcontent .rdp {
+    display: flex;
+    justify-content: center;
+}
+
+.linkingcontent .list {
+    width: 320px;
+    border-right: 1px solid #ccc;
+}
+.linkingcontent .list .sticky {
+    position: sticky;
+    top: 40px;
+}
+
+.linkingcontent .list .empty {
+    text-align: center;
+    padding: 40px 0;
+    color: #777;
+}
+.linkingcontent .list .empty>img {
+    width: 80px;
+    margin-bottom: 8px;
+}
+
+.linkingcontent .content {
+    flex: 1;
+}
+
+.linkingcontent .selectedDay {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #777;
+}
+
+.linkingcontent .linking-list {
+    margin: 10px 0;
+    padding: 7px 10px 7px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.linkingcontent .linking-list>* {
+    display: block;
+    margin: 3px 0;
+}
+
+.rdp-day_selected, .rdp-day_selected:focus-visible, .rdp-day_selected:hover {
+    background-color: #7186FB;
+}
+
+.linkingcontent .preview {
+    width: 100%;
+    margin-left: 20px;
+    margin-bottom: 60px;
+}
+
+.Resting-day{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    color: black
+}
+
+.material-Resting{
+    font-size: 60px !important;
+    color: black;
+}
+
+.linkingcontent .preview .empty {
+    text-align: center;
+    padding: 80px 0;
+    color: #777;
+}
+.linkingcontent .preview .empty>img {
+    width: 80px;
+    margin-bottom: 12px;
+}

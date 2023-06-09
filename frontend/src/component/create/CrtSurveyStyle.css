@@ -1,3 +1,226 @@
-.survey{
-    border: 1px solid rgb(124, 124, 124);
+.survey {
+  max-width: 800px;
+  margin: 0 auto;
 }
+
+.survey-box {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.survey-question-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.survey-answer-row {
+  margin-bottom: 10px;
+}
+
+.survey-buttons {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.buttons button {
+  margin-left: 10px;
+}
+
+.survey-question-row > input[type="text"],
+.survey-answer-row > input[type="text"],
+.survey-answer-row > div > input[type="text"],
+.survey-select {
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.survey-question-row > button,
+.survey-buttons > button,
+.survey-answer-row > button,
+.survey-answer-row > div > button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #7186FB;
+  color: #fff;
+  cursor: pointer;
+}
+
+.survey-buttons > button:hover,
+.survey-answer-row > button:hover {
+  background-color: #506FCC;
+}
+
+.survey-question-row > span:hover,
+.survey-answer-row > div > span:hover {
+  cursor: pointer;
+  color: #506FCC;
+}
+
+button:focus {
+  outline: none;
+}
+
+.survey-icon-color {
+  color: var(--white-blue-color-opacity);
+}
+
+.survey-icon-font-M {
+  font-size: 35px !important;
+}
+
+  
+.survey-category-row {
+  display: flex;
+  margin-bottom: 10px;
+  }
+  
+  .survey-category-label {
+    display: flex;
+    margin-right: 10px;
+    margin-top: 20px;
+  }
+  
+  .survey-category-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .survey-category-input .tag {
+    margin: 2px 4px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #7186FB;
+    border: 1px solid #7186FB;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+  }
+  .survey-category-input .tag .material-icons {
+    font-size: 16px;
+    margin-left: 8px;
+    padding: 4px 0 4px 4px;
+    user-select: none;
+    cursor: pointer;
+  }
+  
+  .survey-category-list {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  }
+  
+  .survey-category-item {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  }
+  
+  .survey-category-item .material-icons {
+  cursor: pointer;
+  }
+  
+  .survey-category-add-button {
+    padding: 4px 12px;
+    background-color: transparent;
+    color: #7186FB;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+  }
+
+  .survey-category-add-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .survey-category-popup {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 320px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .survey-category-popup input[type="text"] {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .survey-category-popup button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #7186FB;
+    cursor: pointer;
+  }
+  .survey-category-popup h2 {
+    font-size: 16px;
+    margin: 20px 0 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ccc;
+  }
+  .survey-category-popup .tag {
+    margin: 2px 4px;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #7186FB;
+    border: 1px solid #7186FB;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  
+
+  .survey-category-date-time {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-language-override: english;
+  }
+  
+  .survey-category-date-time label {
+    margin-right: 10px;
+  }
+  
+  .survey-category-date-time input[type="date"],
+  .survey-category-date-time input[type="time"],
+  .survey-category-date-time input[type="datetime-local"] {
+    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .survey-answer-row .answerBox {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+  }
+
+  .survey-answer-row input[type="checkbox"],
+  .survey-answer-row input[type="radio"] {
+    margin-right: 12px;
+  }
+
+  .survey-buttons button {
+    margin: 0 5px;
+  }
+  .survey-buttons button:last-child {
+    margin-right: 0;
+  }

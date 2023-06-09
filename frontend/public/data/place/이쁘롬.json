@@ -1,0 +1,12 @@
+{
+    "name": "이쁘롬",
+    "address": "청주시 서원구 내수동로108번길 27 2층",
+    "tel": "0507-1317-6409",
+    "tags": [ "친구", "직장", "동아리", "학교", "회식", "친목" ],
+    "lat": 36.632607027665706,
+    "lng": 127.45857834658668,
+    "navermap": "https://naver.me/xOCI57OZ",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzA1MDVfMjc4%2FMDAxNjgzMjU0NTYwNDkw.i2n2mePb8Lk1MqGVIBcbxIw7PKFZs49uYXVySL2XODIg.Q-XhjQU_IW7eA4qj6MupgvxmZzXa2YCIWbCnMhmA2LQg.JPEG%2F20230501_210111.jpg",
+              "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA1MDNfNDIg%2FMDAxNjgzMDcyMjgwNTAx.8Z6m2UBR0eP8coEtSKZV9dMOfTm_FkbPpAzDX_MLke4g.Z60MQJzzq7j7zUTp9HiBRgVA1A9_GRsa3eSsit4hyq0g.JPEG.gksfla95%2F20230501_204219.jpg"
+            ]
+}

@@ -1,0 +1,25 @@
+.Template-Body-search{
+    padding: 12px 10px;
+    color: var(--white-blue-color-opacity);
+}
+
+.Template-Body-search::placeholder{
+    color: var(--white-blue-color-opacity);
+}
+
+.Template-Body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    border: 1px solid var(--white-blue-color-opacity);
+    border-radius: 25px;
+    width: 300px;
+    margin: 0px 0px 30px 20px;
+}
+
+.material-search{
+    color: var(--white-blue-color-opacity);
+}
+

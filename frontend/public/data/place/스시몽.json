@@ -1,0 +1,11 @@
+{
+    "name": "스시몽",
+    "address": "충북 청주시 서원구 내수동로 130 평화아파트 1층 7호",
+    "tel": "043-278-1155",
+    "tags": ["친구", "친목", "식사"],
+    "lat": 36.63404141007576,
+    "lng": 127.46108580454357,
+    "navermap": "https://naver.me/IgTN99bI",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201101_260%2F1604233568193PdQOi_JPEG%2FpSXcAkVSgb8l7DqtbrSnM3tO.jpg",
+            "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201103_250%2F1604377207600QGf5u_JPEG%2FOMHUs24tq3uomxR0fd-pxY1o.jpg"]
+    }

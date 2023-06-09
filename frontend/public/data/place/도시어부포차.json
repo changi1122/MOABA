@@ -1,0 +1,12 @@
+{
+    "name": "도시어부포차",
+    "address": "충북 청주시 흥덕구 신율로90번길 30 1층 도시어부포차",
+    "tel": "0507-1365-8950",
+    "tags": [ "친구", "직장", "회식"],
+    "lat": 36.62688770677226,
+    "lng": 127.44847688009519,
+    "navermap": "https://naver.me/FvnTIchB",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190220_189%2F1550661241039njboO_JPEG%2FbsM3QpFBfRTz1Vxw1GR1DwPE.jpg",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220712_283%2F1657604350631jnxM0_JPEG%2FKakaoTalk_20220712_142953301.jpg",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220712_284%2F1657604351335pmmld_JPEG%2FKakaoTalk_20220712_142953301_01.jpg"]
+}

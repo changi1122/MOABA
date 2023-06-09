@@ -1,0 +1,10 @@
+{
+    "name": "달랑주점",
+    "address": "충북 청주시 서원구 1순환로694번길 4 2층",
+    "tel": "0507-1436-9934",
+    "tags": ["친구", "직장", "회식", "동아리"],
+    "lat": 36.63180807864915,
+    "lng": 127.4607057716076,
+    "navermap": "https://naver.me/G0J8XAz7",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200617_293%2F1592402526353P8Ga2_JPEG%2F7rexgfvXynsh-w6ukFN87jL9.jpeg.jpg", "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA0MDFfMTQ5%2FMDAxNjgwMzMyMjM2MDE0.NPEbsCwgxB9akRbe1vxJzI8geTXllFLaMLu8gjWh_rcg.jHudf8at46Nwr2-RTOS0tzdWfSg37p_X7jYfpVu7igkg.JPEG.zjvltyq123%2FIMG_7088.JPG"]
+    }

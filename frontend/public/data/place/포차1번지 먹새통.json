@@ -1,0 +1,12 @@
+{
+    "name": "포차1번지 먹새통",
+    "address": "청주시 서원구 내수동로108번길 21 1층",
+    "tel": "010-2305-1424",
+    "tags": [ "친구", "직장", "회식" ],
+    "lat": 36.632829105174416,
+    "lng": 127.45882564114119,
+    "navermap": "https://naver.me/5cThWbUo",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220812_252%2F1660259091738NwvXT_JPEG%2FKakaoTalk_20200814_122029591_27.jpg",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220822_51%2F16611539255330hnHr_JPEG%2FIMG_20220822_003613_233.jpg"
+            ]
+}

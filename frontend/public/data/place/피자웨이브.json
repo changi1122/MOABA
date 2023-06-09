@@ -1,0 +1,11 @@
+{
+    "name": "피자웨이브",
+    "address": "충북 청주시 서원구 1순환로674번길 38 1층",
+    "tel": "0507-1337-4418",
+    "tags": ["친구", "가족", "식사"],
+    "lat": 36.63270151908289,
+    "lng": 127.45896240889091,
+    "navermap": "https://naver.me/xE16MqMq",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230530_20%2F1685437951732HkSW3_JPEG%2F2CE769B8-786E-4389-9DD8-3A01A818338D.jpeg",
+            "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzA1MDlfNCAg%2FMDAxNjgzNjM4NTU0MDQ2.Y1kvSD5JQ_lwB0oH0LyzpvukwE9rtuAYpSDNYZg0gnUg.ZJ7vjoWDZfpWthPatb0Keer9ysgQL4KpLJnnpNKy304g.JPEG%2FIMG_8099.jpeg"]
+    }

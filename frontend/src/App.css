@@ -1,7 +1,13 @@
 :root {
   /*color*/
   --white-blue-color : #5B74DA;
+
+  --white-blue-color-opacity : #7186FB;
   height: 100%;
+}
+
+body {
+  font-family: Noto Sans KR,Apple SD Gothic Neo,Malgun Gothic,sans-serif;
 }
 
 .App {
@@ -31,6 +37,7 @@ p {
 button, input {
   background-color: none;
   border: none;
+  font-family: inherit;
 }
 
 input:focus {
@@ -63,6 +70,10 @@ legend {
   background-color: var(--white-blue-color);
 }
 
+.white-blue-opacity{
+  background-color: var(--white-blue-color-opacity );
+}
+
 body, #root{
   height: 100%;
 }
@@ -75,11 +86,11 @@ body, #root{
 .horazion{
   display: flex;
   flex-direction: row;
-  height: 100%;
+  min-height: -webkit-fill-available;
 }
 
 .right-content{
-  width: 75%;
+  width: 960px;
 }
 
 body::-webkit-scrollbar {
@@ -95,3 +106,19 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
   background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
 }
+
+
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+html { overflow-y:scroll; }

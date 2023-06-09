@@ -8,3 +8,44 @@
 .fix{
     position: fixed;
 }   
+
+.sidebar-basic-style{
+    transition-delay: 0.2s;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.sidebar-non-radius-style{
+    border-radius: 0px 0px 0px 0px;
+}
+
+
+.sidebar-menu-sub{
+    width: 150px;
+    height: 100%;
+    background-color: var(--white-blue-color-opacity);
+    position: fixed;
+    left: 0px;
+    transition-duration: 0.5s;
+    border-radius: 0px 10px 10px 0px;
+    z-index: -1;
+}
+
+.sidebar-menu-sub-show{
+    left: 150px;
+}
+
+.sidebar-menu-sub-box{
+    height: 98%;
+    width: 140px;
+    background-color: white;
+    border-radius: 0px 10px 10px 0px;
+    margin: 7px 10px 10px 0px;
+}
+
+#Temp-list{
+    display: none;
+}
+
+#Save-list{
+    display: none;
+}

@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 import "./AccessShowStyle.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setlogin } from "../../reducers/counter";
 
-function AccessShow(){
+function AccessShow() {
 
     const dispatch = useDispatch();
 
@@ -41,8 +41,8 @@ function AccessShow(){
 
             <button className="right-button" onClick={ValidCheck}>Start</button>
 
-            <p>Sign Up</p>
-            <p>Find ID/PW</p>
+            <Link to='/signup'><p>Sign Up</p></Link>
+            <Link to='/find-idpw'><p>Find ID/PW</p></Link>
 
         </div>
     );

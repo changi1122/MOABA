@@ -1,0 +1,11 @@
+{
+    "name": "파삼 672",
+    "address": "충북 청주시 서원구 1순환로672번길 53",
+    "tel": "0504-358-5628",
+    "tags": ["식사", "친구", "가족"],
+    "lat": 36.63239741974071,
+    "lng": 127.4574310741823,
+    "navermap": "https://naver.me/F1MinAIH",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170419_18%2F1492591289070FDjz1_JPEG%2F186369577148249_0.jpeg",
+            "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170419_145%2F149259128926813hiu_JPEG%2F186369577148249_2.jpeg"]
+    }

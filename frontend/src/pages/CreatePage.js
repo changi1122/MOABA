@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../component/Layout";
-import CrtContent from "../component/create/CrtContent";
+import CrtSurvey from "../component/create/CrtSurvey";
 
 function CreatePage(){
 
@@ -8,7 +8,7 @@ function CreatePage(){
         <Layout
             header={"Create"}
             align_items={"Layout-center"}
-            body={CrtContent()}
+            body={CrtSurvey()}
             T_styel={"content-H"}
             color={"white-blue-color"}
         />

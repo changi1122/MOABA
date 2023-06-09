@@ -3,17 +3,22 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    margin-left: 230px;
+    margin-left: 150px;
+    position: relative;
 }
 
 .home-H{
     font-weight: 600;
-    font-size: 60px;
-    margin: 0px 0px 100px 0px;
+    font-size: 50px;
+    margin: 60px 0px 100px 0px;
 }
 
 .content-H{
     font-weight: 600;
-    font-size: 50px;
-    margin: 0px 0px 100px 0px;
+    font-size: 32px;
+    margin: 40px 0px 80px 0px;
+}
+
+.None{
+    height: 300px;
 }

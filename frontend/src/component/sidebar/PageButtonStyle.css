@@ -1,10 +1,9 @@
 .Menubar{
-    padding: 10px 0px;
-    max-height: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: overlay;
+    position: relative;
 }
 
 .Menubar::-webkit-scrollbar{
@@ -12,44 +11,75 @@
 }
 
 .basic-style, .button-add{
-    width: 145px;
-    position: relative;
-    margin-bottom: 20px;
-    font-size: 25px;
-    padding: 10px 20px;
+
+    margin: 5px 0px;
     border-radius: 10px;
-    font-weight: bolder;
-    color: var(--white-blue-color);
-    background-color: white;
+    color: white;
+    padding: 0px;
+    background-color:var(--white-blue-color-opacity) ;
+}
+
+.basic-style{
+    width: 80px;
+    height: 80px;
+    font-size: 16px;
 }
 
 .basic-style:hover{
-    background-color:var(--white-blue-color);
-    box-shadow: 0 0 0 2px white inset;
-    color: white;
+    background-color:white;
     transition-duration: 0.3s;
+    color: var(--white-blue-color-opacity);
+}
+
+.activate-style{
+    background-color:white;
+    color: var(--white-blue-color-opacity);
+}
+
+.open{
+    background-color:white;
+    color: var(--white-blue-color-opacity);
 }
 
 .button-add{
-    background-color: var(--white-blue-color);
+    width: 55px;
+    height: 55px;
+    background-color: var(--white-blue-color-opacity);
     color: white;
-    border: 4px dashed white;
+    border: 2px solid white;
+    font-size: 30px;
+    position: fixed;
+    bottom: 30px;
+    transition-duration: 0.5s;
+    border-radius: 40px;
+}
+
+.button-add:hover{
+    background-color: white;
+    color: var(--white-blue-color-opacity);
+    border: 2px solid var(--white-blue-color-opacity);
 }
 
 .basic-style > a{
-    color: var(--white-blue-color);
-}
-
-.tag{
-    position: absolute;
-    top: 0;
-    right: 14px;
-    width: 14px;
+    color: var(--white-blue-color-opacity);
 }
 
 .show-animation{
     animation-duration: 0.5s;
     animation-name: show;
+}
+
+.material-symbols-size{
+    font-size: 39px !important;
+}
+
+
+.material-symbols-addBox-style{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 60px !important;
+    color: var(--white-blue-color-opacity);
 }
 
 @keyframes show {

@@ -1,0 +1,11 @@
+{
+    "name": "춘리마라탕",
+    "address": "충북 청주시 서원구 1순환로674번길 52",
+    "tel": "0507-1461-5759",
+    "tags": ["친구", "식사", "가족"],
+    "lat": 36.63220741148501,
+    "lng": 127.45810079651253,
+    "navermap": "https://naver.me/Gw5pSjXR",
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210324_146%2F1616562087366pSlCS_JPEG%2Fwq39jzpyGLB6XUtDnnscI3g5.jpg",
+            "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzA1MjFfMTAz%2FMDAxNjg0NjAzNjk4Nzk1.Guj8DOihcbPP6BjnrhYFIWtfYewIZ9xM1K_5f-M9rA0g.MUs-4fgPoJqFmZHwacmLUhh3CxMYWKcg_NIsdT8W3PEg.JPEG%2F526A5819-1160-4BA4-B847-7FC0CAF8030E.jpeg"]
+    }
