@@ -12,11 +12,6 @@ export default function AnswerBox({ box, setInput, index }){
         return input;
     }
 
-    // 드롭다운 초기값 설정
-    if (box.answerType === "드롭다운") {
-        box.input = box.answers[0];
-    }
-
 
     return(
         <div key={index} className="survey-box">
