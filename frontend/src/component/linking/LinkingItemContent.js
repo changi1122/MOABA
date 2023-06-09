@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Chart } from "react-google-charts";
 
 import "react-day-picker/dist/style.css";
@@ -9,14 +9,39 @@ import '@splidejs/react-splide/css/skyblue';
 
 import PlaceWindow from './PlaceWindow';
 import SqlideSlideCont from './SqlideSlideCont';
+import ResultBox from './ResultBox';
 
 
 import LinkingItem from "../../data/Linkingitem.json";
 
 function LinkingItemContent() {
 
+    const [result, setResult] = useState({});
     const [isWindowOpened, setIsWindowOpened] = useState(false);
     const [name, setName] = useState("주목원");
+
+    useEffect(() => {
+        loadSurveyResult('1');
+    }, []);
+
+    const loadSurveyResult = async (id) => {
+        const response = await fetch(`/data/form/${id}/result.json`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        });
+
+        const data = await response.json();
+        if (!data) {
+            setResult({});
+            return;
+        }
+        setResult(data);
+    }
+
+
+
 
     var linkingItem = LinkingItem.Data;
 
@@ -60,8 +85,17 @@ function LinkingItemContent() {
     return (
         <div className='content'>
             <form className='linking-form'>
-                <h1>개총 인원 모집</h1>
-                <div className='metadata'>
+                <h1>{result.name}</h1>
+                <div className="survey-category-row" style={{ alignItems: 'center' }}>
+                    <div className="survey-category-input">
+                        {result.categories && result.categories.map((category, index) => (
+                        <div className='tag' key={index}>
+                            {category}
+                        </div>
+                        ))}
+                    </div>
+                </div>
+                <div className='metadata' style={{ marginBottom: '20px' }}>
                     <table>
                         <tbody>
                             <tr>
@@ -76,30 +110,13 @@ function LinkingItemContent() {
                     </table>
                 </div>
                 <div className='question'>
-                    <div className='question-box question-single'>
-                        <h2><span className=''>1번</span> 이름은? (단답형)</h2>
-                        <Chart
-                            chartType="PieChart"
-                            data={oneSampleData}
-                            options={{ title: "이름은?" }}
-                            width={"100%"}
-                            height={"400px"}
+                    {   result && result.questions && result.questions.map((q, index) => (
+                        <ResultBox
+                            index={index}
+                            box={q}
                         />
-                    </div>
-                    <div className='question-box question-single'>
-                        <h2><span className=''>2번</span> 학번은? (객관식)</h2>
-                        <Chart chartType="BarChart" width="100%" height="400px" data={oneSampleData} />
-                    </div>
-
-                    <div className='question-box question-single'>
-                        <h2><span className=''>3번</span> 학년은? (드롭다운)</h2>
-                        <Chart chartType="ColumnChart" width="100%" height="400px" data={oneSampleData} />
-                    </div>
-
-                    <div className='question-box question-single'>
-                        <h2><span className=''>4번</span> 수강 과목은? (체크박스)</h2>
-                        <div style={{ height: '250px', backgroundColor: '#eee' }}>표 형태로 보여주기</div>
-                    </div>
+                    ))
+                    }
                 </div>
             </form>
 
