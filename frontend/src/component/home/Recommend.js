@@ -41,7 +41,6 @@ function Recommend(props){
 
             arr.push(
                 <Link to={`/save/page/answer/${Data[i]["id"]}`}>
-                    console.log(Data[i]["id"]);
                   <ItemBox
                     key={i}
                     category1={Data[i]["category1"]}
