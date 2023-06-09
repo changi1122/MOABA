@@ -9,16 +9,10 @@ export default function FindIDPW() {
   const [username, setUsername] = useState("");
 
   const findID = () => {
-    // 아이디를 찾는 로직을 구현하세요.
-    // 이메일 정보(email)를 사용하여 아이디를 찾아서 결과를 처리하는 코드를 작성하세요.
-    // 결과를 예를 들어 alert 창으로 보여줄 수 있습니다.
     alert("아이디를 찾았습니다!");
   };
 
   const findPW = () => {
-    // 패스워드를 찾는 로직을 구현하세요.
-    // 이메일 정보(email)와 사용자명(username)을 사용하여 패스워드를 찾아서 결과를 처리하는 코드를 작성하세요.
-    // 결과를 예를 들어 alert 창으로 보여줄 수 있습니다.
     alert("패스워드를 찾았습니다!");
   };
 
