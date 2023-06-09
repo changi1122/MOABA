@@ -9,7 +9,6 @@
 }
 
 .leftshow>p{
-    margin-bottom: 30px;
     font-size: 20px;
 }
 
@@ -25,3 +24,18 @@
     background-color: blue;
 }
 
+.slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    font-size: 16px;
+}
+.slide p {
+    margin-top: 8px;
+}
+.slide img {
+    height: 120px;
+    margin-bottom: 10px;
+}

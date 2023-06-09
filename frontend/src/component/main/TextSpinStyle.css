@@ -1,13 +1,13 @@
 .Spinner{
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
-    margin-top: 40px;
     position: relative;
     align-items: center;
+    margin: 4px 0 36px;
 }
 
 .Spinner > p{
-    font-size: 50px;
+    font-size: 36px;
 }
 
 .Spinner-body{
@@ -21,7 +21,7 @@
 }
 
 .Spinner-data{
-    font-size: 40px;
+    font-size: 36px;
 }
 
 .Spinner-data>span{
