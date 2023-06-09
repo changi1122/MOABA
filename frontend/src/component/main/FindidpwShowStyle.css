@@ -1,0 +1,82 @@
+.find-idpw {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .find-idpw>form {
+    margin: 0 auto;
+    display: inline-block;
+  }
+  
+  .find-idpw .title {
+    font-weight: 600;
+    font-size: 32px;
+    margin: 150px 0px 100px 0px;
+    color: var(--white-blue-color);
+    text-align: center;
+  }
+  
+  .find-idpw input {
+    width: 220px;
+    margin: 15px 0;
+    margin-left: 20px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .find-idpw .find-id-button,
+  .find-idpw .find-pw-button {
+    display: flex;
+    margin-left:auto;
+    margin-right:1%;
+    margin-bottom: 20%;
+    padding: 5px 8px;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    background-color: #5B74DA;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: background-color .17s ease, color .17s ease;
+  }
+  
+  .find-idpw .find-id-button:hover,
+  .find-idpw .find-pw-button:hover {
+    background-color: #4558a6;
+    border: none;
+  }
+  
+  .find-idpw .signup-button {
+    display: inline-block;
+    padding: 12px 32px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #5B74DA;
+    border: none;
+    border-radius: 16px;
+    box-sizing: border-box;
+    transition: background-color .17s ease, color .17s ease;
+    margin-top: 20px;
+  }
+  
+  .find-idpw .signup-button:hover {
+    background-color: #4558a6;
+    border: none;
+  }
+  
+  .find-idpw .circle {
+    position: absolute;
+    bottom: -250px;
+    right: -250px;
+    width: 600px;
+    height: 600px;
+    background-color: #5B74DA;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
