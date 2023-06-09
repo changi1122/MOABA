@@ -19,7 +19,7 @@ function CrtSurvey() {
 
   const adjustTextareaHeight = () => {
     const textarea = document.getElementById('textarea');
-    textarea.style.height = '20px';
+    textarea.style.height = '10px';
     textarea.style.height = `${textarea.scrollHeight}px`;
   };
 
@@ -179,8 +179,6 @@ function CrtSurvey() {
         <textarea
           id="textarea"
           className="Survey-content"
-          cols="30"
-          rows="10"
           onChange={handleChange}
           value={text}
           placeholder="본문"
