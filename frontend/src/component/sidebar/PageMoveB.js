@@ -1,57 +1,40 @@
-import React, {useState, useEffect} from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 
-
-function PageMoveB({Bstyle,icon,openicon, animation="", content, url, data}){
+function PageMoveB({Bstyle,icon, animation="", content, url, data}){
     
-    const { click } = useSelector(state => state.counter);
-    const [active, Setactive] = useState("");
-    /*
-    var navigate = useNavigate();
-    function MoveToTempPage(){
+    //const [active, Setactive] = useState("");
 
-        console.log(data);
-        var str = '/page/'+data;
-        console.log(str)
+    // useEffect(()=>{
+    //     if(active !== ""){
+    //         const x = document.getElementById(`${active}`).parentElement;
+    //         const str = x.className.replace(" activate-style", "");
+    //         x.className = str;
+    //         if(active === "Save" || active==="Tamp"){
+    //             document.getElementById(`${active}`).innerHTML ="folder";
+    //         }            
+    //     }
 
-        navigate(str);
-    }
-    */
-    useEffect(()=>{
-        if(active !== ""){
-            const x = document.getElementById(`${active}`).parentElement;
-            const str = x.className.replace(" activate-style", "");
-            x.className = str;
-            if(active === "Save" || active==="Tamp"){
-                document.getElementById(`${active}`).innerHTML ="folder";
-            }            
-        }
+    //     if(click !== "None" && click !=="Title"){
+    //         Setactive(click);
+    //         const y = document.getElementById(`${click}`).parentElement;
+    //         y.className += " activate-style";
+    //         if(click === "Save" || click==="Temp"){
+    //             document.getElementById(`${click}`).innerHTML ="folder_open";
+    //         }
+    //     }
+    // }, [click]);
 
-        if(click !== "None" && click !=="Title"){
-            Setactive(click);
-            const y = document.getElementById(`${click}`).parentElement;
-            y.className += " activate-style";
-            if(click === "Save" || click==="Temp"){
-                document.getElementById(`${click}`).innerHTML ="folder_open";
-            }
-        }
-    }, [click]);
+    // function Open(){
+    //     if(active !== content){
+    //         document.getElementById(`${content}`).innerHTML = openicon;
+    //     }
+    // }
 
-
-    function Open(){
-        if(active !== content){
-            document.getElementById(`${content}`).innerHTML = openicon;
-        }
-    }
-
-    function Close(){
-        if(active !==content){
-            document.getElementById(`${content}`).innerHTML = icon;
-        }
-    }
-
-    function None(){
-    }
+    // function Close(){
+    //     if(active !==content){
+    //         document.getElementById(`${content}`).innerHTML = icon;
+    //     }
+    // }
 
     function Test(){
         if(!data){
@@ -88,8 +71,7 @@ function PageMoveB({Bstyle,icon,openicon, animation="", content, url, data}){
     }
 
     return(
-        <button className={`${Bstyle} ${animation}`} onClick={Test} 
-            onMouseOver={openicon? Open : None} onMouseOut={ openicon? Close: None}>
+        <button className={`${Bstyle} ${animation}`} onClick={Test} >
             <span className="material-symbols-outlined material-symbols-size" id={`${content}`}>
                 {icon}
             </span>

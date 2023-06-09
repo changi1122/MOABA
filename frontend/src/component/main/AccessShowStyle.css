@@ -1,12 +1,12 @@
 .rightshow> input{
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 18px;
     padding: 7px 5px;
     margin-bottom: 20px;
     border-bottom: 2px dashed #FFFFFF !important;
     background-color: var(--white-blue-color);
     display: block;
-    width: 80%;
+    width: 90%;
 }   
 
 .rightshow> input::placeholder{
@@ -14,14 +14,15 @@
 }
 
 .right-button{
-    font-size: 30px;
+    font-size: 24px;
     color: #FFFFFF;
     padding: 6px 29px;
     width: fit-content;
     background: var(--white-blue-color);
     border: 3px solid #FFFFFF !important;
     border-radius: 20px;
-    margin: 70px 0px;
+    margin: 40px 0px 100px;
+    transition: background-color .17s ease, color .17s ease;
 }
 
 .right-button:hover{

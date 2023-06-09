@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 
 import "./FindidpwShowStyle.css";
 
 export default function FindIDPW() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
 

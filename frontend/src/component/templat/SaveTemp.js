@@ -19,7 +19,7 @@ function SaveTemp(){
     console.log(id);
 
     function SearchString(){
-        var x  =document.getElementById("search").value;
+        var x = document.getElementById("search").value;
         dispacth(makeToSearch(x))
     }
 
