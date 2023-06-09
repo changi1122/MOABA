@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-function TempPage(props){
+export default function TempPage(props){
 
     var {id}= useParams();
 
@@ -9,5 +9,3 @@ function TempPage(props){
         <div>{id}</div>
     )
 }
-
-export default TempPage;
