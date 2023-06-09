@@ -14,6 +14,7 @@ import TempPage from './pages/TempPage';
 import TemplatePage from './pages/TemplatePage';
 import AnswerPage from './pages/AnswerPage';
 import FindidpwPage from './pages/FindidpwPage';
+import SAnswerPage from './pages/SAnswerPage';
 
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -64,6 +65,7 @@ function App() {
         <Route path="/user" Component={UserPage} />
         <Route path="/temp/page/:id" Component={TempPage} />
         <Route path="/save/page/:id" Component={TemplatePage} />
+        <Route path="/save/page/answer/:id" Component={SAnswerPage} />
       </Routes>
     </div>
   }

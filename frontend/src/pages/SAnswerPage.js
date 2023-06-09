@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../component//answer/AnswerForm";
 import AnswerBox from "../component/answer/AnswerBox";
-import { useEffect } from 'react';
+import Layout from "../component/Layout";
 
-export default function AnswerForm() {
+export default function SAnswerPage() {
 
   const [form, setForm] = useState({});
 
@@ -36,9 +36,9 @@ export default function AnswerForm() {
     });
   }
   
-
-  return (
-    <div className='answerform'>
+  function getAnswerForm() {
+    return (
+    <div className='answerform' style={{ width: '100%' }}>
       <div className="survey">
         <h1>{form.name}</h1>
         <div className="survey-category-row" style={{ alignItems: 'center' }}>
@@ -65,8 +65,6 @@ export default function AnswerForm() {
             </table>
         </div>
 
-
-
         {form.questions && form.questions.map((question, index) => (
           <AnswerBox
             key={index}
@@ -80,5 +78,16 @@ export default function AnswerForm() {
         </div>
       </div>
     </div>
+    );
+  }
+
+  return (
+    <Layout
+        header={"Linking"}
+        body={getAnswerForm()}
+        align_items={"Layout-center"}
+        T_styel={"content-H"}
+        color={"white-blue-color"}
+    />
   );
 }
