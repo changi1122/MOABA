@@ -49,3 +49,9 @@
 #Save-list{
     display: none;
 }
+
+.fixed{
+    position: fixed;
+    right: 0;
+    height: 100%;
+}
