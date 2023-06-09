@@ -45,14 +45,14 @@ export default function LinkingDetailItem(props){
                 </table>
             </div>
             <div className='action'>
-                <a className='qrcode qrcode-style' href={`https://moaba.studio1122.net/survey/${props.id}`} target='_blank'>
+                <a className='qrcode qrcode-style' href={`https://moaba.studio1122.net/answerform/${props.id}`} target='_blank'>
                     <QRCode
                         size={100}
                         style={{ display: 'block' }}
-                        value={`https://moaba.studio1122.net/survey/${props.id}`}
+                        value={`https://moaba.studio1122.net/answerform/${props.id}`}
                         viewBox={`0 0 256 256`}
                     />
-                    https://moaba.studio1122.net/survey/{props.id}
+                    https://moaba.studio1122.net/answerform/{props.id}
                 </a>
                 <p>{ props.answer }명 응답함</p>
                 <a className='active' onClick={kakaoButton}>공유하기</a>
