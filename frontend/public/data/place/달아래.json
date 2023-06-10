@@ -6,5 +6,6 @@
     "lat": 36.632782335256884,
     "lng": 127.45950404078914,
     "navermap": "https://naver.me/xkxqSqVT",
-    "image": ["https://example.com/images/dalarae1.jpg", "https://example.com/images/dalarae2.jpg"]
+    "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230309_124%2F1678290280116haD8J_JPEG%2F1%25B8%25F0%25B5%25EB%25BB%25E7%25C1%25F8.jpg",
+              "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230309_254%2F1678290253036JDIPv_JPEG%2F2%25BE%25C6%25B7%25D5%25BB%25E7%25C5%25C2%25C0%25FC%25B0%25F1.jpg"]
     }

@@ -42,7 +42,7 @@ function AccessShow() {
             <button className="right-button" onClick={ValidCheck}>Start</button>
 
             <Link to='/signup'><p>Sign Up</p></Link>
-            <p>Find ID/PW</p>
+            <Link to='/find-idpw'><p>Find ID/PW</p></Link>
 
         </div>
     );

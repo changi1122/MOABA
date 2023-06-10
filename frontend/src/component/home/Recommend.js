@@ -1,6 +1,7 @@
 import React from "react";
 import ItemBox from "./ItemBox";
 import TemplateSample from "../../data/TemplateSample";
+import { Link } from "react-router-dom";
 
 import "./RecommendStyle.css";
 import { useSelector } from "react-redux";
@@ -39,17 +40,20 @@ function Recommend(props){
             }
 
             arr.push(
-                <ItemBox
+                <Link to={`/save/page/answer/${Data[i]["id"]}`}>
+                  <ItemBox
                     key={i}
                     category1={Data[i]["category1"]}
                     category2={Data[i]["category2"]}
                     category3={Data[i]["category3"]}
-                    title ={Data[i]["title"]}
+                    title={Data[i]["title"]}
                     date={Data[i]["date"]}
                     user={Data[i]["user"]}
-                    img={"http://localhost:3000/images/"+Data[i]["img"]}
-                />
-            )
+                    img={`http://localhost:3000/images/${Data[i]["img"]}`}
+                  />
+                </Link>
+              );
+              
         }
 
         return arr;

@@ -13,6 +13,8 @@ import MenuShow from './component/sidebar/MenuShow';
 import TempPage from './pages/TempPage';
 import SavePage from './pages/SavePage';
 import AnswerPage from './pages/AnswerPage';
+import FindidpwPage from './pages/FindidpwPage';
+import SAnswerPage from './pages/SAnswerPage';
 
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -42,6 +44,7 @@ function App() {
         <Route path="/" element={<MainPage/>} />
         <Route path="/signup" element={<SignupPage/>} />
         <Route path="/answerform/:id" Component={AnswerPage}/>
+        <Route path="/find-idpw" element={<FindidpwPage />} />
       </Routes>,
     Log : 
     <div className='horazion'>
@@ -62,6 +65,7 @@ function App() {
         <Route path="/user" Component={UserPage} />
         <Route path="/temp/page/:id" Component={TempPage} />
         <Route path="/save/page/:id" Component={SavePage} />
+        <Route path="/save/page/answer/:id" Component={SAnswerPage} />
       </Routes>
     </div>
   }

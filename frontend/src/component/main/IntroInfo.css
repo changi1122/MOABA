@@ -1,0 +1,99 @@
+.introinfo {
+    padding-top: 80px;
+}
+
+.introinfo h2 {
+    margin: 0 80px;
+    font-size: 32px;
+}
+.introinfo h2 .accent {
+    color: #5b74da;
+}
+
+.introinfo .normal {
+    display: flex;
+    align-items: center;
+    padding: 20px 80px 40px;
+}
+
+.introinfo .normal>div {
+    flex: 1;
+    margin: 40px;
+    color: #555;
+    text-align: center;
+}
+.introinfo .material-symbols-outlined {
+    user-select: none;
+}
+.introinfo .normal>div>p {
+    margin-top: 12px;
+}
+.introinfo .normal img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.introinfo .moaba {
+    padding: 80px 80px 40px;
+    background-color: #F7F7F7;
+}
+
+.introinfo .moabaFlex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.introinfo .moabaFlex>div {
+    flex: 1;
+    margin: 40px;
+    color: #555;
+    text-align: center;
+}
+.introinfo .moabaFlex>div>p {
+    margin-top: 12px;
+}
+.introinfo .moabaFlex img {
+    width: 260px;
+    border-radius: 16px;
+}
+
+.introinfo .moaba .color {
+    height: 120px;
+    margin: 0 20px;
+    background-color: #5b74da;
+    border-radius: 16px;
+    font-size: 16px;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.introinfo .moaba .color>p {
+    margin-top: unset;
+}
+
+.introinfo .developer {
+    padding: 80px 0 40px;
+}
+
+
+.introinfo .dev {
+    display: flex;
+    align-items: center;
+    padding: 20px 80px 40px;
+}
+
+.introinfo .dev>div {
+    flex: 1;
+    margin: 40px;
+    color: #555;
+    text-align: center;
+}
+.introinfo .dev>div>p {
+    margin-top: 12px;
+}
+.introinfo .dev img {
+    width: 100%;
+    border-radius: 16px;
+}

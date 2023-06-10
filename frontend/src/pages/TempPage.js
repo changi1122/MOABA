@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 
 import "./TempPageStyle.css";
 
-function TempPage(props){
+export default function TempPage(props){
+
 
     const [no, SetNo] = useState(0);
     const [yes, SetYes] = useState(0);
@@ -65,5 +66,3 @@ function TempPage(props){
         </div>
     )
 }
-
-export default TempPage;
