@@ -3,24 +3,17 @@ import React, {useState, useEffect}from "react";
 import "./SidebarStyle.css";
 import { useDispatch, useSelector } from "react-redux";
 import { droptemplist, savetemplist } from "../reducers/counter";
+import { useNavigate } from 'react-router-dom';
+
 
 function Sidebar({width, height, color, position, content, fix, isShow}){
 
     const dispacth = useDispatch();
 
-    const { temp } = useSelector( state => state.counter);
+    const navigate = useNavigate();
+    const { click, temp } = useSelector( state => state.counter);
 
-    const { click } = useSelector( state => state.counter);
-
-    useEffect(()=>{
-        GetData();
-    }, [])
-
-    useEffect(()=>{
-        console.log("sdfs : ",temp);
-    }, [temp]);
-
-    const GetData = async () =>{
+    /*const GetData = async () =>{
         const response= await fetch(`/data/temp/temp.json`,{
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +44,7 @@ function Sidebar({width, height, color, position, content, fix, isShow}){
         } else {
             
         }
-    }
+    }*/
 
     useEffect(()=>{
         if(click==="Temp"){
@@ -63,16 +56,16 @@ function Sidebar({width, height, color, position, content, fix, isShow}){
         }
     }, [click])
 
-    useEffect(()=>{
-        console.log(click);
-    })
-
 
     function StyleChg(id, style){
         const elements = document.querySelectorAll(`#${id}`);
         elements.forEach((element)=>{
             element.style.display = style;
         })
+    }
+
+    function navigateToTempSaved(id) {
+        navigate(`/temp/page/${id}`);
     }
 
 
@@ -82,13 +75,14 @@ function Sidebar({width, height, color, position, content, fix, isShow}){
     }
 
     const test2 = (list, id)=>{
-        console.log(list);
         const result =[];
-        if(list === null){
+        if(temp === null){
             return result
         }
-        for(let i=0; i<list.length; i++){
-            result.push(<p key={i} id={id}> {list[i].title}</p>)
+        for(const item of temp){
+            if (item && item.id) {
+                result.push(<p className='listItem' key={item.id} index={item.id} onClick={() => { navigateToTempSaved(item.id) }}> {item.title}</p>)
+            }
         }
         return result;
     };
@@ -103,7 +97,6 @@ function Sidebar({width, height, color, position, content, fix, isShow}){
                 ?   <div className="sidebar-menu-sub" id="sidebar-sub">
                         <div className="sidebar-menu-sub-box">
                             {test2(null, "Temp-list")}
-                            {test2(null, "Save-list")}
                         </div>
                     </div>
                 : null

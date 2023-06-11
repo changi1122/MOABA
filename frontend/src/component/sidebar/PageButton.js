@@ -42,7 +42,6 @@ function PageButton(){
     function MoveToTempPage(){
         dispacth(makeToNUll());
         dispacth(StateTemp());
-        navigate('/temp/page/1');
     }
 
     function MoveToTemplatePage(){

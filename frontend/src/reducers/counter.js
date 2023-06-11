@@ -25,11 +25,10 @@ export const DELETLIST = "SAVE/DELETLIST";
 export const SAVELIST = "TEMP/SAVELIST";
 export const DROPLIST = "TEMP/DROPLIST";
 
-export const setsavelist = (save) =>{
-    return{
-        type:SETLIST,  payload:save
-    };
-};
+
+export const setsavelist = (save) =>({
+    type:SETLIST, save
+});
 
 export const deletesavelist = (save) =>({
     type:DELETLIST, save
@@ -37,7 +36,7 @@ export const deletesavelist = (save) =>({
 
 export const savetemplist = (temp) =>{
     return{
-        type:SAVELIST,  payload:temp
+        type:SAVELIST, temp
     };
 }
 
@@ -209,12 +208,12 @@ export const counter = (state = initalState, action) =>{
         case SAVELIST:
             return{
                 ...state,
-                temp : [...state, action.payload]
+                temp : [...state.temp, action.temp]
             }
         case DROPLIST:
             return{
                 ...state,
-                temp : state.temp.filter(temp => temp.id !== action.payload)
+                temp : state.temp.filter(temp => (temp && temp.id != action.temp.id))
             }
         default:
             return state;
