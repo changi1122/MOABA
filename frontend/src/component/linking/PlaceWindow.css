@@ -71,7 +71,6 @@
     font-size: 14px;
 }
 .place-window-container .placeinfo .metadata p {
-    margin-left: 10px;
     margin-bottom: 8px;
 }
 .place-window-container .placeinfo .material-symbols-outlined {
@@ -83,6 +82,7 @@
 .place-window-container .placeinfo .category li {
     display: inline-block;
     margin-right: 8px;
+    margin-bottom: 4px;
     padding: 4px 12px;
     font-size: 14px;
     color: #5B74DA;

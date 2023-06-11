@@ -23,6 +23,9 @@ function LinkingItemContent() {
 
     const { id } = useParams();
 
+    const [capacity, setCapacity] = useState(10);
+
+
     useEffect(() => {
         loadSurveyResult('1');
         GetQuestion();
@@ -48,8 +51,7 @@ function LinkingItemContent() {
         .then(response => response.json())
         .then(result=>{
             console.log("result", result);
-
-
+            setResult(result);
         })
         .catch(error =>{
             console.log(error);
