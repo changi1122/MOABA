@@ -56,4 +56,8 @@ public class AnswerService {
         }
         return sum;
     }
+
+    public Integer CountByBoxId(Long boxid) {
+        return answerRepository.CountbyBoxId(boxid);
+    }
 }

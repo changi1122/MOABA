@@ -14,4 +14,7 @@ import java.util.List;
 public interface AnswerRepository extends JpaRepository<Answer, Long> {
     @Query(nativeQuery = true, value = "SELECT * from answer a where a.boxid = :boxid ")
     List<Answer> FindAllbyBoxId(@Param("boxid")Long boxid);
+
+    @Query(nativeQuery = true, value = "SELECT count(*) from answer a where a.boxid = :boxid")
+    Integer CountbyBoxId(@Param("boxid")Long boxid);
 }

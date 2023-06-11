@@ -1,15 +1,10 @@
 package com.backend.moaba.controller;
 
 
-import com.backend.moaba.dto.LQDTO;
-import com.backend.moaba.dto.LinkingDTO;
-import com.backend.moaba.dto.QustBoxDTO;
-import com.backend.moaba.dto.headerDTO;
-import com.backend.moaba.entity.Answer;
+import com.backend.moaba.dto.*;
 import com.backend.moaba.entity.Question;
 import com.backend.moaba.entity.QustBox;
 import com.backend.moaba.entity.QustBoxList;
-import com.backend.moaba.repository.QustBoxListRepository;
 import com.backend.moaba.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RequestMapping("/api")
@@ -92,10 +88,10 @@ public class QuestionController {
     }
 
     @PostMapping("/get/header")
-    public LinkingDTO GetQuestionHeader(@RequestBody HashMap<String, Object> hashMap){
+    public LinkingTEMPDTO GetQuestionHeader(@RequestBody HashMap<String, Object> hashMap){
         String qid  = (String) hashMap.get("qid");
 
-        LinkingDTO linkingDTO = new LinkingDTO();
+        LinkingTEMPDTO linkingDTO = new LinkingTEMPDTO();
 
         Question question =  questionService.GetQuestion(Long.valueOf(qid));
 
@@ -107,24 +103,30 @@ public class QuestionController {
         linkingDTO.setMeetingDate(question.getSchedule_data());
 
 
-        List<LQDTO> lists = new ArrayList<>();
+        List<LQTEMPDTO> lists = new ArrayList<>();
 
         List<QustBox> qlist = qustBoxService.GetQuestionList(Long.valueOf(qid));
 
         System.out.println(qlist);
         for(int i=0; i<qlist.size(); i++){
-            LQDTO lqdto = new LQDTO();
+            LQTEMPDTO lqdto = new LQTEMPDTO();
             lqdto.setQuestion(qlist.get(i).getTitle());
             lqdto.setAnswerType(typeService.FindTypeByID(qlist.get(i).getQuestiontype()));
             List<QustBoxList> qustBoxListList = qustBoxListService.FindtitleByboxid(qlist.get(i).getId());
+
+            /* answers & result */
             List<String> answers = new ArrayList<>();
-            List<Long> idlist = new ArrayList<>();
-            for(int j=0; j < qustBoxListList.size(); j++){
+            List<Map<String, Integer>> mapList = new ArrayList<>();
+
+            for(int j = 0; j < qustBoxListList.size(); j++){
                 answers.add(qustBoxListList.get(j).getTitle());
-                idlist.add(qustBoxListList.get(j).getId());
+                HashMap<String, Integer> map = new HashMap<>();
+
+                map.put(qustBoxListList.get(j).getTitle(), answerService.CountByBoxId(qustBoxListList.get(j).getId()));
+                mapList.add(map);
             }
             lqdto.setAnswers(answers);
-            lqdto.setBoxid(idlist);
+            lqdto.setResult(mapList);
             lists.add(lqdto);
         }
         linkingDTO.setQuestions(lists);
