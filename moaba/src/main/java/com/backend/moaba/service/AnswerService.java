@@ -34,6 +34,8 @@ public class AnswerService {
     public void Save(Long uid, Long boxid, String str){
         Answer answer = new Answer();
 
+        System.out.println(uid + ' ' + boxid + " " + str);
+
         answer.setUid(uid);
         answer.setBoxid(boxid);
         if(str != null){
