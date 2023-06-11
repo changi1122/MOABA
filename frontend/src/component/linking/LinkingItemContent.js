@@ -27,7 +27,6 @@ function LinkingItemContent() {
 
 
     useEffect(() => {
-        loadSurveyResult('1');
         GetQuestion();
     }, []);
 
@@ -56,7 +55,6 @@ function LinkingItemContent() {
                     question.resultTable.push([Object.keys(map)[0], Object.values(map)[0]]);
                 }
             }
-
             setResult(result);
         })
         .catch(error =>{
@@ -64,23 +62,6 @@ function LinkingItemContent() {
         })
     }
 
-
-    const loadSurveyResult = async (id) => {
-        const response = await fetch(`/data/form/${id}/result.json`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        });
-
-        const data = await response.json();
-        console.log("datadsffs", data)
-        if (!data) {
-            setResult({});
-            return;
-        }
-        setResult(data);
-    }
 
     let linkingItem = LinkingItem.Data;
 
