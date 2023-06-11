@@ -11,9 +11,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LQDTO {
-    private String answerType;
-    private String question;
-    private List<String> answers;
-    private List<Long> boxid;
+public class LinkingTEMPDTO {
+    private List<String> categories;
+    private String dueDate;
+    private String meetingDate;
+    private String name;
+    private List<LQTEMPDTO> questions;
 }

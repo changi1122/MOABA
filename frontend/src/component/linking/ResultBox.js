@@ -14,7 +14,7 @@ export default function AnswerBox({ box, index }){
                 <div className="survey-answer-row">
                     <Chart
                         chartType="PieChart"
-                        data={box.result}
+                        data={box.resultTable}
                         width={"100%"}
                         height={"300px"}
                     />
@@ -22,17 +22,17 @@ export default function AnswerBox({ box, index }){
             )}
             {box.answerType === "객관식" && (
                 <div className="survey-answer-row">
-                    <Chart chartType="BarChart" width="100%" height="300px" data={box.result} />
+                    <Chart chartType="BarChart" width="100%" height="300px" data={box.resultTable} />
                 </div>
             )}
             {box.answerType === "드롭다운" && (
                 <div className="survey-answer-row">
-                    <Chart chartType="BarChart" width="100%" height="300px" data={box.result} />
+                    <Chart chartType="BarChart" width="100%" height="300px" data={box.resultTable} />
                 </div>
             )}
             {box.answerType === "체크박스" && (
                 <div className="survey-answer-row">
-                    <Chart chartType="ColumnChart" width="100%" height="300px" data={box.result} />
+                    <Chart chartType="ColumnChart" width="100%" height="300px" data={box.resultTable} />
                 </div>
             )}
         </div>
