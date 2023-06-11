@@ -27,14 +27,14 @@ export default function AnswerBox({ box, setInput, index }){
                     style={{ width: '100%', boxSizing: 'border-box' }}
                     type="text"
                     value={box.input}
-                    onChange={(e) => setInput(index, e.target.value)}
+                    onChange={(e) => setInput(index, e.target.value, box.answerType,box.boxid, 0)}
                 />
                 </div>
             )}
             {box.answerType === "객관식" && (
                 <div className="survey-answer-row">
                 {box.answers.map((answer, answerIndex) => (
-                    <div key={answerIndex} className='answerBox checkbox-row' onClick={() => setInput(index, answer)}>
+                    <div key={answerIndex} className='answerBox checkbox-row' onClick={() => setInput(index, answer, box.answerType,box.boxid, answerIndex)}>
                         <input
                             type="radio"
                             checked={answer == box.input}
@@ -46,7 +46,7 @@ export default function AnswerBox({ box, setInput, index }){
             )}
             {box.answerType === "드롭다운" && (
                 <div className="survey-answer-row">
-                    <select onChange={(e) => { setInput(index, e.target.value); }}>
+                    <select onChange={(e) => { setInput(index, e.target.value, box.answerType,box.boxid, e.target.selectedIndex); }}>
                         {box.answers.map((answer, answerIndex) => (
                             <option key={answerIndex} value={answer}>{ answer }</option>
                         ))}
@@ -57,7 +57,7 @@ export default function AnswerBox({ box, setInput, index }){
                 <div className="survey-answer-row">
                 {box.answers.map((answer, answerIndex) => (
                     <div key={answerIndex} className='answerBox checkbox-row' onClick={() => {
-                        setInput(index, toggleInput(box.input, answer));
+                        setInput(index, toggleInput(box.input, answer), box.answerType, box.boxid, answerIndex);
                     }}>
                         <input
                             type="checkbox"

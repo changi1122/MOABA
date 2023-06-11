@@ -16,5 +16,5 @@ public class LinkingDTO {
     private String dueDate;
     private String meetingDate;
     private String name;
-    private List<LQDTO> question;
+    private List<LQDTO> questions;
 }

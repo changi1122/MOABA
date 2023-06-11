@@ -1,8 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
 import Chart from 'react-google-charts';
 
 export default function AnswerBox({ box, index }){
-    
+
     return(
         <div key={index} className="survey-box">
             <div className="survey-question-row">

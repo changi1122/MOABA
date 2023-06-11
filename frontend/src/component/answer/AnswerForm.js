@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import "./AnswerForm.css";
 import AnswerBox from "./AnswerBox";
 import { useEffect } from 'react';
+import { useParams } from "react-router-dom";
 
 export default function AnswerForm() {
 
   const [form, setForm] = useState({});
+  const [answer, setAnswer] = useState({});
+
+  const { id } = useParams();
 
   const loadForm = async (id) => {
     const response = await fetch(`/data/form/${id}/survey.json`, {
@@ -15,6 +19,7 @@ export default function AnswerForm() {
         }
     });
     const data = await response.json();
+    console.log(data);
     if (!data) return;
 
     if (data) {
@@ -24,11 +29,60 @@ export default function AnswerForm() {
     }
   }
 
+  useEffect(()=>{
+    console.log("sdf : ", answer);
+  }, [answer])
+
+  const GET = async()=>{
+    
+    const data={
+      "qid": `${id}`
+    }
+
+    await fetch("/api/get/questionForm",{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }) 
+    .then(response => response.json())
+    .then(result=>{
+        const sending={
+            "sending" : []
+        }
+        for(var i=0; i<result.questions.length; i++){
+          result.questions[i].input = "";
+          sending.sending.push({"boxid":null, "answer": null})
+        }
+        console.log("sees : " , sending);
+        setAnswer(sending);
+        setForm(result);
+    })
+    .catch(error =>{
+        console.log(error);
+    })
+  }
+
   useEffect(() => {
-    loadForm(1);
+    GET()
   }, []);
 
-  const setInput = (qIndex, value) => {
+  const setInput = (qIndex, value, eanswerType, eboxid, answerIndex) => {
+    console.log(qIndex, value, eanswerType, eboxid,  answerIndex)
+
+    var datas=null;
+    if(eanswerType==='단답형'){
+      datas = value;
+    }
+
+    setAnswer((answer)=>{
+      let newAnswer = { ...answer};
+      newAnswer.sending[qIndex].boxid = eboxid[answerIndex];
+      newAnswer.sending[qIndex].answer = datas;
+      return newAnswer;
+    })
+
     setForm((form) => {
       let newForm = { ...form };
       newForm.questions[qIndex].input = value;
@@ -36,6 +90,9 @@ export default function AnswerForm() {
     });
   }
   
+  const Send = ()=>{
+    console.log(answer);
+  }
 
   return (
     <div className='answerform'>
@@ -76,7 +133,7 @@ export default function AnswerForm() {
           />
         ))}
         <div className="survey-buttons">
-          <button>제출하기</button>
+          <button onClick={Send}>제출하기</button>
         </div>
       </div>
     </div>

@@ -127,7 +127,7 @@ public class QuestionController {
             lqdto.setBoxid(idlist);
             lists.add(lqdto);
         }
-        linkingDTO.setQuestion(lists);
+        linkingDTO.setQuestions(lists);
 
         return linkingDTO;
     }
@@ -221,5 +221,47 @@ public class QuestionController {
         System.out.println("list is : " + list.get(0) + " "+ list.get(1));
 
         return list;
+    }
+
+
+    @PostMapping("/get/questionForm")
+    public LinkingDTO GetQuestionForm(@RequestBody HashMap<String, Object> hashMap){
+        String qid  = (String) hashMap.get("qid");
+
+        LinkingDTO linkingDTO = new LinkingDTO();
+
+        Question question =  questionService.GetQuestion(Long.valueOf(qid));
+
+        List<String> categories = matchingService.GetPreferCategory(Long.valueOf(qid));
+
+        linkingDTO.setCategories(categories);
+        linkingDTO.setName(question.getTitle());
+        linkingDTO.setDueDate(question.getEnd_date());
+        linkingDTO.setMeetingDate(question.getSchedule_data());
+
+
+        List<LQDTO> lists = new ArrayList<>();
+
+        List<QustBox> qlist = qustBoxService.GetQuestionList(Long.valueOf(qid));
+
+        System.out.println(qlist);
+        for(int i=0; i<qlist.size(); i++){
+            LQDTO lqdto = new LQDTO();
+            lqdto.setQuestion(qlist.get(i).getTitle());
+            lqdto.setAnswerType(typeService.FindTypeByID(qlist.get(i).getQuestiontype()));
+            List<QustBoxList> qustBoxListList = qustBoxListService.FindtitleByboxid(qlist.get(i).getId());
+            List<String> answers = new ArrayList<>();
+            List<Long> idlist = new ArrayList<>();
+            for(int j=0; j < qustBoxListList.size(); j++){
+                answers.add(qustBoxListList.get(j).getTitle());
+                idlist.add(qustBoxListList.get(j).getId());
+            }
+            lqdto.setAnswers(answers);
+            lqdto.setBoxid(idlist);
+            lists.add(lqdto);
+        }
+        linkingDTO.setQuestions(lists);
+
+        return linkingDTO;
     }
 }
