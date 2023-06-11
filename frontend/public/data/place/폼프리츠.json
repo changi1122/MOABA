@@ -3,9 +3,11 @@
     "address": "충북 청주시 서원구 1순환로674번길 56",
     "tel": "043-272-8772",
     "tags": ["친구", "회식"],
+    "min": 2,
+    "max": 12,
     "lat": 36.632168330043314,
     "lng": 127.45795297926533,
-    "navermap": "https://naver.me/FbRybhzl",
+    "navermap": "https://naver.me/x9JI0CaZ",
     "image": ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190915_234%2F15685138864832ryjQ_JPEG%2FcmiX2LHzM9vhNGOrX7lG7jvs.jpeg.jpg",
             "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMjExMjhfNjUg%2FMDAxNjY5NTYyMTU3NTEz.5jIm_KIUlqyq_xODnom9z9lfSDQzS7VyJFUqB_f5W40g.P8mkdFNJqj9o1vC3ByZYeUjMpBar3VrzowSBNAy87a0g.JPEG%2F4E478768-8E74-4AA6-8327-B38B1AF8EE51.jpeg"]
     }
