@@ -20,6 +20,4 @@ public class Question {
     private String schedule_data;
     @Column(name = "end_date")
     private String end_date;
-    @Column(name = "created_at")
-    private String created_at;
 }

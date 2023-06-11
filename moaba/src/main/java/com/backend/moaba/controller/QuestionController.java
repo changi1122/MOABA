@@ -2,6 +2,7 @@ package com.backend.moaba.controller;
 
 
 import com.backend.moaba.dto.QustBoxDTO;
+import com.backend.moaba.dto.headerDTO;
 import com.backend.moaba.entity.Question;
 import com.backend.moaba.entity.QustBox;
 import com.backend.moaba.entity.QustBoxList;
@@ -49,13 +50,17 @@ public class QuestionController {
         this.matchingService = matchingService;
     }
 
+    private AnswerService answerService;
+    @Autowired
+    public void setAnswerService(AnswerService answerService){this.answerService = answerService;}
+
 
     @PostMapping("/save")
     public Long SaveQuestion(@RequestBody ArrayList<HashMap<String, Object>> list){
 
         System.out.println(list);
 
-        Long qid = questionService.SaveHeader((String) list.get(0).get("title"), (String) list.get(0).get("content"), (String) list.get(2).get("dueDate"), (String) list.get(2).get("endDate"), (String) list.get(2).get("created"));
+        Long qid = questionService.SaveHeader((String) list.get(0).get("title"), (String) list.get(0).get("content"), (String) list.get(2).get("dueDate"), (String) list.get(2).get("endDate"));
 
         List ctgylist = (List) list.get(1).get("type");
         for(int i=0; i<ctgylist.size(); i++){
@@ -99,15 +104,58 @@ public class QuestionController {
     }
 
     @PostMapping("/get/question")
-    public List<Question> GetQuestion(@RequestBody HashMap<String, Object> hashMap){
+    public HashMap<String, List<headerDTO>> GetQuestion(@RequestBody HashMap<String, Object> hashMap){
         String uid  = (String) hashMap.get("uid");
 
-        HashMap<String, Object> hashMapped = new HashMap<String, Object>();
         List<Question> questions =  questionService.GetAllQuestion(Long.valueOf(uid));
 
         System.out.println(questions);
 
-        return questions;
+        HashMap<String, List<headerDTO>> data = new HashMap<String, List<headerDTO>>();
+        String date ="sd";
+        List<String> lists = new ArrayList<>();
+        Integer k=-1;
+        int i=0;
+
+        while(true){
+            List<headerDTO> list = new ArrayList<>();
+            while(true){
+                if(i == questions.size()){
+                    data.put(date, list);
+                    break;
+                }
+                String[] str = questions.get(i).getEnd_date().split("T");
+                if(!date.equals(str[0])){
+                    lists.add(str[0]);
+                    k++;
+                    break;
+                }
+                headerDTO headerDTO = new headerDTO();
+                headerDTO.setName(questions.get(i).getTitle());
+                String dueDate = questions.get(i).getEnd_date();
+                dueDate = dueDate.replace("T", " ");
+                headerDTO.setDueDate(dueDate);
+                String meeting = questions.get(i).getSchedule_data();
+                meeting = meeting.replace("T", " ");
+                headerDTO.setMeetingDate(meeting);
+                headerDTO.setId(questions.get(i).getId());
+                Integer answer =  answerService.CountAnswer(questions.get(i).getId());
+                headerDTO.setAnswer(answer);
+
+                list.add(headerDTO);
+                i++;
+            }
+            if(i == questions.size()){
+                break;
+            }
+            if(date != "sd"){
+                data.put(date, list);
+            }
+            date= lists.get(k);
+        }
+        System.out.println(data);
+
+        return data;
     }
 
 

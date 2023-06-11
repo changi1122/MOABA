@@ -11,4 +11,7 @@ public interface QustBoxRepository extends JpaRepository<QustBox,Long> {
 
     @Query(nativeQuery = true, value = "Select * from qustbox qb where qb.questionid = :qid")
     List<QustBox> FindByQuestionID(@Param("qid")Long qid);
+
+    @Query(nativeQuery = true, value = "SELECT qb.id from qustbox qb where questionid = :qid")
+    List<Long> FindQuestionIDByQuestionID(@Param("qid")Long qid);
 }

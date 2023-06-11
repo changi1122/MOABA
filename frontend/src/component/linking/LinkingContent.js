@@ -21,13 +21,17 @@ export default function LinkingContent() {
 
     useEffect(() => {
         loadTodaySurveys(selectedDay);
-        GetData();
+        GetData(format(selectedDay, 'yyyy-MM-dd'));
     }, []);
 
-    const GetData = async ()=>{
+    useEffect(()=>{
+        console.log(todaySurveys);
+    },[todaySurveys]);
+
+    const GetData = async (selectedDay)=>{
 
         const data = {
-            "uid" : "1" 
+            "uid" : "1",
         }
 
         await fetch("/api/get/question", {
@@ -39,7 +43,14 @@ export default function LinkingContent() {
         })
         .then(response => response.json())
         .then(result=>{
-        console.log("result", result);
+            console.log("result", result);
+            console.log(result[selectedDay])
+            if(result[selectedDay]){
+                const list = [...todaySurveys, ...result[selectedDay]]
+                setTodaySurveys(list);
+            }else{
+                setTodaySurveys([]);
+            }
         })
         .catch(error =>{
         console.log(error);
@@ -71,6 +82,7 @@ export default function LinkingContent() {
     function selectDay(day) {
         if (day) {
             loadTodaySurveys(format(day, 'yyyy-MM-dd'));
+            GetData(format(day, 'yyyy-MM-dd'));
             setSelectedDay(day);
         }
     }

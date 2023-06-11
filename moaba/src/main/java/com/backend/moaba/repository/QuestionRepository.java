@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
-    @Query(nativeQuery = true, value = "SELECT * from question q where q.userid = :uid order by q.created_at")
+    @Query(nativeQuery = true, value = "SELECT * from question q where q.userid = :uid order by q.end_date")
     List<Question> GetAll(@Param("uid")Long uid);
 }

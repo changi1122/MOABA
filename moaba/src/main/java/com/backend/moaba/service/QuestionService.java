@@ -18,7 +18,7 @@ public class QuestionService {
         this.questionRepository = questionRepository;
     }
 
-    public Long SaveHeader(String title, String content, String DueDate, String EndDate, String created){
+    public Long SaveHeader(String title, String content, String DueDate, String EndDate){
 
         System.out.println(EndDate+"sdfsdfsdfsfsdfsdfsdf");
         Question question = new Question();
@@ -27,7 +27,6 @@ public class QuestionService {
         question.setContent(content);
         question.setSchedule_data (DueDate);
         question.setEnd_date(EndDate);
-        question.setCreated_at(created);
 
         Long id  = questionRepository.save(question).getId();
 
