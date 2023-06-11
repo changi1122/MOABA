@@ -32,15 +32,35 @@ export default function TempPage(props){
         SetYes(yes);
     }
     
+    const Getheader = async()=>{
+        const body ={
+            qid:"25"
+        };
+
+        await fetch("/api/get/header",{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(result=>{
+        console.log("result", result);
+        })
+        .catch(error =>{
+        console.log(error);
+        })
+    }
 
 
-    const GetTest = async ()=>{
+    const GetList = async ()=>{
 
         const body = {
             qid: "25",
         };
 
-        await fetch("/api/get",{
+        await fetch("/api/get/list",{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -62,7 +82,7 @@ export default function TempPage(props){
             {id}
             <button onClick={Test} >TRFD</button>
 
-            <button onClick={GetTest} > getData</button>
+            <button onClick={GetList} > getData</button>
         </div>
     )
 }

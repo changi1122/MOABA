@@ -64,7 +64,7 @@ function App() {
         <Route path="/done" Component={DonePage} />
         <Route path="/user" Component={UserPage} />
         <Route path="/temp/page/:id" Component={TempPage} />
-        <Route path="/save/page/:id" Component={SavePage} />
+        <Route path="/save" Component={SavePage} />
         <Route path="/save/page/answer/:id" Component={SAnswerPage} />
       </Routes>
     </div>

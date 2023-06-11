@@ -18,13 +18,16 @@ public class QuestionService {
         this.questionRepository = questionRepository;
     }
 
-    public Long SaveHeader(String title, String content, String DueDate, String EndDate){
+    public Long SaveHeader(String title, String content, String DueDate, String EndDate, String created){
+
+        System.out.println(EndDate+"sdfsdfsdfsfsdfsdfsdf");
         Question question = new Question();
         question.setUserid(1L);
         question.setTitle(title);
         question.setContent(content);
         question.setSchedule_data (DueDate);
         question.setEnd_date(EndDate);
+        question.setCreated_at(created);
 
         Long id  = questionRepository.save(question).getId();
 
@@ -33,5 +36,9 @@ public class QuestionService {
 
     public Question GetQuestion(Long qid){
         return questionRepository.findById(qid).get();
+    }
+
+    public List<Question> GetAllQuestion(Long uid){
+        return questionRepository.GetAll(uid);
     }
 }

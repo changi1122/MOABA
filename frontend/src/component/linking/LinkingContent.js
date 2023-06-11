@@ -21,7 +21,30 @@ export default function LinkingContent() {
 
     useEffect(() => {
         loadTodaySurveys(selectedDay);
+        GetData();
     }, []);
+
+    const GetData = async ()=>{
+
+        const data = {
+            "uid" : "1" 
+        }
+
+        await fetch("/api/get/question", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result=>{
+        console.log("result", result);
+        })
+        .catch(error =>{
+        console.log(error);
+        })
+    }
 
     const loadTodaySurveys = async (date) => {
         const response = await fetch(`/data/LinkingItemList.json`, {
@@ -31,6 +54,9 @@ export default function LinkingContent() {
             }
         });
         const data = await response.json();
+
+        console.log(data);
+
         if (!data) return;
 
         if (data[date]) {
@@ -39,6 +65,8 @@ export default function LinkingContent() {
             setTodaySurveys([]);
         }
     }
+
+
 
     function selectDay(day) {
         if (day) {

@@ -19,6 +19,27 @@ export const TITLE = "CLICK/TITLE";
 export const SEARCHING = "SEARCH/SEARCHING";
 export const TONULL = "SEARCH/TONULL";
 
+export const SETLIST = "SAVE/SETLIST";
+export const DELETLIST = "SAVE/DELETLIST";
+
+export const SAVELIST = "TEMP/SAVELIST";
+export const DROPLIST = "TEMP/DROPLIST";
+
+export const setsavelist = (save) =>({
+    type:SETLIST, save
+});
+
+export const deletesavelist = (save) =>({
+    type:DELETLIST, save
+});
+
+export const savetemplist = (temp) =>({
+    type:SAVELIST, temp
+});
+
+export const droptemplist = (temp) =>({
+    type:DROPLIST, temp
+});
 
 export const increaseCount = (count) =>({
     type:INCRESE, count
@@ -90,7 +111,9 @@ const initalState = {
     count :0,
     isLogin : "LogOut",
     click: "None",
-    search:""
+    search:"",
+    temp:[],
+    save:[],
 };
 
 export const counter = (state = initalState, action) =>{
@@ -169,6 +192,16 @@ export const counter = (state = initalState, action) =>{
             return{
                 ...state,
                 search:""
+            }
+        case SETLIST:
+            return{
+                ...state,
+                save : [...state, action.payload]
+            }
+        case DELETLIST:
+            return{
+                ...state,
+                save : state.save.filter(save => save.id !== action.payload)
             }
         default:
             return state;

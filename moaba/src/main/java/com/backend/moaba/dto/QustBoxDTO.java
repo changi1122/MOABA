@@ -1,5 +1,6 @@
 package com.backend.moaba.dto;
 
+import com.backend.moaba.entity.QustBoxList;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,5 +15,5 @@ import java.util.List;
 public class QustBoxDTO {
     private String title;
     private String questiontype;
-    private List<String> list;
+    private List<QustBoxList> list;
 }

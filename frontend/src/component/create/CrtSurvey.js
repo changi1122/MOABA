@@ -152,6 +152,13 @@ function CrtSurvey() {
   };
 
   const PrintInfo = async ()=>{
+
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const today =  `${year}-${month}-${day}`;
+
     const first = [
       {
         "title":title,
@@ -162,7 +169,8 @@ function CrtSurvey() {
       },
       {
         "dueDate" : duedate,
-        "endDate" : enddate
+        "endDate" : enddate,
+        "created" : today
       }
     ];
     setData(first);

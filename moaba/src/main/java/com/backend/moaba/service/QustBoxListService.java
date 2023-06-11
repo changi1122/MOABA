@@ -18,15 +18,15 @@ public class QustBoxListService {
         this.qustBoxListRepository = qustBoxListRepository;
     }
 
-    public void SaveQustBoxList(String title, Long boxid){
+    public Long SaveQustBoxList(String title, Long boxid){
         QustBoxList qustBoxList = new QustBoxList();
         qustBoxList.setQust_boxid(boxid);
         qustBoxList.setTitle(title);
 
-        qustBoxListRepository.save(qustBoxList);
+        return qustBoxListRepository.save(qustBoxList).getId();
     }
 
-    public List<String> FindtitleByboxid(Long bid){
+    public List<QustBoxList> FindtitleByboxid(Long bid){
         return qustBoxListRepository.FindtitlesByBoxID(bid);
     }
 }
