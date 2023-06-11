@@ -122,3 +122,14 @@
     height: 560px;
     z-index: 100;
 }
+
+.capacity {
+    font-family: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    width: 64px;
+    text-align: right;
+    font-weight: inherit;
+    color: #5B74DA;
+}
