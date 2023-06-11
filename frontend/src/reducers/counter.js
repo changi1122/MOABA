@@ -21,23 +21,30 @@ export const TONULL = "SEARCH/TONULL";
 
 export const SETLIST = "SAVE/SETLIST";
 export const DELETLIST = "SAVE/DELETLIST";
+export const CLEANSAVE = "SAVE/CLEANSAVE";
 
 export const SAVELIST = "TEMP/SAVELIST";
 export const DROPLIST = "TEMP/DROPLIST";
+export const CLEANTEMP = "TEMP/CLEANTEMP";
+
 
 export const setsavelist = (save) =>{
     return{
-        type:SETLIST,  payload:save
+        type:SETLIST, save
     };
-};
+}
 
 export const deletesavelist = (save) =>({
     type:DELETLIST, save
 });
 
+export const makeEmptysave = (save) =>({
+    type:CLEANSAVE, save
+});
+
 export const savetemplist = (temp) =>{
     return{
-        type:SAVELIST,  payload:temp
+        type:SAVELIST, temp
     };
 }
 
@@ -45,20 +52,8 @@ export const droptemplist = (temp) =>({
     type:DROPLIST, temp
 });
 
-export const increaseCount = (count) =>({
-    type:INCRESE, count
-});
-
-export const decreaseCount =(count) => ({
-    type:DECREASE, count
-});
-
-export const divideCount = (count) =>({
-    type:DIVIDE, count
-});
-
-export const resetCount = (count) =>({
-    type:RESET, count
+export const makeEmptytemp = (temp) =>({
+    type:CLEANTEMP, temp
 });
 
 export const setlogin = (isLogin) =>({
@@ -199,22 +194,32 @@ export const counter = (state = initalState, action) =>{
         case SETLIST:
             return{
                 ...state,
-                save : [...state, action.payload]
+                save : [...state.save, action.save]
             }
         case DELETLIST:
             return{
                 ...state,
-                save : state.save.filter(save => save.id !== action.payload)
+                save : state.save.filter(save => (save && save.id != action.save.id))
+            }
+        case CLEANSAVE:
+            return{
+                ...state,
+                save:[]
             }
         case SAVELIST:
             return{
                 ...state,
-                temp : [...state, action.payload]
+                temp : [...state.temp, action.temp]
             }
         case DROPLIST:
             return{
                 ...state,
-                temp : state.temp.filter(temp => temp.id !== action.payload)
+                temp : state.temp.filter(temp => (temp && temp.id != action.temp.id))
+            }
+        case CLEANTEMP:
+            return{
+                ...state,
+                temp:[]
             }
         default:
             return state;

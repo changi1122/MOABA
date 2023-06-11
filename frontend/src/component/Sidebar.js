@@ -3,24 +3,19 @@ import React, {useState, useEffect}from "react";
 import "./SidebarStyle.css";
 import { useDispatch, useSelector } from "react-redux";
 import { droptemplist, savetemplist } from "../reducers/counter";
+import { useNavigate } from 'react-router-dom';
+
 
 function Sidebar({width, height, color, position, content, fix, isShow}){
 
     const dispacth = useDispatch();
 
-    const { temp } = useSelector( state => state.counter);
-
+    const navigate = useNavigate();
     const { click } = useSelector( state => state.counter);
-
-    useEffect(()=>{
-        GetData();
-    }, [])
-
-    useEffect(()=>{
-        console.log("sdfs : ",temp);
-    }, [temp]);
-
-    const GetData = async () =>{
+    const { temp } = useSelector( state => state.counter);
+    const { save } = useSelector( state => state.counter);
+    const [not, setnot] = useState(0);
+    /*const GetData = async () =>{
         const response= await fetch(`/data/temp/temp.json`,{
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +46,7 @@ function Sidebar({width, height, color, position, content, fix, isShow}){
         } else {
             
         }
-    }
+    }*/
 
     useEffect(()=>{
         if(click==="Temp"){
@@ -63,10 +58,6 @@ function Sidebar({width, height, color, position, content, fix, isShow}){
         }
     }, [click])
 
-    useEffect(()=>{
-        console.log(click);
-    })
-
 
     function StyleChg(id, style){
         const elements = document.querySelectorAll(`#${id}`);
@@ -75,23 +66,48 @@ function Sidebar({width, height, color, position, content, fix, isShow}){
         })
     }
 
+    function navigateToTempSaved(id) {
+        navigate(`/temp/page/${id}`);
+    }
+
 
 
     if(isShow=== undefined){
         isShow = 1;
     }
 
-    const test2 = (list, id)=>{
-        console.log(list);
+    const test2 = ()=>{
         const result =[];
-        if(list === null){
-            return result
+
+        if(temp !== null){
+            const data = temp;
+            for(const item of data){
+                if (item && item.id) {
+                    result.push(<p id="Temp-list" className='listItem' key={item.id} index={item.id} onClick={() => { navigateToTempSaved(item.id) }}> {item.title}</p>)
+                }
+            }
         }
-        for(let i=0; i<list.length; i++){
-            result.push(<p key={i} id={id}> {list[i].title}</p>)
+
+        if(save !== null){
+            const data2 = save;
+            for(const item of data2){
+                if (item && item.id) {
+                    result.push(<p id="Save-list" className='listItem' key={item.id} index={item.id} onClick={() => { navigateToTempSaved(item.id) }}> {item.title}</p>)
+                }
+            }
         }
         return result;
     };
+
+    useEffect(()=>{
+        console.log("sdfs");
+        test2();
+    },[save])
+
+    useEffect(()=>{
+        console.log("sdfs");
+        test2();
+    },[temp])
 
     return (
         <>
@@ -102,8 +118,7 @@ function Sidebar({width, height, color, position, content, fix, isShow}){
                 isShow
                 ?   <div className="sidebar-menu-sub" id="sidebar-sub">
                         <div className="sidebar-menu-sub-box">
-                            {test2(null, "Temp-list")}
-                            {test2(null, "Save-list")}
+                            {test2()}
                         </div>
                     </div>
                 : null

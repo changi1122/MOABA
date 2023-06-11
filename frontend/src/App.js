@@ -22,7 +22,7 @@ import DeleteAccountPage from './pages/DeleteAccountPage';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './pages/HomePage';
-import { setlogout } from './reducers/counter';
+import { makeEmptysave, makeEmptytemp, setlogout } from './reducers/counter';
 
 
 
@@ -34,6 +34,8 @@ function App() {
     var str = window.location.href;
     if(str === "http://localhost:3000/"){
       dispacth(setlogout());
+      dispacth(makeEmptytemp());
+      dispacth(makeEmptysave());
     }
   },[dispacth]
   );

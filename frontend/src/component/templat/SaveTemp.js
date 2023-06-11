@@ -11,7 +11,6 @@ function SaveTemp(){
 
     var dispacth = useDispatch();
 
-
     useEffect(()=>{
         console.log("chage", search);
     },[search]);

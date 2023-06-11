@@ -8,7 +8,6 @@ export default function ChangeEmailPage(){
     return (
         
         <Layout
-            header={"My Page"}
             align_items={"Layout-center"}
             body={<ChangeEmailShow />}
             T_styel={"content-H"}

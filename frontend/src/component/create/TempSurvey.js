@@ -1,12 +1,30 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./CrtSurveyStyle.css";
 import SurveyBox from "./SurveyBox";
-import { useDispatch } from 'react-redux';
-import { savetemplist } from '../../reducers/counter';
+import { useDispatch, useSelector } from 'react-redux';
+import { droptemplist } from '../../reducers/counter';
 
-function CrtSurvey() {
+
+export default function TempSurvey(id) {
 
   const dispatch = useDispatch();
+  var {id}= useParams();
+  const { temp } = useSelector(state => state.counter);
+
+  useEffect(() => {
+    for (const saved of temp) {
+      if (saved && saved.id == id) {
+        if (saved.boxes) setBoxes(saved.boxes);
+        if (saved.categories) setCategories(saved.categories);
+        if (saved.title) Settitle(saved.title);
+        if (saved.text) setText(saved.text);
+        if (saved.duedate) setDueDate(saved.duedate);
+        if (saved.enddate) setEndDate(saved.enddate);
+        return;
+      }
+    }
+  }, [id]);
 
   const [boxes, setBoxes] = useState([{ question: "", answerType: "단답형", answers: [""] }]);
   const [categories, setCategories] = useState([]);
@@ -42,10 +60,6 @@ function CrtSurvey() {
     textarea.style.height = '10px';
     textarea.style.height = `${textarea.scrollHeight}px`;
   };
-
-  useEffect(()=>{
-    console.log(boxes);
-  }, [boxes])
 
   const addBox = () => {
     setBoxes((prevBoxes) => [
@@ -192,21 +206,7 @@ function CrtSurvey() {
     setData(first);
   };
 
-
-  const saveTemp = () => {
-    dispatch(savetemplist({
-      id: Math.floor((Math.random() * 100000000)),
-      title,
-      text,
-      duedate,
-      enddate,
-      boxes,
-      categories
-    }));
-  }
-
   useEffect(()=>{
-    console.log(data)
     SendData();
   }, [data])
 
@@ -227,6 +227,13 @@ function CrtSurvey() {
       console.log(error);
     })
   }
+
+  const deleteTempSaved = () => {
+    dispatch(droptemplist({
+      id
+    }));
+  }
+  
 
   return (
     <div className="right-content">
@@ -315,12 +322,11 @@ function CrtSurvey() {
         ))}
         <div className="survey-buttons">
           <button onClick={addBox}>질문 추가</button>
-          <button onClick={saveTemp}>임시저장</button>
+          <button onClick={deleteTempSaved}>삭제</button>
+          <button>임시저장</button>
           <button onClick={PrintInfo} >저장</button>
         </div>
       </div>
     </div>
   );
 }
-
-export default CrtSurvey;

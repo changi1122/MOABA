@@ -7,7 +7,6 @@ export default function ChangepwPage(){
 
     return (
         <Layout
-            header={"My Page"}
             align_items={"Layout-center"}
             body={<ChangepwShow />}
             T_styel={"content-H"}

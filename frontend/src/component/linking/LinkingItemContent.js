@@ -32,10 +32,9 @@ function LinkingItemContent() {
 
 
     const GetQuestion = async () =>{
-        console.log(id);
 
         const data = {
-            "qid" : `${33}`
+            "qid" : id
         }
 
         console.log(data);
@@ -117,11 +116,11 @@ function LinkingItemContent() {
                         <tbody>
                             <tr>
                                 <td>모임 예정일시</td>
-                                <td>2023.05.30 10:40</td>
+                                <td>{result.meetingDate}</td>
                             </tr>
                             <tr>
                                 <td>응답 종료일시</td>
-                                <td>2023.06.13 12:00</td>
+                                <td>{result.dueDate}</td>
                             </tr>
                         </tbody>
                     </table>
