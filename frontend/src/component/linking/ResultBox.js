@@ -1,8 +1,32 @@
 import React from "react";
 import { useEffect } from "react";
 import Chart from 'react-google-charts';
+import "./ResultBoxStyle.css";
 
 export default function AnswerBox({ box, index }){
+
+    if(box.answerType === "단답형"){
+        console.log(box.resultTable.length);
+        const list = [];
+
+        for(var i=0; i<box.resultTable.length; i++){
+            console.log(box.resultTable[i][0]);
+            list.push(box.resultTable[i][0])
+        }
+    }
+
+    const setting = ()=>{
+        const list = [];
+
+        for(var i=0; i<box.resultTable.length; i++){
+            console.log(box.resultTable[i][0]);
+            list.push(
+                <p className="boxResult">{box.resultTable[i][0]} <span>{i}</span> </p>
+            )
+        }
+
+        return list;
+    }
 
     return(
         <div key={index} className="survey-box">
@@ -13,12 +37,9 @@ export default function AnswerBox({ box, index }){
             </div>
             {box.answerType === "단답형" && (
                 <div className="survey-answer-row">
-                    <Chart
-                        chartType="PieChart"
-                        data={box.resultTable}
-                        width={"100%"}
-                        height={"300px"}
-                    />
+                    {
+                        setting()
+                    }
                 </div>
             )}
             {box.answerType === "객관식" && (

@@ -2,6 +2,7 @@ package com.backend.moaba.controller;
 
 
 import com.backend.moaba.dto.*;
+import com.backend.moaba.entity.Answer;
 import com.backend.moaba.entity.Question;
 import com.backend.moaba.entity.QustBox;
 import com.backend.moaba.entity.QustBoxList;
@@ -69,16 +70,16 @@ public class QuestionController {
 
         for(int i=3; i<list.size(); i++){
 
-            System.out.println((String) list.get(i).get("answerType"));
+
 
             Long cid = typeService.FindID((String) list.get(i).get("answerType"));
 
-            System.out.println(cid);
+
 
             Long qbid = qustBoxService.SaveQustBox(qid, (String) list.get(i).get("question"), cid);
 
             List list1 = (List) list.get(i).get("answers");
-            System.out.println(list1);
+
             for(int j=0; j<list1.size(); j++){
                 Long qblid = qustBoxListService.SaveQustBoxList((String) list1.get(j), qbid);
             }
@@ -107,23 +108,37 @@ public class QuestionController {
 
         List<QustBox> qlist = qustBoxService.GetQuestionList(Long.valueOf(qid));
 
-        System.out.println(qlist);
         for(int i=0; i<qlist.size(); i++){
             LQTEMPDTO lqdto = new LQTEMPDTO();
             lqdto.setQuestion(qlist.get(i).getTitle());
             lqdto.setAnswerType(typeService.FindTypeByID(qlist.get(i).getQuestiontype()));
             List<QustBoxList> qustBoxListList = qustBoxListService.FindtitleByboxid(qlist.get(i).getId());
 
+            System.out.println("sdfsfsdf "+qustBoxListList);
             /* answers & result */
             List<String> answers = new ArrayList<>();
             List<Map<String, Integer>> mapList = new ArrayList<>();
 
-            for(int j = 0; j < qustBoxListList.size(); j++){
-                answers.add(qustBoxListList.get(j).getTitle());
-                HashMap<String, Integer> map = new HashMap<>();
+            if(lqdto.getAnswerType().equals("단답형")){
 
-                map.put(qustBoxListList.get(j).getTitle(), answerService.CountByBoxId(qustBoxListList.get(j).getId()));
-                mapList.add(map);
+                System.out.println(qustBoxListList.get(0).getId());
+                answers.add(qustBoxListList.get(0).getTitle());
+                List<Answer> answerList = answerService.GetAllAnswer(qustBoxListList.get(0).getId());
+                System.out.println(answerList);
+                for(int j=0; j<answerList.size(); j++){
+                    HashMap<String, Integer> map = new HashMap<>();
+                    String str =  answerList.get(j).getAnswer()==null ? "null" : answerList.get(j).getAnswer();
+                    map.put(str, 1);
+                    mapList.add(map);
+                }
+            }else{
+                for(int j = 0; j < qustBoxListList.size(); j++){
+                    answers.add(qustBoxListList.get(j).getTitle());
+                    HashMap<String, Integer> map = new HashMap<>();
+
+                    map.put(qustBoxListList.get(j).getTitle(), answerService.CountByBoxId(qustBoxListList.get(j).getId()));
+                    mapList.add(map);
+                }
             }
             lqdto.setAnswers(answers);
             lqdto.setResult(mapList);
@@ -193,23 +208,20 @@ public class QuestionController {
 
     @PostMapping("/get/list")
     public  List<QustBoxDTO> GetQuestionBody(@RequestBody HashMap<String, Object> hashMap){
-        System.out.println(hashMap.get("qid"));
         String id  = (String) hashMap.get("qid");
 
         ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
 
         List<QustBox> qlist = qustBoxService.GetQuestionList(Long.valueOf(id));
 
-        System.out.println(qlist);
-        System.out.println(qlist.get(1).getQuestiontype());
 
         List<QustBoxDTO> list = new ArrayList<QustBoxDTO>();
 
         for(int i=0; i<qlist.size(); i++){
             QustBoxDTO qustBoxDTO = new QustBoxDTO();
-            System.out.println("type :" + typeService.FindTypeByID(qlist.get(i).getQuestiontype()));
+
             String istype = typeService.FindTypeByID(qlist.get(i).getQuestiontype());
-            System.out.println(qustBoxListService.FindtitleByboxid(qlist.get(i).getId()));
+
             List<QustBoxList> strings = qustBoxListService.FindtitleByboxid(qlist.get(i).getId());
 
             qustBoxDTO.setTitle(qlist.get(i).getTitle());
@@ -217,10 +229,8 @@ public class QuestionController {
             qustBoxDTO.setList(strings);
 
             list.add(qustBoxDTO);
-            System.out.println(qustBoxDTO);
-        }
 
-        System.out.println("list is : " + list.get(0) + " "+ list.get(1));
+        }
 
         return list;
     }

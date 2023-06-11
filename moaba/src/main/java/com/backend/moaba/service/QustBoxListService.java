@@ -30,4 +30,8 @@ public class QustBoxListService {
         return qustBoxListRepository.FindtitlesByBoxID(bid);
     }
 
+    public QustBoxList Find(Long bid){
+        return qustBoxListRepository.findById(bid).get();
+    }
+
 }

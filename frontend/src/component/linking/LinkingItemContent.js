@@ -35,7 +35,7 @@ function LinkingItemContent() {
         console.log(id);
 
         const data = {
-            "qid" : `${25}`
+            "qid" : `${33}`
         }
 
         console.log(data);
@@ -49,8 +49,13 @@ function LinkingItemContent() {
         })
         .then(response => response.json())
         .then(result=>{
+            console.log("sdf : ", result)
             for (const question of result.questions) {
-                question.resultTable = [["", "응답 수"]];
+                if(question.answerType!=="단답형"){
+                    question.resultTable = [["", "응답 수"]];
+                }else{
+                    question.resultTable =[];
+                }
                 for (const map of question.result) {
                     question.resultTable.push([Object.keys(map)[0], Object.values(map)[0]]);
                 }
