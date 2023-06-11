@@ -3,14 +3,9 @@ import React, {useState, useEffect}from "react";
 import "./SidebarStyle.css";
 import { useDispatch, useSelector } from "react-redux";
 
-import TempData from "../data/TempData";
-import SaveData from "../data/SaveData";
-
 function Sidebar({width, height, color, position, content, fix, isShow}){
 
     const { click } = useSelector( state => state.counter);
-    var temp = TempData.Data;
-    var save = SaveData.Data;
 
     useEffect(()=>{
         if(click==="Temp"){
@@ -43,6 +38,9 @@ function Sidebar({width, height, color, position, content, fix, isShow}){
     const test2 = (list, id)=>{
         console.log(list);
         const result =[];
+        if(list === null){
+            return result
+        }
         for(let i=0; i<list.length; i++){
             result.push(<p key={i} id={id}> {list[i].title}</p>)
         }
@@ -58,8 +56,8 @@ function Sidebar({width, height, color, position, content, fix, isShow}){
                 isShow
                 ?   <div className="sidebar-menu-sub" id="sidebar-sub">
                         <div className="sidebar-menu-sub-box">
-                            {test2(temp, "Temp-list")}
-                            {test2(save, "Save-list")}
+                            {test2(null, "Temp-list")}
+                            {test2(null, "Save-list")}
                         </div>
                     </div>
                 : null

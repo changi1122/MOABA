@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../component//answer/AnswerForm";
 import AnswerBox from "../component/answer/AnswerBox";
 import Layout from "../component/Layout";
+import { useParams } from "react-router-dom";
 
 export default function SAnswerPage() {
 
@@ -35,6 +36,7 @@ export default function SAnswerPage() {
       return newForm;
     });
   }
+
   
   function getAnswerForm() {
     return (
@@ -74,7 +76,7 @@ export default function SAnswerPage() {
           />
         ))}
         <div className="survey-buttons">
-          <button>제출하기</button>
+          <button>담기</button>
         </div>
       </div>
     </div>
@@ -83,7 +85,7 @@ export default function SAnswerPage() {
 
   return (
     <Layout
-        header={"Linking"}
+        header={"이런건 어때요?"}
         body={getAnswerForm()}
         align_items={"Layout-center"}
         T_styel={"content-H"}

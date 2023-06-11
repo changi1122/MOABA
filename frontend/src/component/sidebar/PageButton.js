@@ -47,7 +47,7 @@ function PageButton(){
 
     function MoveToTemplatePage(){
         dispacth(StateSave());
-        navigate('/save/page/1');
+        navigate('/save');
     }
 
     /*

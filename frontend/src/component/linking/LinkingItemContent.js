@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Chart } from "react-google-charts";
 
 import "react-day-picker/dist/style.css";
 import "./LinkingItemContent.css"
@@ -19,6 +18,8 @@ function LinkingItemContent() {
     const [result, setResult] = useState({});
     const [isWindowOpened, setIsWindowOpened] = useState(false);
     const [name, setName] = useState("주목원");
+
+    const [capacity, setCapacity] = useState(10);
 
     useEffect(() => {
         loadSurveyResult('1');
@@ -40,19 +41,7 @@ function LinkingItemContent() {
         setResult(data);
     }
 
-
-
-
-    var linkingItem = LinkingItem.Data;
-
-    const oneSampleData = [
-        ["Task", "Hours per Day"],
-        ["Work", 11],
-        ["Eat", 2],
-        ["Commute", 2],
-        ["Watch TV", 2],
-        ["Sleep", 7],
-    ];
+    let linkingItem = LinkingItem.Data;
 
     function openPlaceWindow(name) {
         setName(name);
@@ -60,23 +49,24 @@ function LinkingItemContent() {
     }
 
     function MakeShowItem(){
-        var arr= [];
-        // 여기에 분류 위한 조건문 추가 
+        let arr= [];
 
         // 셔플
         linkingItem.sort(() => Math.random() - 0.5);
         
-        for(var i = 0; i < linkingItem.length; i++){
-            arr.push(
-                <SplideSlide key={i}>
-                    <SqlideSlideCont
-                        img =  {linkingItem[i]["img"]}
-                        storeN = {linkingItem[i]["storeN"]}
-                        BtnStr = {linkingItem[i]["BtnStr"]}
-                        action = {openPlaceWindow}
-                    />
-                </SplideSlide>
-            )
+        for(let i = 0; i < linkingItem.length; i++){
+            if (capacity <= linkingItem[i].max) {
+                arr.push(
+                    <SplideSlide key={i}>
+                        <SqlideSlideCont
+                            img =  {linkingItem[i]["img"]}
+                            storeN = {linkingItem[i]["storeN"]}
+                            BtnStr = {linkingItem[i]["BtnStr"]}
+                            action = {openPlaceWindow}
+                        />
+                    </SplideSlide>
+                );
+            }
         }
 
         return arr;
@@ -121,7 +111,11 @@ function LinkingItemContent() {
             </form>
 
             <div className='place-recommend'>
-                <h1 id='place'>장소 추천</h1>
+                <h1 id='place'>
+                    <input className='capacity' type='number' value={capacity}
+                    min='2' max='300' onChange={(e) => { setCapacity(e.target.value); }} />
+                    명 장소 추천
+                </h1>
                 <Splide
                     aria-label="Recommended Places"
                     options={{

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CrtSurveyStyle.css";
 import SurveyBox from "./SurveyBox";
 
@@ -9,8 +9,23 @@ function CrtSurvey() {
   const [showCategoryPopup, setShowCategoryPopup] = useState(false);
   const [showSubCategoryPopup, setShowSubCategoryPopup] = useState(false);  
 
-
+  const [title, Settitle] = useState("");
   const [text, setText] = useState('');
+
+  const [duedate, setDueDate] = useState("");
+  const [enddate, setEndDate] = useState("");
+
+  const [data, setData] = useState([]);
+
+  const handleDueDate = (event)=>{
+    console.log(event.target.value);
+    setDueDate(event.target.value);
+  }
+
+  const handleEndDate = (event)=>{
+    console.log(event.target.value);
+    setEndDate(event.target.value);
+  }
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -22,6 +37,10 @@ function CrtSurvey() {
     textarea.style.height = '10px';
     textarea.style.height = `${textarea.scrollHeight}px`;
   };
+
+  useEffect(()=>{
+    console.log(boxes);
+  }, [boxes])
 
   const addBox = () => {
     setBoxes((prevBoxes) => [
@@ -95,7 +114,14 @@ function CrtSurvey() {
 
   const handleTitleChange = (event) => {
     // Handle title input change
+    Settitle(event.target.value);
   };
+
+  useEffect(()=>{
+    console.log(title);
+  }, [title]);
+
+
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
@@ -125,12 +151,72 @@ function CrtSurvey() {
     });
   };
 
+  const PrintInfo = async ()=>{
+
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const today =  `${year}-${month}-${day}`;
+
+    const first = [
+      {
+        "title":title,
+        "content":text
+      },
+      {
+        "type" : categories
+      },
+      {
+        "dueDate" : duedate,
+        "endDate" : enddate,
+        "created" : today
+      }
+    ];
+    setData(first);
+
+    for(var i=0; i<boxes.length; i++){
+      console.log(boxes[i]);
+      const t = boxes[i];
+      console.log(t);
+      first.push(t)
+    }
+
+    console.log(first);
+
+    setData(first);
+  };
+
+  useEffect(()=>{
+    console.log(data)
+    SendData();
+  }, [data])
+
+  const SendData = async ()=>{
+
+    await fetch("/api/save",{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result=>{
+      console.log("result", result);
+    })
+    .catch(error =>{
+      console.log(error);
+    })
+  }
+
   return (
     <div className="right-content">
       <div className="survey">
         <input
           type="text"
           placeholder="제목"
+          value={title}
           style={{ fontSize: "30px", backgroundColor: "transparent", width: "100%", borderBottom: '1px solid #ccc', paddingBottom: '8px' }}
           onChange={handleTitleChange}
         />
@@ -187,12 +273,12 @@ function CrtSurvey() {
 
         <div className="survey-category-date-time">
           <label>모임 예정일시</label>
-          <input type="datetime-local" />
+          <input type="datetime-local" onChange={handleDueDate}/>
         </div>
 
         <div className="survey-category-date-time">
           <label>응답 종료일시</label>
-          <input type="datetime-local" />
+          <input type="datetime-local" onChange={handleEndDate} />
         </div>
         {boxes.map((box, index) => (
           <SurveyBox
@@ -213,7 +299,7 @@ function CrtSurvey() {
           <button onClick={addBox}>질문 추가</button>
           <button>삭제</button>
           <button>임시저장</button>
-          <button>저장</button>
+          <button onClick={PrintInfo} >저장</button>
         </div>
       </div>
     </div>

@@ -3,185 +3,252 @@
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211129_288%2F1638165929936wFvfk_JPEG%2F1638094742009-5.jpg",
             "storeN" : "치타하우스",
+            "min": 2,
+            "max": 10,
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzA1MDVfMjc4%2FMDAxNjgzMjU0NTYwNDkw.i2n2mePb8Lk1MqGVIBcbxIw7PKFZs49uYXVySL2XODIg.Q-XhjQU_IW7eA4qj6MupgvxmZzXa2YCIWbCnMhmA2LQg.JPEG%2F20230501_210111.jpg",
             "storeN" : "이쁘롬",
+            "min": 2,
+            "max": 18,
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210118_113%2F1610980253507Ntuau_JPEG%2FGW37CviwkTaaNs5F7HmGH2ga.jpeg.jpg",
             "storeN" : "양파링 충북대점",
+            "min": 2,
+            "max": 20,
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220501_143%2F16514135725662lJ6s_JPEG%2FC53FE8B6-08E0-4030-8F7C-62E3F15D8F88.jpeg",
             "storeN" : "주목원",
+            "min": 2,
+            "max": 90,
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220812_252%2F1660259091738NwvXT_JPEG%2FKakaoTalk_20200814_122029591_27.jpg",
             "storeN" : "포차1번지 먹새통",
+            "min": 2,
+            "max": 24,
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230420_219%2F1681980128786FE0WC_JPEG%2FIMG_0009.jpeg",
             "storeN" : "룸메이트",
+            "min": 2,
+            "max": 32,
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200331_78%2F1585634525162N69tG_JPEG%2FUizLJ-xrevrhIA0bUlVJmkDa.jpg",
             "storeN" : "꼬불꼬불 닭갈비",
+            "min": 4,
+            "max": 120,
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221012_49%2F1665575459849LMvnv_PNG%2FE3437D6C-53D3-48AF-9A8D-A42774429E16.png",
+            "min": 2,
+            "max": 48,
             "storeN" : "단성무이",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200617_293%2F1592402526353P8Ga2_JPEG%2F7rexgfvXynsh-w6ukFN87jL9.jpeg.jpg",
+            "min": 2,
+            "max": 32,
             "storeN" : "달랑주점",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200328_54%2F1585406140938MYhJP_JPEG%2F9FSFSqXtgMtYu96bJsRj5LU1.jpeg.jpg",
+            "min": 2,
+            "max": 40,
             "storeN" : "달빛양조장",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230309_124%2F1678290280116haD8J_JPEG%2F1%25B8%25F0%25B5%25EB%25BB%25E7%25C1%25F8.jpg",
+            "min": 1,
+            "max": 16,
             "storeN" : "달아래",
             "BtnStr" : "View more"
         },
         {
-            "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230420_219%2F1681980128786FE0WC_JPEG%2FIMG_0009.jpeg",
-            "storeN" : "룸메이트",
-            "BtnStr" : "View more"
-        },
-        {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191110_53%2F1573343753571bTbuj_JPEG%2Fz-2JYtWjJ5hAp4iqiazY2c9M.jpeg.jpg",
-            "storeN" : "대동집",
+            "min": 1,
+            "max": 24,
+            "storeN" : "대동집 충북대점",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190220_189%2F1550661241039njboO_JPEG%2FbsM3QpFBfRTz1Vxw1GR1DwPE.jpg",
+            "min": 2,
+            "max": 28,
             "storeN" : "도시어부포차",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230327_84%2F1679915547914W7bUK_JPEG%2FKakaoTalk_20230327_194313445.jpg",
             "storeN" : "도화주점",
+            "min": 2,
+            "max": 16,
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230309_21%2F16783468437717c5qE_JPEG%2FFA37D508-01F6-4FB3-BCAE-02D46EBD7E1E.jpeg",
+            "min": 2,
+            "max": 16,
             "storeN" : "밤애",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190211_8%2F1549853977852TOmES_JPEG%2FHOI1fF3NQQNnbeCMXdmKCPXB.jpg",
+            "min": 2,
+            "max": 8,
             "storeN" : "사막의 하얀꽃",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20181224_189%2F1545629963647fVzQO_JPEG%2Fwj5PwyC69H23Gg9YccXChwvN.jpg",
+            "min": 2,
+            "max": 38,
             "storeN" : "소주신랑보쌈부인",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201101_260%2F1604233568193PdQOi_JPEG%2FpSXcAkVSgb8l7DqtbrSnM3tO.jpg",
+            "min": 2,
+            "max": 16,
             "storeN" : "스시몽",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191216_64%2F1576459227097P7Sml_JPEG%2Fg-aIUlBrJj8vMyFRXckntTU6.jpeg.jpg",
-            "storeN" : "아웃닭 충북대점",
+            "min": 2,
+            "max": 12,
+            "storeN" : "아웃닭",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191108_62%2F1573218699924I41oa_JPEG%2Fp_RdXibYWjLjhJRIfrIBka3-.jpeg.jpg",
+            "min": 2,
+            "max": 8,
             "storeN" : "에그문",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190930_240%2F1569840488075aUynD_JPEG%2F5vKXUyLM40MVgxIOWaTe_OV0.jpeg.jpg",
+            "min": 2,
+            "max": 10,
             "storeN" : "역전할머니맥주 충북대점",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160529_280%2F1464520135478UG2bb_JPEG%2F176479603874121_0.jpeg",
+            "min": 2,
+            "max": 20,
             "storeN" : "오식야주육회관 충대본점",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221009_150%2F1665322322018L4Qnt_JPEG%2FScreenshot_20221009_223112.jpg",
+            "min": 2,
+            "max": 6,
             "storeN" : "월미당",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230412_23%2F1681237550217QdHw9_JPEG%2FKakaoTalk_Photo_2023-04-11-20-46-02_001.jpeg",
+            "min": 2,
+            "max": 16,
             "storeN" : "월하",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200525_146%2F15903892173659wVbt_JPEG%2FNLstaShOJy4TEBnE8NmyAIcT.jpeg.jpg",
+            "min": 2,
+            "max": 8,
             "storeN" : "이찌방",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190703_10%2F1562153658294XRyMD_JPEG%2FJJE36OwK1PG9c3Eba6xOkKnS.jpeg.jpg",
+            "min": 2,
+            "max": 8,
             "storeN" : "장미맨숀 충북대점",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180626_297%2F1529942332098WTE6B_JPEG%2F6k-_z7euwBPYrnAEmC67pIZ1.jpg",
+            "min": 2,
+            "max": 8,
             "storeN" : "짚신스시&롤",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191110_104%2F15733458109449n4S7_JPEG%2FNfkr3lxg50eHN11QJIpqqmyp.jpeg.jpg",
+            "min": 2,
+            "max": 24,
             "storeN" : "청송얼음막걸리 충북대중문점",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fnaverbooking-phinf.pstatic.net%2F20230601_286%2F16856026175051xMbE_JPEG%2F%25B9%25E8%25B4%25DE%25C0%25C7%25B9%25CE%25C1%25B7_%25C3%25BB%25B1%25B9%25B4%25DF_%25B7%25CE%25B0%25ED.jpg",
+            "min": 2,
+            "max": 12,
             "storeN" : "청춘국물닭발 청주본점",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200715_246%2F15947544570608UJID_JPEG%2Ff9LnM0GU_meNBooaWuKJrmUW.jpeg.jpg",
+            "min": 2,
+            "max": 12,
             "storeN" : "청춘튀겨",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210324_146%2F1616562087366pSlCS_JPEG%2Fwq39jzpyGLB6XUtDnnscI3g5.jpg",
+            "min": 2,
+            "max": 8,
             "storeN" : "춘리마라탕",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170419_18%2F1492591289070FDjz1_JPEG%2F186369577148249_0.jpeg",
+            "min": 2,
+            "max": 16,
             "storeN" : "파삼 672",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190915_234%2F15685138864832ryjQ_JPEG%2FcmiX2LHzM9vhNGOrX7lG7jvs.jpeg.jpg",
+            "min": 2,
+            "max": 12,
             "storeN" : "폼프리츠",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230530_20%2F1685437951732HkSW3_JPEG%2F2CE769B8-786E-4389-9DD8-3A01A818338D.jpeg",
+            "min": 2,
+            "max": 20,
             "storeN" : "피자웨이브",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220202_37%2F1643800489008Iqziy_JPEG%2FB390A11A-00D5-4FFD-9867-173A7EB4D7BB.jpeg",
+            "min": 2,
+            "max": 40,
             "storeN" : "한마음 정육식당 충북대점",
             "BtnStr" : "View more"
         },
         {
             "img" : "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200918_143%2F1600419298638D2YTa_JPEG%2FlagLJprzrXm8V-dE3cj98kbD.jpg",
+            "min": 2,
+            "max": 22,
             "storeN" : "훈민정음 청주충북대점",
             "BtnStr" : "View more"
         }

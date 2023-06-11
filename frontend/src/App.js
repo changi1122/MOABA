@@ -11,7 +11,7 @@ import LinkingItemPage from './pages/LinkingItemPage';
 import Sidebar from './component/Sidebar';
 import MenuShow from './component/sidebar/MenuShow';
 import TempPage from './pages/TempPage';
-import TemplatePage from './pages/TemplatePage';
+import SavePage from './pages/SavePage';
 import AnswerPage from './pages/AnswerPage';
 import FindidpwPage from './pages/FindidpwPage';
 import SAnswerPage from './pages/SAnswerPage';
@@ -64,7 +64,7 @@ function App() {
         <Route path="/done" Component={DonePage} />
         <Route path="/user" Component={UserPage} />
         <Route path="/temp/page/:id" Component={TempPage} />
-        <Route path="/save/page/:id" Component={TemplatePage} />
+        <Route path="/save" Component={SavePage} />
         <Route path="/save/page/answer/:id" Component={SAnswerPage} />
       </Routes>
     </div>

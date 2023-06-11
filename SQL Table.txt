@@ -1,0 +1,81 @@
+
+CREATE TABLE `qtype` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `anwtype` char(255) default null,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
+
+insert into qtype(`anwtype`) values("단답형");
+
+insert into qtype(`anwtype`) values("객관식");
+
+insert into qtype(`anwtype`) values("드롭다운");
+
+insert into qtype(`anwtype`) values("체크박스");
+
+
+CREATE TABLE `question` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `userid` bigint NOT NULL,
+  `title` char(255) NOt NULL,
+  `content` char(255) default null,
+  `scheduleDate` char(255) default null,
+  `endDate` char(255) default null,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
+
+
+CREATE TABLE `qustBox` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `questionid` bigint NOT NULL,
+  `questiontype` bigint not null,
+  `title` char(255) NOt NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
+
+
+CREATE TABLE `qustBoxlist` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `qust_boxid` bigint default NULL,
+  `title` char(255) NOt NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
+
+
+CREATE TABLE `category` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `ctgytype` char(255) NOt NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
+
+insert into category(`ctgytype`) values("친구");
+INSERT INTO `moaba`.`category` (`ctgytype`) VALUES ('직장');
+INSERT INTO `moaba`.`category` (`ctgytype`) VALUES ('동아리');
+INSERT INTO `moaba`.`category` (`ctgytype`) VALUES ('학교');
+INSERT INTO `moaba`.`category` (`ctgytype`) VALUES ('가족');
+INSERT INTO `moaba`.`category` (`ctgytype`) VALUES ('회식');
+INSERT INTO `moaba`.`category` (`ctgytype`) VALUES ('친목');
+INSERT INTO `moaba`.`category` (`ctgytype`) VALUES ('번개');
+INSERT INTO `moaba`.`category` (`ctgytype`) VALUES ('식사');
+INSERT INTO `moaba`.`category` (`ctgytype`) VALUES ('스터디');
+
+alter table category add role INT(10);
+
+UPDATE `moaba`.`category` SET `role` = '0' WHERE (`id` = '25');
+UPDATE `moaba`.`category` SET `role` = '0' WHERE (`id` = '28');
+UPDATE `moaba`.`category` SET `role` = '0' WHERE (`id` = '29');
+UPDATE `moaba`.`category` SET `role` = '0' WHERE (`id` = '30');
+UPDATE `moaba`.`category` SET `role` = '0' WHERE (`id` = '31');
+UPDATE `moaba`.`category` SET `role` = '1' WHERE (`id` = '32');
+UPDATE `moaba`.`category` SET `role` = '1' WHERE (`id` = '33');
+UPDATE `moaba`.`category` SET `role` = '1' WHERE (`id` = '35');
+UPDATE `moaba`.`category` SET `role` = '1' WHERE (`id` = '34');
+UPDATE `moaba`.`category` SET `role` = '1' WHERE (`id` = '36');
+
+
+CREATE TABLE `matching` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `ctgyid` bigint NOt NULL,
+  `qid` bigint NOt NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;

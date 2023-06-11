@@ -21,7 +21,41 @@ export default function LinkingContent() {
 
     useEffect(() => {
         loadTodaySurveys(selectedDay);
+        GetData(format(selectedDay, 'yyyy-MM-dd'));
     }, []);
+
+    useEffect(()=>{
+        console.log(todaySurveys);
+    },[todaySurveys]);
+
+    const GetData = async (selectedDay)=>{
+
+        const data = {
+            "uid" : "1",
+        }
+
+        await fetch("/api/get/question", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result=>{
+            console.log("result", result);
+            console.log(result[selectedDay])
+            if(result[selectedDay]){
+                const list = [...todaySurveys, ...result[selectedDay]]
+                setTodaySurveys(list);
+            }else{
+                setTodaySurveys([]);
+            }
+        })
+        .catch(error =>{
+        console.log(error);
+        })
+    }
 
     const loadTodaySurveys = async (date) => {
         const response = await fetch(`/data/LinkingItemList.json`, {
@@ -31,6 +65,9 @@ export default function LinkingContent() {
             }
         });
         const data = await response.json();
+
+        console.log(data);
+
         if (!data) return;
 
         if (data[date]) {
@@ -40,9 +77,12 @@ export default function LinkingContent() {
         }
     }
 
+
+
     function selectDay(day) {
         if (day) {
             loadTodaySurveys(format(day, 'yyyy-MM-dd'));
+            GetData(format(day, 'yyyy-MM-dd'));
             setSelectedDay(day);
         }
     }
