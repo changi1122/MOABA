@@ -23,8 +23,8 @@ public class QuestionService {
         question.setUserid(1L);
         question.setTitle(title);
         question.setContent(content);
-        question.setScheduleData(DueDate);
-        question.setEndDate(EndDate);
+        question.setSchedule_data (DueDate);
+        question.setEnd_date(EndDate);
 
         Long id  = questionRepository.save(question).getId();
 

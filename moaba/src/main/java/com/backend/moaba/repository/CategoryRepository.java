@@ -11,4 +11,7 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     @Query(nativeQuery = true, value = "SELECT c.id from category c where c.ctgytype = :cstr ")
     Long FindIDbyStr(@Param("cstr")String cstr);
+
+    @Query(nativeQuery = true, value = "SELECT c.ctgytype from category c where c.id = :cid")
+    String FindCtgytypeById(@Param("cid")Long cid);
 }

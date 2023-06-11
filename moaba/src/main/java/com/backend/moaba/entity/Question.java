@@ -16,6 +16,6 @@ public class Question {
     private Long userid;
     private String title;
     private String content;
-    private String scheduleData;
-    private String endDate;
+    private String schedule_data;
+    private String end_date;
 }

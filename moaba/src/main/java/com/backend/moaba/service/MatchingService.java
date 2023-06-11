@@ -6,6 +6,9 @@ import com.backend.moaba.repository.MatchingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class MatchingService {
 
@@ -29,5 +32,15 @@ public class MatchingService {
         matching.setQid(qid);
 
         matchingRepository.save(matching);
+    }
+
+    public List<String> GetPreferCategory(Long qid){
+        List<Long>list =   matchingRepository.FindCtgyidbyQid(qid);
+        List<String> categories = new ArrayList<String>();
+        for(int i=0; i<list.size(); i++){
+            System.out.println(categoryRepository.FindCtgytypeById(list.get(i)));
+            categories.add(categoryRepository.FindCtgytypeById(list.get(i)));
+        }
+        return categories;
     }
 }

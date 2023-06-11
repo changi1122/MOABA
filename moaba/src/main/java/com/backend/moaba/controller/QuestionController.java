@@ -54,7 +54,7 @@ public class QuestionController {
 
         System.out.println(list);
 
-        Long qid = questionService.SaveHeader((String) list.get(0).get("title"), (String) list.get(0).get("content"), (String) list.get(2).get("dueDate"), (String) list.get(2).get("enddate"));
+        Long qid = questionService.SaveHeader((String) list.get(0).get("title"), (String) list.get(0).get("content"), (String) list.get(2).get("dueDate"), (String) list.get(2).get("endDate"));
 
         List ctgylist = (List) list.get(1).get("type");
         for(int i=0; i<ctgylist.size(); i++){
@@ -62,9 +62,13 @@ public class QuestionController {
             matchingService.SavePreferCategory(qid, (String) ctgylist.get(i));
         }
 
-        for(int i=2; i<list.size(); i++){
+        for(int i=3; i<list.size(); i++){
+
+            System.out.println((String) list.get(i).get("answerType"));
 
             Long cid = typeService.FindID((String) list.get(i).get("answerType"));
+
+            System.out.println(cid);
 
             Long qbid = qustBoxService.SaveQustBox(qid, (String) list.get(i).get("question"), cid);
 
@@ -84,7 +88,11 @@ public class QuestionController {
 
         HashMap<String, Object> hashMapped = new HashMap<String, Object>();
         Question question =  questionService.GetQuestion(Long.valueOf(qid));
-        hashMapped.put("info", question);
+        hashMapped.put("headers", question);
+
+        List<String> categories = matchingService.GetPreferCategory(Long.valueOf(qid));
+
+        hashMapped.put("category", categories);
 
         return hashMapped;
     }
