@@ -12,7 +12,20 @@ function CrtSurvey() {
   const [title, Settitle] = useState("");
   const [text, setText] = useState('');
 
+  const [duedate, setDueDate] = useState("");
+  const [enddate, setEndDate] = useState("");
+
   const [data, setData] = useState([]);
+
+  const handleDueDate = (event)=>{
+    console.log(event.target.value);
+    setDueDate(event.target.value);
+  }
+
+  const handleEndDate = (event)=>{
+    console.log(event.target.value);
+    setEndDate(event.target.value);
+  }
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -146,6 +159,10 @@ function CrtSurvey() {
       },
       {
         "type" : categories
+      },
+      {
+        "dueDate" : duedate,
+        "endDate" : enddate
       }
     ];
     setData(first);
@@ -248,12 +265,12 @@ function CrtSurvey() {
 
         <div className="survey-category-date-time">
           <label>모임 예정일시</label>
-          <input type="datetime-local" />
+          <input type="datetime-local" onChange={handleDueDate}/>
         </div>
 
         <div className="survey-category-date-time">
           <label>응답 종료일시</label>
-          <input type="datetime-local" />
+          <input type="datetime-local" onChange={handleEndDate} />
         </div>
         {boxes.map((box, index) => (
           <SurveyBox
