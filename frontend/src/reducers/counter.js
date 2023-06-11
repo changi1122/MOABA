@@ -25,17 +25,21 @@ export const DELETLIST = "SAVE/DELETLIST";
 export const SAVELIST = "TEMP/SAVELIST";
 export const DROPLIST = "TEMP/DROPLIST";
 
-export const setsavelist = (save) =>({
-    type:SETLIST, save
-});
+export const setsavelist = (save) =>{
+    return{
+        type:SETLIST,  payload:save
+    };
+};
 
 export const deletesavelist = (save) =>({
     type:DELETLIST, save
 });
 
-export const savetemplist = (temp) =>({
-    type:SAVELIST, temp
-});
+export const savetemplist = (temp) =>{
+    return{
+        type:SAVELIST,  payload:temp
+    };
+}
 
 export const droptemplist = (temp) =>({
     type:DROPLIST, temp
@@ -108,7 +112,6 @@ export const makeToSearch = (search)=>{
 
 
 const initalState = {
-    count :0,
     isLogin : "LogOut",
     click: "None",
     search:"",
@@ -202,6 +205,16 @@ export const counter = (state = initalState, action) =>{
             return{
                 ...state,
                 save : state.save.filter(save => save.id !== action.payload)
+            }
+        case SAVELIST:
+            return{
+                ...state,
+                temp : [...state, action.payload]
+            }
+        case DROPLIST:
+            return{
+                ...state,
+                temp : state.temp.filter(temp => temp.id !== action.payload)
             }
         default:
             return state;

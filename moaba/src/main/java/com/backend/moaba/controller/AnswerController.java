@@ -1,7 +1,9 @@
 package com.backend.moaba.controller;
 
+import com.backend.moaba.dto.AnswerDTO;
 import com.backend.moaba.entity.Answer;
 import com.backend.moaba.service.AnswerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,7 @@ public class AnswerController {
 
     private AnswerService answerService;
 
+    @Autowired
     public void setAnswerService(AnswerService answerService){
         this.answerService = answerService;
     }
@@ -24,13 +27,21 @@ public class AnswerController {
     // 답변저장
     // { "uid" : 유저 ID, "boxid" : 선택한 질문 list의 항목 ID, "answer" : 답변울 객관식, 주관식으로 받을때만 넘기면 됨(default null임)
     @PostMapping("/save/answer")
-    public void SaveAnswer(@RequestBody List<HashMap<String, Object>> list){
+    public void SaveAnswer(@RequestBody HashMap<String, Object> hashMap){
 
-        for(int i=0; i<list.size(); i++){
-            HashMap<String, Object> hashMap = list.get(i);
+        System.out.println(hashMap.get("sending"));
 
-            String str = (hashMap.get("answer") == null) ? null : (String) hashMap.get("answer");
-            answerService.Save((Long) hashMap.get("uid"), (Long) hashMap.get("boxid"), str);
+        ArrayList arrayList = (ArrayList) hashMap.get("sending");
+        System.out.println(arrayList);
+        System.out.println(arrayList.get(0));
+
+        for(int i=0; i<arrayList.size(); i++){
+            System.out.println(i);
+            HashMap<String, String> hashMap1 = (HashMap<String, String>) arrayList.get(i);
+            System.out.println(i);
+            System.out.println(hashMap1.get("answer")=="null");
+            System.out.println(hashMap1.get("uid"));
+            answerService.Save( Long.parseLong(hashMap1.get("uid")), Long.parseLong( hashMap1.get("boxid")), hashMap1.get("answer"));
 
         }
     }

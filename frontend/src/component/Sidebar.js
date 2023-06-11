@@ -2,10 +2,56 @@ import React, {useState, useEffect}from "react";
 
 import "./SidebarStyle.css";
 import { useDispatch, useSelector } from "react-redux";
+import { droptemplist, savetemplist } from "../reducers/counter";
 
 function Sidebar({width, height, color, position, content, fix, isShow}){
 
+    const dispacth = useDispatch();
+
+    const { temp } = useSelector( state => state.counter);
+
     const { click } = useSelector( state => state.counter);
+
+    useEffect(()=>{
+        GetData();
+    }, [])
+
+    useEffect(()=>{
+        console.log("sdfs : ",temp);
+    }, [temp]);
+
+    const GetData = async () =>{
+        const response= await fetch(`/data/temp/temp.json`,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        });
+
+        const data = await response.json();
+        console.log("sdfsdfsdfsdf" , data);
+        var list =[];
+        for(var i=0; i<data["Data"].length; i++){
+            var t ={
+                "name" : data["Data"][i]["name"],
+                "id":i,
+                "meetingDate":data["Data"][i]["meetingDate"]
+            }
+
+            console.log(t)
+            list.push(t)
+        }
+
+        console.log(list);
+
+        if (!data) return;
+
+        if (data) {
+            dispacth(savetemplist(list));
+        } else {
+            
+        }
+    }
 
     useEffect(()=>{
         if(click==="Temp"){

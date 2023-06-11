@@ -53,7 +53,7 @@ export default function AnswerForm() {
         }
         for(var i=0; i<result.questions.length; i++){
           result.questions[i].input = "";
-          sending.sending.push({"boxid":null, "answer": null})
+          sending.sending.push({"uid":'1', "boxid":null, "answer": null})
         }
         console.log("sees : " , sending);
         setAnswer(sending);
@@ -78,7 +78,7 @@ export default function AnswerForm() {
 
     setAnswer((answer)=>{
       let newAnswer = { ...answer};
-      newAnswer.sending[qIndex].boxid = eboxid[answerIndex];
+      newAnswer.sending[qIndex].boxid = `${eboxid[answerIndex]}`;
       newAnswer.sending[qIndex].answer = datas;
       return newAnswer;
     })
@@ -90,8 +90,23 @@ export default function AnswerForm() {
     });
   }
   
-  const Send = ()=>{
+  const Send = async ()=>{
     console.log(answer);
+
+    await fetch("/api/save/answer", {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(answer)
+    })
+    .then(response => response.json())
+        .then(result=>{
+          console.log(result);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
   }
 
   return (
