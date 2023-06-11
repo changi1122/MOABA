@@ -32,10 +32,9 @@ function LinkingItemContent() {
 
 
     const GetQuestion = async () =>{
-        console.log(id);
 
         const data = {
-            "qid" : `${25}`
+            "qid" : id
         }
 
         console.log(data);
