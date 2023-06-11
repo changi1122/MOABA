@@ -13,6 +13,7 @@ import ResultBox from './ResultBox';
 
 
 import LinkingItem from "../../data/Linkingitem.json";
+import { useParams } from 'react-router-dom';
 
 function LinkingItemContent() {
 
@@ -20,9 +21,41 @@ function LinkingItemContent() {
     const [isWindowOpened, setIsWindowOpened] = useState(false);
     const [name, setName] = useState("주목원");
 
+    const { id } = useParams();
+
     useEffect(() => {
         loadSurveyResult('1');
+        GetQuestion();
     }, []);
+
+
+    const GetQuestion = async () =>{
+        console.log(id);
+
+        const data = {
+            "qid" : `${35}`
+        }
+
+        console.log(data);
+
+        await fetch("/api/get/header", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result=>{
+            console.log("result", result);
+
+
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+    }
+
 
     const loadSurveyResult = async (id) => {
         const response = await fetch(`/data/form/${id}/result.json`, {
@@ -33,6 +66,7 @@ function LinkingItemContent() {
         });
 
         const data = await response.json();
+        console.log("datadsffs", data)
         if (!data) {
             setResult({});
             return;
@@ -44,15 +78,6 @@ function LinkingItemContent() {
 
 
     var linkingItem = LinkingItem.Data;
-
-    const oneSampleData = [
-        ["Task", "Hours per Day"],
-        ["Work", 11],
-        ["Eat", 2],
-        ["Commute", 2],
-        ["Watch TV", 2],
-        ["Sleep", 7],
-    ];
 
     function openPlaceWindow(name) {
         setName(name);

@@ -1,8 +1,11 @@
 package com.backend.moaba.controller;
 
 
+import com.backend.moaba.dto.LQDTO;
+import com.backend.moaba.dto.LinkingDTO;
 import com.backend.moaba.dto.QustBoxDTO;
 import com.backend.moaba.dto.headerDTO;
+import com.backend.moaba.entity.Answer;
 import com.backend.moaba.entity.Question;
 import com.backend.moaba.entity.QustBox;
 import com.backend.moaba.entity.QustBoxList;
@@ -89,18 +92,44 @@ public class QuestionController {
     }
 
     @PostMapping("/get/header")
-    public HashMap<String, Object> GetQuestionHeader(@RequestBody HashMap<String, Object> hashMap){
+    public LinkingDTO GetQuestionHeader(@RequestBody HashMap<String, Object> hashMap){
         String qid  = (String) hashMap.get("qid");
 
-        HashMap<String, Object> hashMapped = new HashMap<String, Object>();
+        LinkingDTO linkingDTO = new LinkingDTO();
+
         Question question =  questionService.GetQuestion(Long.valueOf(qid));
-        hashMapped.put("headers", question);
 
         List<String> categories = matchingService.GetPreferCategory(Long.valueOf(qid));
 
-        hashMapped.put("category", categories);
+        linkingDTO.setCategories(categories);
+        linkingDTO.setName(question.getTitle());
+        linkingDTO.setDueDate(question.getEnd_date());
+        linkingDTO.setMeetingDate(question.getSchedule_data());
 
-        return hashMapped;
+
+        List<LQDTO> lists = new ArrayList<>();
+
+        List<QustBox> qlist = qustBoxService.GetQuestionList(Long.valueOf(qid));
+
+        System.out.println(qlist);
+        for(int i=0; i<qlist.size(); i++){
+            LQDTO lqdto = new LQDTO();
+            lqdto.setQuestion(qlist.get(i).getTitle());
+            lqdto.setAnswerType(typeService.FindTypeByID(qlist.get(i).getQuestiontype()));
+            List<QustBoxList> qustBoxListList = qustBoxListService.FindtitleByboxid(qlist.get(i).getId());
+            List<String> answers = new ArrayList<>();
+            List<Long> idlist = new ArrayList<>();
+            for(int j=0; j < qustBoxListList.size(); j++){
+                answers.add(qustBoxListList.get(j).getTitle());
+                idlist.add(qustBoxListList.get(j).getId());
+            }
+            lqdto.setAnswers(answers);
+            lqdto.setBoxid(idlist);
+            lists.add(lqdto);
+        }
+        linkingDTO.setQuestion(lists);
+
+        return linkingDTO;
     }
 
     @PostMapping("/get/question")
@@ -139,7 +168,7 @@ public class QuestionController {
                 meeting = meeting.replace("T", " ");
                 headerDTO.setMeetingDate(meeting);
                 headerDTO.setId(questions.get(i).getId());
-                Integer answer =  answerService.CountAnswer(questions.get(i).getId());
+                Integer answer =  answerService.CountALLAnswer(questions.get(i).getId());
                 headerDTO.setAnswer(answer);
 
                 list.add(headerDTO);

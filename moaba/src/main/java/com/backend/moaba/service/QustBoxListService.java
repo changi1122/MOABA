@@ -29,4 +29,5 @@ public class QustBoxListService {
     public List<QustBoxList> FindtitleByboxid(Long bid){
         return qustBoxListRepository.FindtitlesByBoxID(bid);
     }
+
 }

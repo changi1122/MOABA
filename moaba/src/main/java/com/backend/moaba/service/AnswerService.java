@@ -47,7 +47,7 @@ public class AnswerService {
         return answerRepository.FindAllbyBoxId(boxid);
     }
 
-    public Integer CountAnswer(Long qid){
+    public Integer CountALLAnswer(Long qid){
         Integer sum=0;
         List<Long> boxIDlist = qustBoxRepository.FindQuestionIDByQuestionID(qid);
         for(int i=0; i<boxIDlist.size(); i++){
