@@ -15,6 +15,9 @@ import SavePage from './pages/SavePage';
 import AnswerPage from './pages/AnswerPage';
 import FindidpwPage from './pages/FindidpwPage';
 import SAnswerPage from './pages/SAnswerPage';
+import ChangeEmailPage from './pages/ChangeEmailPage';
+import ChangepwPage from './pages/ChangepwPage';
+import DeleteAccountPage from './pages/DeleteAccountPage';
 
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -66,6 +69,9 @@ function App() {
         <Route path="/temp/page/:id" Component={TempPage} />
         <Route path="/save" Component={SavePage} />
         <Route path="/save/page/answer/:id" Component={SAnswerPage} />
+        <Route path="/ch-email" element={<ChangeEmailPage />} />
+        <Route path="/change-pw" element={<ChangepwPage />} />
+        <Route path="/delete-account" element={<DeleteAccountPage />} />
       </Routes>
     </div>
   }
