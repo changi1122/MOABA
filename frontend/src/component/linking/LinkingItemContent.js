@@ -27,7 +27,6 @@ function LinkingItemContent() {
 
 
     useEffect(() => {
-        loadSurveyResult('1');
         GetQuestion();
     }, []);
 
@@ -55,6 +54,7 @@ function LinkingItemContent() {
         })
         .catch(error =>{
             console.log(error);
+            loadSurveyResult('1');
         })
     }
 
