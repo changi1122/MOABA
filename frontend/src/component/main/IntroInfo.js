@@ -50,13 +50,16 @@ export default function IntroInfo(){
             <div className='developer'>
                 <h2 style={{ fontSize: '24px', textAlign: 'center' }}>만든 사람들 😎</h2>
                 <div className='dev'>
-                    <div>
+                    <div className="member-show">
+                        <img  src={process.env.PUBLIC_URL + '/images/member/Kim.png'} alt="" />
                         <a href='https://github.com/sori9899' target='_blank'><p>김성욱</p></a>
                     </div>
-                    <div>
+                    <div className="member-show">
+                        <img src={process.env.PUBLIC_URL + '/images/member/Lee.jpg'} alt="" />
                         <a href='https://github.com/changi1122' target='_blank'><p>이우창</p></a>
                     </div>
-                    <div>
+                    <div className="member-show">
+                        <img src={process.env.PUBLIC_URL + '/images/member/Bae.png'} alt="" />
                         <a href='https://github.com/JaewonB37' target='_blank'><p>배재원</p></a>
                     </div>
                 </div>

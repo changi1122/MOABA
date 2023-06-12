@@ -20,7 +20,7 @@ export default function LinkingContent() {
     }, [])
 
     useEffect(() => {
-        loadTodaySurveys(selectedDay);
+        //loadTodaySurveys(selectedDay);
         GetData(format(selectedDay, 'yyyy-MM-dd'));
     }, []);
 
@@ -81,7 +81,7 @@ export default function LinkingContent() {
 
     function selectDay(day) {
         if (day) {
-            loadTodaySurveys(format(day, 'yyyy-MM-dd'));
+            //loadTodaySurveys(format(day, 'yyyy-MM-dd'));
             GetData(format(day, 'yyyy-MM-dd'));
             setSelectedDay(day);
         }
