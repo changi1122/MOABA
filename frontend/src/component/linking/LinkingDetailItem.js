@@ -17,8 +17,8 @@ export default function LinkingDetailItem(props){
                 objectType: 'text',
                 text: props.name,
                 link: {
-                mobileWebUrl: `https://moaba.studio1122.net/survey/${props.id}`,
-                webUrl: `https://moaba.studio1122.net/survey/${props.id}`,
+                mobileWebUrl: `https://moaba.studio1122.net/answerform/${props.id}`,
+                webUrl: `https://moaba.studio1122.net/answerform/${props.id}`,
                 },
                 serverCallbackArgs: {
                 },

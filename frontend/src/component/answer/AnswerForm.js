@@ -52,8 +52,12 @@ export default function AnswerForm() {
             "sending" : []
         }
         for(var i=0; i<result.questions.length; i++){
-          result.questions[i].input = "";
-          sending.sending.push({"uid":"1", "boxid":null, "answer": null})
+          if (result.questions[i].answerType !== "체크박스"){
+            result.questions[i].input = "";
+          }else{
+            result.questions[i].input = [];
+          }
+          sending.sending.push({"uid":'1', "boxid":null, "answer": null})
         }
         console.log("sees : " , sending);
         setAnswer(sending);
