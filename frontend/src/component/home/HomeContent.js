@@ -30,7 +30,7 @@ function HomeContent(){
     }
 
     function MoveToSave(){
-        navigate('/save/page/1');
+        navigate('/save');
     }
 
     function ActionCall(){

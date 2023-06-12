@@ -41,6 +41,12 @@
     background-color: white;
     border-radius: 0px 10px 10px 0px;
     margin: 7px 10px 10px 0px;
+    overflow:scroll;
+    overflow-x: hidden;
+}
+
+.sidebar-menu-sub-box::-webkit-scrollbar{
+    display: none;
 }
 
 #Temp-list{
