@@ -19,7 +19,7 @@ With MOABA, organizing meetings and events becomes a breeze. Say goodbye to the 
 - Gradle
 
 ```shell
-cd backend
+cd moaba
 ./gradlew build
 ```
 
@@ -40,7 +40,7 @@ npm start
 - Gradle
 
 ```shell
-cd backend
+cd moaba
 ./gradlew run
 ```
 
