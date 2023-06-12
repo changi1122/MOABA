@@ -20,7 +20,6 @@ export default function LinkingContent() {
     }, [])
 
     useEffect(() => {
-        loadTodaySurveys(selectedDay);
         GetData(format(selectedDay, 'yyyy-MM-dd'));
     }, []);
 
@@ -56,32 +55,10 @@ export default function LinkingContent() {
         console.log(error);
         })
     }
-
-    const loadTodaySurveys = async (date) => {
-        const response = await fetch(`/data/LinkingItemList.json`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        });
-        const data = await response.json();
-
-        console.log(data);
-
-        if (!data) return;
-
-        if (data[date]) {
-            setTodaySurveys(data[date]);
-        } else {
-            setTodaySurveys([]);
-        }
-    }
-
-
+    
 
     function selectDay(day) {
         if (day) {
-            loadTodaySurveys(format(day, 'yyyy-MM-dd'));
             GetData(format(day, 'yyyy-MM-dd'));
             setSelectedDay(day);
         }
