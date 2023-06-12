@@ -1,6 +1,7 @@
 package com.backend.moaba.service;
 
 import com.backend.moaba.entity.Answer;
+import com.backend.moaba.entity.QustBoxList;
 import com.backend.moaba.repository.AnswerRepository;
 import com.backend.moaba.repository.QustBoxListRepository;
 import com.backend.moaba.repository.QustBoxRepository;
@@ -50,13 +51,16 @@ public class AnswerService {
     }
 
     public Integer CountALLAnswer(Long qid){
-        Integer sum=0;
-        List<Long> boxIDlist = qustBoxRepository.FindQuestionIDByQuestionID(qid);
-        for(int i=0; i<boxIDlist.size(); i++){
-            Integer count = qustBoxListRepository.CountAllByBoxID(boxIDlist.get(i));
-            sum = sum+count;
+        Integer sum = 0;
+        List<Long> questionBoxIDlist = qustBoxRepository.FindQuestionIDByQuestionID(qid);
+        for (Long questionBoxId : questionBoxIDlist) {
+            List<QustBoxList> boxList = qustBoxListRepository.FindtitlesByBoxID(questionBoxId);
+            for (QustBoxList box : boxList) {
+                sum += answerRepository.CountbyBoxId(box.getId());
+            }
         }
-        return sum;
+
+        return (questionBoxIDlist.size() == 0) ? 0 : sum / questionBoxIDlist.size();
     }
 
     public Integer CountByBoxId(Long boxid) {
