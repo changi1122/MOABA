@@ -93,7 +93,25 @@
 .introinfo .dev>div>p {
     margin-top: 12px;
 }
-.introinfo .dev img {
+.introinfo .dev .member-show>img {
     width: 100%;
     border-radius: 16px;
 }
+
+.member-show>img {
+    width: 276px;
+    height: 276px;
+    object-fit: cover;
+    border-radius: 200px !important;
+}
+
+.member-show>a{
+    display: inline-block;
+    margin: 10px 0px 0px 0px;
+    font-size: 20px;
+}
+
+.member-show>a:hover{
+    color: var(--white-blue-color-opacity);
+}
+
