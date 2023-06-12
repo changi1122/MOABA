@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Chart } from "react-google-charts";
 
 import "react-day-picker/dist/style.css";
 import "./LinkingItemContent.css"
