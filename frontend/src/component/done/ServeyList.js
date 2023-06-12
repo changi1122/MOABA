@@ -13,32 +13,55 @@ export default function SurveyList(){
     const [todaySurveys, setTodaySurveys] = useState([]);
     const [selectedSurvey, setSelectedSurvey] = useState(null);
 
+    useEffect(()=>{
+        var today = document.getElementsByClassName("rdp-day_today");
+        console.log(today);
+        for(let i =0; i<today.length ;i++){
+            today[i].click();
+        }
+    }, [])
+
     useEffect(() => {
-        loadTodaySurveys(selectedDay);
+        GetData(format(selectedDay, 'yyyy-MM-dd'));
     }, []);
 
-    const loadTodaySurveys = async (date) => {
-        const response = await fetch(`/data/LinkingItemList.json`, {
-                headers : { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            }
-        );
-        const data = await response.json();
-        if (!data) return;
+    useEffect(()=>{
+        console.log(todaySurveys);
+    },[todaySurveys]);
 
-        if (data[date]) {
-            setTodaySurveys(data[date]);
-        } else {
-            setTodaySurveys([]);
+    const GetData = async (selectedDay)=>{
+
+        const data = {
+            "uid" : "1",
         }
-    }
 
-    function selectDay(day)
-    {
+        await fetch("/api/get/question", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result=>{
+            console.log("result", result);
+            console.log(result[selectedDay])
+            if(result[selectedDay]){
+                const list = [...todaySurveys, ...result[selectedDay]]
+                setTodaySurveys(list);
+            }else{
+                setTodaySurveys([]);
+            }
+        })
+        .catch(error =>{
+        console.log(error);
+        })
+    }
+    
+
+    function selectDay(day) {
         if (day) {
-            loadTodaySurveys(format(day, 'yyyy-MM-dd'));
+            GetData(format(day, 'yyyy-MM-dd'));
             setSelectedDay(day);
         }
     }
@@ -56,6 +79,9 @@ export default function SurveyList(){
                     <p className='selectedDay'>{format(selectedDay, 'yyyy년 MM월 dd일')} 예정된 설문</p>
                     <div className='linking-list'>
                         {
+
+                           // ShowDailySurv()
+
                             todaySurveys && todaySurveys.map((survey, index) => (
                                 <LinkingListItem
                                     key = {survey.id}
@@ -64,11 +90,12 @@ export default function SurveyList(){
                                     click={() => { selectSurvey(index); }}
                                 />
                             ))
+
                         }
                         {
                             todaySurveys.length === 0 && (
                                 <div className='empty'>
-                                    <img src={process.env.PUBLIC_URL + '/images/empty.png'} alt="empty list"/>
+                                    <img src={process.env.PUBLIC_URL + '/images/empty.png'} alt="empty list" />
                                     <p>예정된 설문이 없습니다.</p>
                                 </div>
                             )
@@ -79,21 +106,21 @@ export default function SurveyList(){
             <div className='preview'>
                 {
                     selectedSurvey && (
-                    <LinkingDetailItem
-                        id={selectedSurvey.id}
-                        name={selectedSurvey.name}
-                        dueDate={selectedSurvey.dueDate}
-                        meetingDate={selectedSurvey.meetingDate}
-                        answer={selectedSurvey.answer}
-                    />
+                        <LinkingDetailItem
+                            id={selectedSurvey.id}
+                            name={selectedSurvey.name}
+                            dueDate={selectedSurvey.dueDate}
+                            meetingDate={selectedSurvey.meetingDate}
+                            answer={selectedSurvey.answer}
+                        />
                     )
                 }
                 {
                     selectedSurvey == null && (
-                    <div className='empty'>
-                        <img src={process.env.PUBLIC_URL + '/images/selection.png'} alt="not selected"/>
-                        <p>오른쪽에서 설문을 선택하세요.</p>
-                    </div>
+                        <div className='empty'>
+                            <img src={process.env.PUBLIC_URL + '/images/selection.png'} alt="not selected" />
+                            <p>오른쪽에서 설문을 선택하세요.</p>
+                        </div>
                     )
                 }
             </div>
