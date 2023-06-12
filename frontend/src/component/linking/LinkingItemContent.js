@@ -12,6 +12,7 @@ import ResultBox from './ResultBox';
 
 
 import LinkingItem from "../../data/Linkingitem.json";
+import { useParams } from 'react-router-dom';
 
 function LinkingItemContent() {
 
@@ -19,27 +20,51 @@ function LinkingItemContent() {
     const [isWindowOpened, setIsWindowOpened] = useState(false);
     const [name, setName] = useState("주목원");
 
+    const { id } = useParams();
+
     const [capacity, setCapacity] = useState(10);
 
+
     useEffect(() => {
-        loadSurveyResult('1');
+        GetQuestion();
     }, []);
 
-    const loadSurveyResult = async (id) => {
-        const response = await fetch(`/data/form/${id}/result.json`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        });
 
-        const data = await response.json();
-        if (!data) {
-            setResult({});
-            return;
+    const GetQuestion = async () =>{
+
+        const data = {
+            "qid" : id
         }
-        setResult(data);
+
+        console.log(data);
+
+        await fetch("/api/get/header", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result=>{
+            console.log("sdf : ", result)
+            for (const question of result.questions) {
+                if(question.answerType!=="단답형"){
+                    question.resultTable = [["", "응답 수"]];
+                }else{
+                    question.resultTable =[];
+                }
+                for (const map of question.result) {
+                    question.resultTable.push([Object.keys(map)[0], Object.values(map)[0]]);
+                }
+            }
+            setResult(result);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
     }
+
 
     let linkingItem = LinkingItem.Data;
 
@@ -90,11 +115,11 @@ function LinkingItemContent() {
                         <tbody>
                             <tr>
                                 <td>모임 예정일시</td>
-                                <td>2023.05.30 10:40</td>
+                                <td>{result.meetingDate}</td>
                             </tr>
                             <tr>
                                 <td>응답 종료일시</td>
-                                <td>2023.06.13 12:00</td>
+                                <td>{result.dueDate}</td>
                             </tr>
                         </tbody>
                     </table>

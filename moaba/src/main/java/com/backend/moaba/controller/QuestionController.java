@@ -1,12 +1,11 @@
 package com.backend.moaba.controller;
 
 
-import com.backend.moaba.dto.QustBoxDTO;
-import com.backend.moaba.dto.headerDTO;
+import com.backend.moaba.dto.*;
+import com.backend.moaba.entity.Answer;
 import com.backend.moaba.entity.Question;
 import com.backend.moaba.entity.QustBox;
 import com.backend.moaba.entity.QustBoxList;
-import com.backend.moaba.repository.QustBoxListRepository;
 import com.backend.moaba.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RequestMapping("/api")
@@ -70,16 +70,16 @@ public class QuestionController {
 
         for(int i=3; i<list.size(); i++){
 
-            System.out.println((String) list.get(i).get("answerType"));
+
 
             Long cid = typeService.FindID((String) list.get(i).get("answerType"));
 
-            System.out.println(cid);
+
 
             Long qbid = qustBoxService.SaveQustBox(qid, (String) list.get(i).get("question"), cid);
 
             List list1 = (List) list.get(i).get("answers");
-            System.out.println(list1);
+
             for(int j=0; j<list1.size(); j++){
                 Long qblid = qustBoxListService.SaveQustBoxList((String) list1.get(j), qbid);
             }
@@ -89,18 +89,64 @@ public class QuestionController {
     }
 
     @PostMapping("/get/header")
-    public HashMap<String, Object> GetQuestionHeader(@RequestBody HashMap<String, Object> hashMap){
+    public LinkingTEMPDTO GetQuestionHeader(@RequestBody HashMap<String, Object> hashMap){
         String qid  = (String) hashMap.get("qid");
 
-        HashMap<String, Object> hashMapped = new HashMap<String, Object>();
+        LinkingTEMPDTO linkingDTO = new LinkingTEMPDTO();
+
         Question question =  questionService.GetQuestion(Long.valueOf(qid));
-        hashMapped.put("headers", question);
 
         List<String> categories = matchingService.GetPreferCategory(Long.valueOf(qid));
 
-        hashMapped.put("category", categories);
+        linkingDTO.setCategories(categories);
+        linkingDTO.setName(question.getTitle());
+        linkingDTO.setDueDate(question.getEnd_date());
+        linkingDTO.setMeetingDate(question.getSchedule_data());
 
-        return hashMapped;
+
+        List<LQTEMPDTO> lists = new ArrayList<>();
+
+        List<QustBox> qlist = qustBoxService.GetQuestionList(Long.valueOf(qid));
+
+        for(int i=0; i<qlist.size(); i++){
+            LQTEMPDTO lqdto = new LQTEMPDTO();
+            lqdto.setQuestion(qlist.get(i).getTitle());
+            lqdto.setAnswerType(typeService.FindTypeByID(qlist.get(i).getQuestiontype()));
+            List<QustBoxList> qustBoxListList = qustBoxListService.FindtitleByboxid(qlist.get(i).getId());
+
+            System.out.println("sdfsfsdf "+qustBoxListList);
+            /* answers & result */
+            List<String> answers = new ArrayList<>();
+            List<Map<String, Integer>> mapList = new ArrayList<>();
+
+            if(lqdto.getAnswerType().equals("단답형")){
+
+                System.out.println(qustBoxListList.get(0).getId());
+                answers.add(qustBoxListList.get(0).getTitle());
+                List<Answer> answerList = answerService.GetAllAnswer(qustBoxListList.get(0).getId());
+                System.out.println(answerList);
+                for(int j=0; j<answerList.size(); j++){
+                    HashMap<String, Integer> map = new HashMap<>();
+                    String str =  answerList.get(j).getAnswer()==null ? "null" : answerList.get(j).getAnswer();
+                    map.put(str, 1);
+                    mapList.add(map);
+                }
+            }else{
+                for(int j = 0; j < qustBoxListList.size(); j++){
+                    answers.add(qustBoxListList.get(j).getTitle());
+                    HashMap<String, Integer> map = new HashMap<>();
+
+                    map.put(qustBoxListList.get(j).getTitle(), answerService.CountByBoxId(qustBoxListList.get(j).getId()));
+                    mapList.add(map);
+                }
+            }
+            lqdto.setAnswers(answers);
+            lqdto.setResult(mapList);
+            lists.add(lqdto);
+        }
+        linkingDTO.setQuestions(lists);
+
+        return linkingDTO;
     }
 
     @PostMapping("/get/question")
@@ -139,7 +185,7 @@ public class QuestionController {
                 meeting = meeting.replace("T", " ");
                 headerDTO.setMeetingDate(meeting);
                 headerDTO.setId(questions.get(i).getId());
-                Integer answer =  answerService.CountAnswer(questions.get(i).getId());
+                Integer answer =  answerService.CountALLAnswer(questions.get(i).getId());
                 headerDTO.setAnswer(answer);
 
                 list.add(headerDTO);
@@ -162,23 +208,20 @@ public class QuestionController {
 
     @PostMapping("/get/list")
     public  List<QustBoxDTO> GetQuestionBody(@RequestBody HashMap<String, Object> hashMap){
-        System.out.println(hashMap.get("qid"));
         String id  = (String) hashMap.get("qid");
 
         ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
 
         List<QustBox> qlist = qustBoxService.GetQuestionList(Long.valueOf(id));
 
-        System.out.println(qlist);
-        System.out.println(qlist.get(1).getQuestiontype());
 
         List<QustBoxDTO> list = new ArrayList<QustBoxDTO>();
 
         for(int i=0; i<qlist.size(); i++){
             QustBoxDTO qustBoxDTO = new QustBoxDTO();
-            System.out.println("type :" + typeService.FindTypeByID(qlist.get(i).getQuestiontype()));
+
             String istype = typeService.FindTypeByID(qlist.get(i).getQuestiontype());
-            System.out.println(qustBoxListService.FindtitleByboxid(qlist.get(i).getId()));
+
             List<QustBoxList> strings = qustBoxListService.FindtitleByboxid(qlist.get(i).getId());
 
             qustBoxDTO.setTitle(qlist.get(i).getTitle());
@@ -186,11 +229,51 @@ public class QuestionController {
             qustBoxDTO.setList(strings);
 
             list.add(qustBoxDTO);
-            System.out.println(qustBoxDTO);
+
         }
 
-        System.out.println("list is : " + list.get(0) + " "+ list.get(1));
-
         return list;
+    }
+
+
+    @PostMapping("/get/questionForm")
+    public LinkingDTO GetQuestionForm(@RequestBody HashMap<String, Object> hashMap){
+        String qid  = (String) hashMap.get("qid");
+
+        LinkingDTO linkingDTO = new LinkingDTO();
+
+        Question question =  questionService.GetQuestion(Long.valueOf(qid));
+
+        List<String> categories = matchingService.GetPreferCategory(Long.valueOf(qid));
+
+        linkingDTO.setCategories(categories);
+        linkingDTO.setName(question.getTitle());
+        linkingDTO.setDueDate(question.getEnd_date());
+        linkingDTO.setMeetingDate(question.getSchedule_data());
+
+
+        List<LQDTO> lists = new ArrayList<>();
+
+        List<QustBox> qlist = qustBoxService.GetQuestionList(Long.valueOf(qid));
+
+        System.out.println(qlist);
+        for(int i=0; i<qlist.size(); i++){
+            LQDTO lqdto = new LQDTO();
+            lqdto.setQuestion(qlist.get(i).getTitle());
+            lqdto.setAnswerType(typeService.FindTypeByID(qlist.get(i).getQuestiontype()));
+            List<QustBoxList> qustBoxListList = qustBoxListService.FindtitleByboxid(qlist.get(i).getId());
+            List<String> answers = new ArrayList<>();
+            List<Long> idlist = new ArrayList<>();
+            for(int j=0; j < qustBoxListList.size(); j++){
+                answers.add(qustBoxListList.get(j).getTitle());
+                idlist.add(qustBoxListList.get(j).getId());
+            }
+            lqdto.setAnswers(answers);
+            lqdto.setBoxid(idlist);
+            lists.add(lqdto);
+        }
+        linkingDTO.setQuestions(lists);
+
+        return linkingDTO;
     }
 }

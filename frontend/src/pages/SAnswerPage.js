@@ -2,11 +2,19 @@ import React, { useState, useEffect } from "react";
 import "../component//answer/AnswerForm";
 import AnswerBox from "../component/answer/AnswerBox";
 import Layout from "../component/Layout";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { setsavelist } from "../reducers/counter";
+import { useDispatch } from "react-redux";
 
 export default function SAnswerPage() {
 
+  const dispatch = useDispatch();
+
+  const navigator = useNavigate();
+
   const [form, setForm] = useState({});
+
+  const { id } = useParams();
 
   const loadForm = async (id) => {
     const response = await fetch(`/data/form/${id}/survey.json`, {
@@ -23,6 +31,39 @@ export default function SAnswerPage() {
     } else {
         setForm({});
     }
+  }
+
+  const saveSave = () => {
+    console.log(id);
+    const title = form.name;
+
+    dispatch(setsavelist({
+      id: Math.floor((Math.random() * 100000000)),
+      title,
+      id
+    }));
+
+
+
+    var cc = document.getElementById("Temp");
+    cc.click();
+
+    var ctnt =  document.getElementById("sidebar-sub").className;
+    var siblingElement = document.getElementById('sidebar-sub').previousElementSibling;
+    var subStr = ctnt.replace(" Temp", "");
+    subStr = ctnt.replace(" Save", "");
+    subStr = subStr.replace(" sidebar-menu-sub-show", "");
+    document.getElementById("sidebar-sub").className = subStr;
+
+    var sibling = siblingElement.className;
+    sibling = sibling.replace("sidebar-non-radius-style", "");
+    siblingElement.className = sibling;
+
+    var ctnt =  document.getElementById("sidebar-sub").className;
+    var subStr = ctnt.replace(" Temp", "");
+    document.getElementById("sidebar-sub").className = subStr;
+
+    navigator("/save")
   }
 
   useEffect(() => {
@@ -76,7 +117,7 @@ export default function SAnswerPage() {
           />
         ))}
         <div className="survey-buttons">
-          <button>담기</button>
+          <button onClick={saveSave}>담기</button>
         </div>
       </div>
     </div>

@@ -15,11 +15,14 @@ import SavePage from './pages/SavePage';
 import AnswerPage from './pages/AnswerPage';
 import FindidpwPage from './pages/FindidpwPage';
 import SAnswerPage from './pages/SAnswerPage';
+import ChangeEmailPage from './pages/ChangeEmailPage';
+import ChangepwPage from './pages/ChangepwPage';
+import DeleteAccountPage from './pages/DeleteAccountPage';
 
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './pages/HomePage';
-import { setlogout } from './reducers/counter';
+import { makeEmptysave, makeEmptytemp, setlogout } from './reducers/counter';
 
 
 
@@ -31,6 +34,8 @@ function App() {
     var str = window.location.href;
     if(str === "http://localhost:3000/"){
       dispacth(setlogout());
+      dispacth(makeEmptytemp());
+      dispacth(makeEmptysave());
     }
   },[dispacth]
   );
@@ -66,6 +71,9 @@ function App() {
         <Route path="/temp/page/:id" Component={TempPage} />
         <Route path="/save" Component={SavePage} />
         <Route path="/save/page/answer/:id" Component={SAnswerPage} />
+        <Route path="/ch-email" element={<ChangeEmailPage />} />
+        <Route path="/change-pw" element={<ChangepwPage />} />
+        <Route path="/delete-account" element={<DeleteAccountPage />} />
       </Routes>
     </div>
   }

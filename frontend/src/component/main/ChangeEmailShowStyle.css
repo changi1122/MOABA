@@ -1,0 +1,70 @@
+.ch-email {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 120px;
+  }
+  
+  .ch-email>form {
+    margin: 0 auto;
+    display: inline-block;
+  }
+  
+  .ch-email .title {
+    font-weight: 600;
+    font-size: 32px;
+    margin: 100px 0px 70px 0px;
+    color: var(--white-blue-color);
+    text-align: center;
+  }
+  
+  .ch-email input {
+    width: 220px;
+    margin: 15px 0;
+    margin-left: 20px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .ch-email .ch-email-button {
+    display: flex;
+    margin-left:auto;
+    margin-right:1%;
+    margin-bottom: 20%;
+    padding: 5px 8px;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    background-color: #5B74DA;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: background-color .17s ease, color .17s ease;
+  }
+  
+  .ch-email .ch-email-button:hover {
+    background-color: #4558a6;
+    border: none;
+  }
+  
+  .ch-email .signup-button {
+    display: inline-block;
+    padding: 12px 32px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #5B74DA;
+    border: none;
+    border-radius: 16px;
+    box-sizing: border-box;
+    transition: background-color .17s ease, color .17s ease;
+    margin-top: 15px;
+  }
+  
+  .ch-email .signup-button:hover {
+    background-color: #4558a6;
+    border: none;
+  }
+  
