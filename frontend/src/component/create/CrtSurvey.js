@@ -3,10 +3,12 @@ import "./CrtSurveyStyle.css";
 import SurveyBox from "./SurveyBox";
 import { useDispatch } from 'react-redux';
 import { savetemplist } from '../../reducers/counter';
+import { useNavigate } from "react-router-dom";
 
 function CrtSurvey() {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [boxes, setBoxes] = useState([{ question: "", answerType: "단답형", answers: [""] }]);
   const [categories, setCategories] = useState([]);
@@ -43,9 +45,6 @@ function CrtSurvey() {
     textarea.style.height = `${textarea.scrollHeight}px`;
   };
 
-  useEffect(()=>{
-    console.log(boxes);
-  }, [boxes])
 
   const addBox = () => {
     setBoxes((prevBoxes) => [
@@ -122,9 +121,6 @@ function CrtSurvey() {
     Settitle(event.target.value);
   };
 
-  useEffect(()=>{
-    console.log(title);
-  }, [title]);
 
 
 
@@ -206,8 +202,10 @@ function CrtSurvey() {
   }
 
   useEffect(()=>{
-    console.log(data)
-    SendData();
+    console.log(data.length);
+    if(data.length !== 0){
+      SendData();
+    }
   }, [data])
 
   const SendData = async ()=>{
@@ -221,7 +219,9 @@ function CrtSurvey() {
     })
     .then(response => response.json())
     .then(result=>{
-      console.log("result", result);
+      console.log("result send", result);
+      alert("성공적으로 저장했습니다!");
+      window.location.reload();
     })
     .catch(error =>{
       console.log(error);

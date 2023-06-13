@@ -1,0 +1,32 @@
+{
+    "name":"웹프로젝트 최종 발표 설문조사 12",
+    "dueDate": "2023.06.12 00:00",
+    "meetingDate": "2023.06.13 19:00",
+    "categories":["친구","회식"],
+    "questions": [
+        {
+            "question":"질문 단답형",
+            "answerType":"단답형",
+            "answers":["1"],
+            "input":""
+        },
+        {
+            "question":"질문 객관식",
+            "answerType":"객관식",
+            "answers":["1","2","3"],
+            "input":""
+        },
+        {
+            "question":"질문 드롭다운",
+            "answerType":"드롭다운",
+            "answers":["1","2","3"],
+            "input":""
+        },
+        {
+            "question":"질문 체크박스",
+            "answerType":"체크박스",
+            "answers":["1","2","3"],
+            "input":[]
+        }
+    ]
+}

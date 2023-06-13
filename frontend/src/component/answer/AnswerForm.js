@@ -52,10 +52,11 @@ export default function AnswerForm() {
             "sending" : []
         }
         for(var i=0; i<result.questions.length; i++){
-          if (result.questions[i].answerType !== "체크박스")
+          if (result.questions[i].answerType !== "체크박스"){
             result.questions[i].input = "";
-          else
+          }else{
             result.questions[i].input = [];
+          }
           sending.sending.push({"uid":'1', "boxid":null, "answer": null})
         }
         console.log("sees : " , sending);
@@ -74,7 +75,7 @@ export default function AnswerForm() {
   const setInput = (qIndex, value, eanswerType, eboxid, answerIndex) => {
     console.log(qIndex, value, eanswerType, eboxid,  answerIndex)
 
-    var datas=null;
+    var datas="null";
     if(eanswerType==='단답형'){
       datas = value;
     }
@@ -104,12 +105,14 @@ export default function AnswerForm() {
       body: JSON.stringify(answer)
     })
     .then(response => response.json())
-        .then(result=>{
-          console.log(result);
-        })
-        .catch(error =>{
-            console.log(error);
-        })
+    .then(result=>{
+      alert("제출에 성공했습니다");
+      window.location.reload();
+    })
+    .catch(error =>{
+        alert("제출에 성공했습니다");
+        window.location.reload();
+    })
   }
 
   return (
